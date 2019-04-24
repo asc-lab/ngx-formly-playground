@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { SHARED_ANGULAR_MATERIAL } from './components/angular-material.imports';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
@@ -26,7 +27,8 @@ import { HomeComponent, ExerciseOneComponent } from '@app/components';
     FormlyModule.forRoot(),
     FormlyMaterialModule,
     BrowserAnimationsModule,
-    SHARED_ANGULAR_MATERIAL
+    SHARED_ANGULAR_MATERIAL,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

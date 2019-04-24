@@ -1,6 +1,10 @@
 @import "../app/utilities/variables";
 
 .app-header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
     background-color: $primary-color;
     color: #fff;
     height: 80px;

@@ -14,14 +14,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Formly & FormlyMaterialModule package
+This project use Formly library & FormlyMaterialModule package
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+https://github.com/ngx-formly/ngx-formly
+https://ngx-formly.github.io/ngx-formly/ui/material
 
-## Running end-to-end tests
+## Angular Matieral
+This project use Angular matieral library https://material.angular.io/
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Angular Flex-Layout library
+This project use Flex-Layoutlibrary  https://github.com/angular/flex-layout 
