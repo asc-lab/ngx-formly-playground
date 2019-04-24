@@ -1,0 +1,16 @@
+@import "../app/utilities/variables";
+
+.app-header {
+    background-color: $primary-color;
+    color: #fff;
+    height: 80px;
+    font-size: 36px;
+    .app-header-title {
+        padding: 20px;
+    };
+    .app-header-title-line {
+        width: 20%;
+        border: 1px solid $secondary-color;
+        margin: 0 auto;
+    }
+}
