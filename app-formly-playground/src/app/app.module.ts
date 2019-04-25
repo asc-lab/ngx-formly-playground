@@ -10,11 +10,14 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 
 import { AppRoutingModule } from '@app/app-routing.module';
+
 import { AppComponent } from '@app/app.component';
-
 import { CardWrapperComponent } from '@app/shared/custom-wrrappers';
+import { HomeComponent } from '@app/components';
 
-import { HomeComponent, ExerciseOneComponent } from '@app/components';
+import { ExerciseOneComponent } from '@app/components/exercises-formly';
+
+
 
 
 @NgModule({

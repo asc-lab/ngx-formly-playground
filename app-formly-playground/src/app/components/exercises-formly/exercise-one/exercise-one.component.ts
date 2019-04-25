@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-exercise-one',
@@ -10,11 +10,10 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 export class ExerciseOneComponent {
   form = new FormGroup({});
   requestToCharllote: any = {};
-  options: FormlyFormOptions = {};
 
   fields: FormlyFieldConfig[] = [
     {
-      key: 'charlloteRequestForm',
+      key: 'requestToCharllote',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Exercise One' },
       fieldGroup: [],
