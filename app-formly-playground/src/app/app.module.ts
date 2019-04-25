@@ -12,19 +12,27 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 
+import { CardWrapperComponent } from '@app/shared/custom-wrrappers';
+
 import { HomeComponent, ExerciseOneComponent } from '@app/components';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ExerciseOneComponent
+    ExerciseOneComponent,
+    CardWrapperComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
+    FormlyModule.forRoot({
+      wrappers: [
+        { name: 'card', component: CardWrapperComponent},
+      ],
+    }),
     FormlyMaterialModule,
     BrowserAnimationsModule,
     SHARED_ANGULAR_MATERIAL,

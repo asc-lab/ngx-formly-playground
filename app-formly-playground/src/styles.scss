@@ -33,9 +33,10 @@ body {
 
 .app-content {
     margin-top: 90px;
+    padding: 5px;
     .app-content-card {
         width: 70%;
-        margin: 0 auto;
+        margin: 5px auto;
     }
 }
 
@@ -44,12 +45,15 @@ body {
     color: #fff;
 }
 
+.app-back-to-list-btn {
+    margin-left: 100px
+}
+
 .app-list-item {
     margin-left: 10px;
 }
 
 // overwritte anuglar matieral style
-
 .mat-card {
     color: $primary-color !important; 
 }

@@ -1,14 +1,5 @@
-<div class="app-content">
-  <mat-card class="app-content-card">
-    <mat-card-title>
-      <p>Exercise one</p>
-    </mat-card-title>
-    <mat-card-content>
-
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button routerLink="../home" routerLinkActive="active" fxLayoutAlign="start">Back to list
-      </button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <formly-form [model]="requestToCharllote" [fields]="fields" [options]="options" [form]="form">
+    <button type="submit" mat-raised-button class="app-primary-btn">Submit</button>
+  </formly-form>
+</form>
