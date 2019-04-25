@@ -34,9 +34,18 @@ body {
 .app-content {
     margin-top: 90px;
     .app-content-card {
-        width: 80%;
+        width: 70%;
         margin: 0 auto;
     }
+}
+
+.app-primary-btn {
+    background-color: #e37e1d;
+    color: #fff;
+}
+
+.app-list-item {
+    margin-left: 10px;
 }
 
 // overwritte anuglar matieral style
