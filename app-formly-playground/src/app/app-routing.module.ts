@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from '@app/components';
 import { ExerciseOneComponent } from '@app/components/exercises-formly';
+import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,7 +19,7 @@ const routes: Routes = [
     path: 'reactivForms',
     children: [{
       path: 'exerciseOne',
-      component: ExerciseOneComponent
+      component: ExerciseOneRfComponent
     }]
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

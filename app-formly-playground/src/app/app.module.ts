@@ -14,10 +14,8 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { CardWrapperComponent } from '@app/shared/custom-wrrappers';
 import { HomeComponent } from '@app/components';
-
 import { ExerciseOneComponent } from '@app/components/exercises-formly';
-
-
+import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms';
 
 
 @NgModule({
@@ -25,7 +23,8 @@ import { ExerciseOneComponent } from '@app/components/exercises-formly';
     AppComponent,
     HomeComponent,
     ExerciseOneComponent,
-    CardWrapperComponent
+    CardWrapperComponent,
+    ExerciseOneRfComponent
   ],
   imports: [
     BrowserModule,
