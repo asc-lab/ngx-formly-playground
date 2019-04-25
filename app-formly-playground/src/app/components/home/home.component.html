@@ -4,7 +4,7 @@
       <p>Formly - exercises' list</p>
     </mat-card-title>
     <mat-card-content>
-      <div fxLayout="row">
+      <div fxLayout="row" class="app-row">
         <div fxFlex="40%" fxLayoutAlign="end">
           <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseOne"
             routerLinkActive="active">Exercise one </button>
@@ -13,6 +13,15 @@
           <p>Exercise one - custom wrraper, e.g how to use Angular Material Card Component as wrraper in Formly</p>
         </div>
       </div>
+      <div fxLayout="row" class="app-row">
+          <div fxFlex="40%" fxLayoutAlign="end">
+            <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseTwo"
+              routerLinkActive="active">Exercise two </button>
+          </div>
+          <div fxFlex="60%" fxLayoutAlign="start" class="app-list-item">
+            <p>Exercise two - simple form with default values, validations, patterns</p>
+          </div>
+        </div>
     </mat-card-content>
   </mat-card>
 
@@ -21,7 +30,7 @@
       <p>Reactive forms - exercises' list</p>
     </mat-card-title>
     <mat-card-content>
-      <div fxLayout="row">
+      <div fxLayout="row" class="app-row">
         <div fxFlex="40%" fxLayoutAlign="end">
           <button mat-raised-button class="app-primary-btn" routerLink="../reactivForms/exerciseOne"
             routerLinkActive="active">Exercise one </button>

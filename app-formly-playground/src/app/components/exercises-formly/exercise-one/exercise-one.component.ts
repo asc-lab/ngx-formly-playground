@@ -9,7 +9,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 })
 export class ExerciseOneComponent {
   form = new FormGroup({});
-  requestToCharllote: any = {};
+  model: any = {};
 
   fields: FormlyFieldConfig[] = [
     {

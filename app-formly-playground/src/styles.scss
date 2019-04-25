@@ -40,6 +40,10 @@ body {
     }
 }
 
+.app-row {
+    margin-bottom: 10px;
+}
+
 .app-primary-btn {
     background-color: #e37e1d;
     color: #fff;
@@ -56,4 +60,8 @@ body {
 // overwritte anuglar matieral style
 .mat-card {
     color: $primary-color !important; 
+}
+
+.mat-form-field {
+    width: 80% !important; 
 }
