@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-exercise-one',
@@ -11,6 +11,7 @@ export class ExerciseOneComponent {
   form = new FormGroup({});
   model: any = {};
 
+  options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
     {
       key: 'requestToCharllote',

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+
 import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
-import { RequestService, DictService } from '@app/shared/services';
 import { DictionaryItem } from '@app/shared/model/common';
+
+import { RequestService, DictService } from '@app/shared/services';
 
 @Component({
   selector: 'app-exercise-two',
