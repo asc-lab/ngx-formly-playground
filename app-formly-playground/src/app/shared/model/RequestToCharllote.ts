@@ -6,6 +6,7 @@ export class RequestToCharllote {
         public cardToken: string = '',
         public deliveryDate: Date = new Date(),
         public orderType: string = '',
+        public acceptTerms: boolean = false,
         public shoppings: Shopping [] = [ new Shopping() ],
         public comments?: string
     ) { }

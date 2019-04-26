@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
 import { RequestService, DictService } from '@app/shared/services';
-import { Dictionary, DictionaryItem } from '@app/shared/model/common';
+import { DictionaryItem } from '@app/shared/model/common';
 
 @Component({
   selector: 'app-exercise-two',
   templateUrl: './exercise-two.component.html',
   styleUrls: ['./exercise-two.component.scss']
 })
-export class ExerciseTwoComponent implements OnInit {
+export class ExerciseTwoComponent {
   form = new FormGroup({});
   model: any = { requestToCharllote: new RequestToCharllote() };
   orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
+  acceptTerms: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. '
 
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
@@ -156,14 +157,27 @@ export class ExerciseTwoComponent implements OnInit {
 
       ],
     },
+    {
+      key: 'requestToCharllote',
+      wrappers: ['card'],
+      templateOptions: { cardTitle: 'Statements' },
+      fieldGroup: [
+        {
+          key: 'acceptTerms',
+          type: 'checkbox',
+          templateOptions: {
+            label: this.acceptTerms,
+            description: 'In order to proceed, please accept terms',
+            pattern: 'true',
+            required: true,
+          },
+        },
+
+      ],
+    },
   ];
 
-  constructor( public requestService: RequestService, public dictionaryService: DictService ) { }
-
-  ngOnInit() {
-    console.log(this.orderTypes)
-  }
-
+  constructor(public requestService: RequestService, public dictionaryService: DictService) { }
 
   submit() {
     if (this.form.valid) {
