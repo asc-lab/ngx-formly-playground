@@ -10,14 +10,14 @@ import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
 })
 export class ExerciseTwoComponent {
   form = new FormGroup({});
-  model: any = { requestToCharllote: new RequestToCharllote()};
+  model: any = { requestToCharllote: new RequestToCharllote() };
 
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
     {
       key: 'requestToCharllote',
       wrappers: ['card'],
-      templateOptions: { cardTitle: 'Exercise Two' },
+      templateOptions: { cardTitle: 'Order Identification' },
       fieldGroup: [
         {
           key: 'cardId',
@@ -25,6 +25,8 @@ export class ExerciseTwoComponent {
           templateOptions: {
             type: 'text',
             label: 'Card ID',
+            minLength: 5,
+            maxLength: 5,
             required: true,
           },
         },
@@ -34,6 +36,8 @@ export class ExerciseTwoComponent {
           templateOptions: {
             type: 'text',
             label: 'Card token',
+            minLength: 5,
+            maxLength: 5,
             required: true,
           },
         },
@@ -45,48 +49,43 @@ export class ExerciseTwoComponent {
             label: 'Order type',
             required: true,
           },
-        },
+        }
+      ],
+    },
+    {
+      key: 'requestToCharllote',
+      wrappers: ['card'],
+      templateOptions: { cardTitle: 'Shoppings' },
+      fieldGroup: [
         {
-          key: 'shopings',
-          type: 'input',
+          key: 'shoppings',
+          type: 'repeat-section',
           templateOptions: {
-            type: 'text',
-            label: 'Shopings',
-            required: true,
+            sectionTitle: 'Shopping item',
+            addItem: 'Add another shopping item',
+          },
+          fieldArray: {
+            fieldGroup: [
+            ]
           },
         },
-        {
-          key: 'priceRange',
-          fieldGroup: [
-            {
-              key: 'currency',
-              type: 'input',
-              templateOptions: {
-                type: 'text',
-                label: 'Price currency',
-                required: true,
-              },
-            },
-            {
-              key: 'from',
-              type: 'input',
-              templateOptions: {
-                type: 'number',
-                label: 'Price range form',
-                required: true,
-              },
-            },
-            {
-              key: 'to',
-              type: 'input',
-              templateOptions: {
-                type: 'number',
-                label: 'Price range to',
-                required: true,
-              },
-            },
-          ]
 
+      ],
+    },
+    {
+      key: 'requestToCharllote',
+      wrappers: ['card'],
+      templateOptions: { cardTitle: 'Additional Comments' },
+      fieldGroup: [
+        {
+          key: 'comments',
+          type: 'textarea',
+          templateOptions: {
+            type: 'text',
+            label: 'Comments',
+            maxLength: 6000,
+            rows: 5,
+          },
         },
 
       ],

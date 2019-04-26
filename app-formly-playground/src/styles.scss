@@ -45,9 +45,15 @@ body {
 }
 
 .app-primary-btn {
-    background-color: #e37e1d;
+    background-color: $secondary-color;
     color: #fff;
 }
+
+.app-secondary-btn {
+    background-color: $primary-color;
+    color: #fff;
+}
+
 
 .app-back-to-list-btn {
     margin-left: 100px
@@ -55,6 +61,14 @@ body {
 
 .app-list-item {
     margin-left: 10px;
+}
+
+.app-section-item {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $secondary-color;
 }
 
 // overwritte anuglar matieral style

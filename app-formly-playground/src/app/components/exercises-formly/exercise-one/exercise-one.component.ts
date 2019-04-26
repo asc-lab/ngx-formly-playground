@@ -15,7 +15,7 @@ export class ExerciseOneComponent {
     {
       key: 'requestToCharllote',
       wrappers: ['card'],
-      templateOptions: { cardTitle: 'Exercise One' },
+      templateOptions: { cardTitle: 'Order Identification' },
       fieldGroup: [],
     },
   ];

@@ -5,8 +5,10 @@ import {
   MatDialogModule,
   MatIconModule,
   MatNativeDateModule,
-  MatTableModule
+  MatTableModule,
+  MatDividerModule
 } from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import {
     MatDialogModule,
     MatCardModule,
     MatTableModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDividerModule
+
   ],
   exports: [
     MatButtonModule,
@@ -23,7 +27,9 @@ import {
     MatDialogModule,
     MatCardModule,
     MatTableModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDividerModule
+  
   ],
   declarations: []
 })

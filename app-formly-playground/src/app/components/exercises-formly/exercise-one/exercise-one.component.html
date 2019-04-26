@@ -1,5 +1,9 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
-    <button type="submit" mat-raised-button class="app-primary-btn">Submit</button>
-  </formly-form>
-</form>
+<div class="app-content">
+  <button mat-raised-button routerLink="../../home" routerLinkActive="active" fxLayoutAlign="">Back to list
+  </button>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
+      <button type="submit" mat-raised-button class="app-primary-btn">Submit</button>
+    </formly-form>
+  </form>
+</div>

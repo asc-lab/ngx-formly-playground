@@ -1,0 +1,20 @@
+<div>
+  <div *ngFor="let field of field.fieldGroup; let i = index;" class="app-section-item">
+    <div fxLayout="column" >
+      <h3 fxLayoutAlign="start">{{ to.sectionTitle }}</h3>
+      <div fxLayout="row" fxLayout.xs="column">
+        <formly-field [field]="field" fxFlex="90%" fxFlex.xs="100%"></formly-field>
+        <div fxFlex="10%" fxFlex.xs="100%">
+          <button mat-raised-button type="button" (click)="remove(i)">Remove</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div>
+    <button mat-raised-button type="button" (click)="add()" class="app-secondary-btn">{{ to.addItem }}</button>
+  </div>
+
+</div>

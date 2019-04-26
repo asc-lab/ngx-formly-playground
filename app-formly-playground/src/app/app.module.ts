@@ -8,11 +8,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
+import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 
 import { AppComponent } from '@app/app.component';
-import { CardWrapperComponent } from '@app/shared/custom-wrrappers';
+import { CardWrapperComponent, RepeatSectionComponent } from '@app/shared/custom-wrrappers';
 import { HomeComponent } from '@app/components';
 import { ExerciseOneComponent, ExerciseTwoComponent } from '@app/components/exercises-formly';
 import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms';
@@ -25,7 +26,8 @@ import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms
     ExerciseOneComponent,
     CardWrapperComponent,
     ExerciseOneRfComponent,
-    ExerciseTwoComponent
+    ExerciseTwoComponent,
+    RepeatSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +37,12 @@ import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms
       wrappers: [
         { name: 'card', component: CardWrapperComponent},
       ],
+      types: [
+        { name: 'repeat-section', component: RepeatSectionComponent },
+      ],
     }),
     FormlyMaterialModule,
+    FormlyMatDatepickerModule,
     BrowserAnimationsModule,
     SHARED_ANGULAR_MATERIAL,
     FlexLayoutModule
