@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
+import { RequestService } from '@app/shared/services';
 
 @Component({
   selector: 'app-exercise-two',
@@ -9,6 +10,9 @@ import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
   styleUrls: ['./exercise-two.component.scss']
 })
 export class ExerciseTwoComponent {
+
+  constructor(public requestService: RequestService) { }
+
   form = new FormGroup({});
   model: any = { requestToCharllote: new RequestToCharllote() };
 
@@ -90,7 +94,8 @@ export class ExerciseTwoComponent {
                 templateOptions: {
                   type: 'text',
                   label: 'Description',
-                  required: true,
+                  maxLength: 6000,
+                  rows: 5,
                 },
               },
               {
@@ -99,7 +104,6 @@ export class ExerciseTwoComponent {
                 templateOptions: {
                   type: 'text',
                   label: 'Selected shop',
-                  required: true,
                 },
               },
               {
@@ -157,8 +161,7 @@ export class ExerciseTwoComponent {
 
   submit() {
     if (this.form.valid) {
-      alert(JSON.stringify(this.model.requestToCharllote));
+      this.requestService.saveRequest(this.model.requestToCharllote);
     }
   }
-
 }

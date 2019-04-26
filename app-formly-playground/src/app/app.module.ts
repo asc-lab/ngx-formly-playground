@@ -18,6 +18,8 @@ import { HomeComponent } from '@app/components';
 import { ExerciseOneComponent, ExerciseTwoComponent } from '@app/components/exercises-formly';
 import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms';
 
+import { RequestService } from '@app/shared/services';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,7 @@ import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms
     SHARED_ANGULAR_MATERIAL,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [RequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
