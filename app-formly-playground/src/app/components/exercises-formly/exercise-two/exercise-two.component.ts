@@ -1,20 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
-import { RequestService } from '@app/shared/services';
+import { RequestService, DictService } from '@app/shared/services';
+import { Dictionary, DictionaryItem } from '@app/shared/model/common';
 
 @Component({
   selector: 'app-exercise-two',
   templateUrl: './exercise-two.component.html',
   styleUrls: ['./exercise-two.component.scss']
 })
-export class ExerciseTwoComponent {
-
-  constructor(public requestService: RequestService) { }
-
+export class ExerciseTwoComponent implements OnInit {
   form = new FormGroup({});
   model: any = { requestToCharllote: new RequestToCharllote() };
+  orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
 
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
@@ -56,10 +55,10 @@ export class ExerciseTwoComponent {
         },
         {
           key: 'orderType',
-          type: 'input',
+          type: 'select',
           templateOptions: {
-            type: 'text',
             label: 'Order type',
+            options: this.orderTypes,
             required: true,
           },
         }
@@ -158,6 +157,13 @@ export class ExerciseTwoComponent {
       ],
     },
   ];
+
+  constructor( public requestService: RequestService, public dictionaryService: DictService ) { }
+
+  ngOnInit() {
+    console.log(this.orderTypes)
+  }
+
 
   submit() {
     if (this.form.valid) {

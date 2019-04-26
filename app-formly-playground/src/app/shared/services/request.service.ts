@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
 import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
 
 @Injectable({
@@ -10,6 +8,6 @@ export class RequestService {
     constructor() { }
 
     saveRequest(request: RequestToCharllote) {
-        alert(JSON.stringify(request));
+        return alert(JSON.stringify(request));
     }
 }

@@ -4,8 +4,8 @@ export interface Dictionary {
 }
 
 export interface DictionaryItem {
-    code: string;
-    name: string;
+    value: string;
+    label: string;
     description?: string;
     dictCode?: string;
 }
