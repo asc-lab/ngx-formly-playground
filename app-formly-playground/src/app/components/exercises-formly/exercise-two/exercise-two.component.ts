@@ -42,6 +42,15 @@ export class ExerciseTwoComponent {
           },
         },
         {
+          key: 'deliveryDate',
+          type: 'datepicker',
+          templateOptions: {
+            type: 'date',
+            label: 'Delivery date',
+            required: true,
+          },
+        },
+        {
           key: 'orderType',
           type: 'input',
           templateOptions: {
@@ -66,6 +75,60 @@ export class ExerciseTwoComponent {
           },
           fieldArray: {
             fieldGroup: [
+              {
+                key: 'order',
+                type: 'input',
+                templateOptions: {
+                  type: 'text',
+                  label: 'Order',
+                  required: true,
+                },
+              },
+              {
+                key: 'description',
+                type: 'textarea',
+                templateOptions: {
+                  type: 'text',
+                  label: 'Description',
+                  required: true,
+                },
+              },
+              {
+                key: 'selectedShop',
+                type: 'input',
+                templateOptions: {
+                  type: 'text',
+                  label: 'Selected shop',
+                  required: true,
+                },
+              },
+              {
+                key: 'priceRange',
+                fieldGroup: [
+                  {
+                    key: 'from',
+                    type: 'input',
+                    templateOptions: {
+                      type: 'number',
+                      label: 'Price range form',
+                      min: 0.1,
+                      max: 999999.99,
+                      required: true
+                    },
+                  },
+                  {
+                    key: 'to',
+                    type: 'input',
+                    templateOptions: {
+                      type: 'number',
+                      label: 'Price range to',
+                      min: 0.1,
+                      max: 999999.99,
+                      required: true,
+                    },
+                  }
+                ]
+              },
             ]
           },
         },
