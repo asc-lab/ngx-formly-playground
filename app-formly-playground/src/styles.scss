@@ -86,6 +86,7 @@ body {
     white-space: normal !important; 
 }
 
-.mat-form-field-appearance-legacy .mat-hint {
+.mat-hint {
     color: $secondary-color !important;
+    text-align: left;
 }

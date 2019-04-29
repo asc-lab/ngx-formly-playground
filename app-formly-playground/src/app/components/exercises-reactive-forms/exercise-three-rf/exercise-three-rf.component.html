@@ -1,0 +1,112 @@
+<div class="app-content">
+    <button mat-raised-button routerLink="../../home" routerLinkActive="active" fxLayoutAlign="">Back to list
+    </button>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <mat-card class="app-content-card">
+        <mat-card-title>
+          <span>Order Identification - Reactive Forms</span>
+        </mat-card-title>
+        <mat-card-content fxLayout="column">
+  
+          <mat-form-field>
+            <input type="text" matInput placeholder="Card ID" name="cardId" formControlName="cardId" class="form-control">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Card token" name="cardToken" formControlName="cardToken"
+              class="form-control">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Delivery date" name="deliveryDate"
+              formControlName="deliveryDate" class="form-control">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Order type" name="orderType" formControlName="orderType" class="form-control">
+              <mat-option *ngFor="let order of orderTypes" [value]="order.value">
+                {{order.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="app-content-card">
+        <mat-card-title>
+          <span>Shoppings</span>
+        </mat-card-title>
+        <mat-card-content fxLayout="column">
+          <div formArrayName="shoppings" *ngFor="let item of form.get('shoppings').controls; let i = index;"
+            class="app-section-item">
+            <div [formGroupName]="i">
+  
+              <div fxLayout="column">
+                <h3 fxLayoutAlign="start">Shopping item</h3>
+  
+                <div fxLayout="row" fxLayout.xs="column">
+  
+                  <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Order" name="order" formControlName="order">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <textarea rows="5" cols="150" matInput placeholder="Description" maxlength="6000" name="comments"
+                        formControlName="description"></textarea>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Selected shop" name="selectedShop"
+                        formControlName="selectedShop">
+                    </mat-form-field>
+                    <div formGroupName="priceRange" fxLayout="column">
+                      <mat-form-field fxFlex="100%">
+                        <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
+                      </mat-form-field>
+                      <mat-form-field fxFlex="100%">
+                        <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div fxFlex="10%" fxFlex.xs="100%">
+                    <button mat-raised-button type="button" (click)="removeItem(i)">Remove</button>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+          <div>
+            <button mat-raised-button type="button" (click)="addItem()" class="app-secondary-btn">Add another shopping
+              item</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="app-content-card">
+        <mat-card-title>
+          <span>Additional Comments</span>
+        </mat-card-title>
+        <mat-card-content fxLayout="column">
+          <mat-form-field>
+            <textarea rows="5" cols="150" matInput placeholder="Comments" maxlength="6000" name="comments"
+              formControlName="comments"></textarea>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="app-content-card">
+        <mat-card-title>
+          <span>Statements</span>
+        </mat-card-title>
+        <mat-card-content fxLayout="column">
+          <mat-checkbox name="acceptTerms" formControlName="acceptTerms"
+            description="In order to proceed, please accept terms">{{acceptTerms}}</mat-checkbox>
+            <mat-hint>In order to proceed, please accept terms</mat-hint>
+        </mat-card-content>
+      </mat-card>
+  
+  
+      <button type="submit" mat-raised-button class="app-primary-btn">Submit</button>
+    </form>
+  
+  </div>

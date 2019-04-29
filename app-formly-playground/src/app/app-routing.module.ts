@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from '@app/components';
 import { ExerciseOneComponent, ExerciseTwoComponent, ExerciseThreeComponent } from '@app/components/exercises-formly';
-import { ExerciseOneRfComponent, ExerciseTwoRfComponent } from '@app/components/exercises-reactive-forms';
+import { ExerciseOneRfComponent, ExerciseTwoRfComponent, ExerciseThreeRfComponent } from '@app/components/exercises-reactive-forms';
 
 
 const routes: Routes = [
@@ -35,6 +35,10 @@ const routes: Routes = [
       {
         path: 'exerciseTwo',
         component: ExerciseTwoRfComponent
+      },
+      {
+        path: 'exerciseThree',
+        component: ExerciseThreeRfComponent
       },
     ]
   },

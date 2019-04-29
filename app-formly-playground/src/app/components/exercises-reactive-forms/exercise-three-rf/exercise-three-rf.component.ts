@@ -5,11 +5,11 @@ import { RequestService, DictService } from '@app/shared/services';
 import { DictionaryItem } from '@app/shared/model/common';
 
 @Component({
-  selector: 'app-exercise-two-rf',
-  templateUrl: './exercise-two-rf.component.html',
-  styleUrls: ['./exercise-two-rf.component.scss']
+  selector: 'app-exercise-three-rf',
+  templateUrl: './exercise-three-rf.component.html',
+  styleUrls: ['./exercise-three-rf.component.scss']
 })
-export class ExerciseTwoRfComponent implements OnInit {
+export class ExerciseThreeRfComponent implements OnInit {
 
   form = new FormGroup({});
   requestToCharllote: RequestToCharllote = new RequestToCharllote();
@@ -68,5 +68,6 @@ export class ExerciseTwoRfComponent implements OnInit {
       this.requestService.saveRequest(this.requestToCharllote);
     }
   }
+
 
 }
