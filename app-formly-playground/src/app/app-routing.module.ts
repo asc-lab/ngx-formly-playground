@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from '@app/components';
-import { ExerciseOneComponent, ExerciseTwoComponent } from '@app/components/exercises-formly';
+import { ExerciseOneComponent, ExerciseTwoComponent, ExerciseThreeComponent } from '@app/components/exercises-formly';
 import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms';
 
 
@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path: 'exerciseTwo',
         component: ExerciseTwoComponent
+      },
+      {
+        path: 'exerciseThree',
+        component: ExerciseThreeComponent
       }
     ]
   },

@@ -15,10 +15,17 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { CardWrapperComponent, RepeatSectionComponent } from '@app/shared/custom-wrrappers';
 import { HomeComponent } from '@app/components';
-import { ExerciseOneComponent, ExerciseTwoComponent } from '@app/components/exercises-formly';
+import { ExerciseOneComponent, ExerciseTwoComponent, ExerciseThreeComponent } from '@app/components/exercises-formly';
 import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms';
 
 import { RequestService, DictService } from '@app/shared/services';
+
+import {
+  minlengthValidationMessage,
+  maxlengthValidationMessage,
+  minValidationMessage,
+  maxValidationMessage
+} from '@app/shared/validations';
 
 
 @NgModule({
@@ -29,7 +36,8 @@ import { RequestService, DictService } from '@app/shared/services';
     CardWrapperComponent,
     ExerciseOneRfComponent,
     ExerciseTwoComponent,
-    RepeatSectionComponent
+    RepeatSectionComponent,
+    ExerciseThreeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +49,13 @@ import { RequestService, DictService } from '@app/shared/services';
       ],
       types: [
         { name: 'repeat-section', component: RepeatSectionComponent },
+      ],
+      validationMessages: [
+        { name: 'required', message: 'This field is required' },
+        { name: 'minlength', message: minlengthValidationMessage },
+        { name: 'maxlength', message: maxlengthValidationMessage },
+        { name: 'min', message: minValidationMessage },
+        { name: 'max', message: maxValidationMessage },
       ],
     }),
     FormlyMaterialModule,

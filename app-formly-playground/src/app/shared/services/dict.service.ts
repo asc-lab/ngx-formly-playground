@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Dictionary } from '../model/common';
 
-const dictionaries: Dictionary [] = [
+const dictionariesDB: Dictionary [] = [
     {
         code: 'ORDER_TYPE',
         dictionaryItems: [
@@ -17,7 +17,7 @@ export class DictService {
     constructor() { }
 
     getDictionaryItems(dictCode: string) {
-        const dictionaryToFind = dictionaries.find(dict => dict.code === dictCode);
+        const dictionaryToFind = dictionariesDB.find(dict => dict.code === dictCode);
         return dictionaryToFind.dictionaryItems;
     }
 

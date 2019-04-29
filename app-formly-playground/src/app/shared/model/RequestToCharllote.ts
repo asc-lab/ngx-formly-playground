@@ -8,6 +8,8 @@ export class RequestToCharllote {
         public orderType: string = '',
         public acceptTerms: boolean = false,
         public shoppings: Shopping [] = [ new Shopping() ],
+        public phoneNo: number = null,
+        public email: string = null,
         public comments?: string
     ) { }
 }
