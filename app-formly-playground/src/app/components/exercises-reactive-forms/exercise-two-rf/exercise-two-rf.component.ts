@@ -29,19 +29,19 @@ export class ExerciseTwoRfComponent implements OnInit {
   createShoppingItem(): FormGroup {
     return this.fb.group({
       order: ['', Validators.required],
-      description: [''],
+      description: ['', [ Validators.required, Validators.maxLength(6000)]],
       priceRange: this.fb.group({
-        from: [0, Validators.required],
-        to: [9999, Validators.required],
+        from: [0, [ Validators.required, Validators.min(0.1), Validators.max(999999.99)]],
+        to: [9999, [ Validators.required, Validators.min(0.1), Validators.max(999999.99)]],
       }),
-      selectedShop: ['', Validators.required],
+      selectedShop: [''],
     });
   }
 
   applyDisplayMode() {
     this.form = this.fb.group({
-      cardId: ['', Validators.required],
-      cardToken: ['', Validators.required],
+      cardId: ['', [ Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+      cardToken: ['', [ Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
       deliveryDate: [new Date(), Validators.required],
       orderType: ['', Validators.required],
       shoppings: this.fb.array([ this.createShoppingItem() ]),
@@ -64,6 +64,8 @@ export class ExerciseTwoRfComponent implements OnInit {
 
   submit() {
     if (this.form.valid) {
+      this.requestToCharllote = this.form.value;
+
       this.requestService.saveRequest(this.requestToCharllote);
     }
   }
