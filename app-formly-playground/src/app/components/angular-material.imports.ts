@@ -14,7 +14,8 @@ import {
 import {
   MatInputModule,
   MatDatepickerModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 
@@ -29,7 +30,8 @@ import {
     MatDividerModule,
     MatInputModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
 
   ],
   exports: [
@@ -42,7 +44,8 @@ import {
     MatDividerModule,
     MatInputModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   declarations: []
 })
