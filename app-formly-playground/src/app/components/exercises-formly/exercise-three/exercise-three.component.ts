@@ -34,6 +34,7 @@ export class ExerciseThreeComponent {
           templateOptions: {
             type: 'text',
             label: 'Card ID',
+            description: 'Use one of this card IDs: 12345, 54321, 11111',
             required: true,
           },
           validators: {
@@ -51,6 +52,7 @@ export class ExerciseThreeComponent {
             }
           }
         },
+
         {
           key: 'cardToken',
           type: 'input',
