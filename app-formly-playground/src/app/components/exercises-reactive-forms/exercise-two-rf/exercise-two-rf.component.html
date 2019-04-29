@@ -46,20 +46,26 @@
 
               <div fxLayout="row" fxLayout.xs="column">
 
-                <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column" >
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Order" name="order" formControlName="order"
-                          class="form-control">
-                      </mat-form-field>
-                      <mat-form-field>
-                        <textarea rows="5" cols="150" matInput placeholder="Description" maxlength="6000" name="comments"
-                          formControlName="description"></textarea>
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input type="text" matInput placeholder="Selected shop" name="selectedShop"
-                          formControlName="selectedShop" class="form-control">
-                      </mat-form-field>
-
+                <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="Order" name="order" formControlName="order">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <textarea rows="5" cols="150" matInput placeholder="Description" maxlength="6000" name="comments"
+                      formControlName="description"></textarea>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="Selected shop" name="selectedShop"
+                      formControlName="selectedShop">
+                  </mat-form-field>
+                  <div formGroupName="priceRange" fxLayout="column">
+                    <mat-form-field fxFlex="100%">
+                      <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="100%">
+                      <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
+                    </mat-form-field>
+                  </div>
                 </div>
                 <div fxFlex="10%" fxFlex.xs="100%">
                   <button mat-raised-button type="button" (click)="removeItem(i)">Remove</button>

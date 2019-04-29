@@ -31,8 +31,8 @@ export class ExerciseTwoRfComponent implements OnInit {
       order: ['', Validators.required],
       description: [''],
       priceRange: this.fb.group({
-        from: ['', Validators.required],
-        to: ['', Validators.required],
+        from: [0, Validators.required],
+        to: [9999, Validators.required],
       }),
       selectedShop: ['', Validators.required],
     });
