@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
 
 @Component({
   selector: 'app-exercise-one-rf',
@@ -9,6 +10,6 @@ import { FormGroup } from '@angular/forms';
 export class ExerciseOneRfComponent {
 
   form = new FormGroup({});
-  requestToCharllote: any = {};
+  requestToCharllote: RequestToCharllote = new RequestToCharllote();
 
 }

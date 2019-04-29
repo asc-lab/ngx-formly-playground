@@ -16,7 +16,7 @@ import { AppComponent } from '@app/app.component';
 import { CardWrapperComponent, RepeatSectionComponent } from '@app/shared/custom-wrrappers';
 import { HomeComponent } from '@app/components';
 import { ExerciseOneComponent, ExerciseTwoComponent, ExerciseThreeComponent } from '@app/components/exercises-formly';
-import { ExerciseOneRfComponent } from '@app/components/exercises-reactive-forms';
+import { ExerciseOneRfComponent, ExerciseTwoRfComponent } from '@app/components/exercises-reactive-forms';
 
 import { RequestService, DictService } from '@app/shared/services';
 
@@ -27,7 +27,6 @@ import {
   maxValidationMessage
 } from '@app/shared/validations';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +36,8 @@ import {
     ExerciseOneRfComponent,
     ExerciseTwoComponent,
     RepeatSectionComponent,
-    ExerciseThreeComponent
+    ExerciseThreeComponent,
+    ExerciseTwoRfComponent
   ],
   imports: [
     BrowserModule,

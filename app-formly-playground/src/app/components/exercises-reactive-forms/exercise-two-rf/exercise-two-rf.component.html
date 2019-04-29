@@ -1,0 +1,63 @@
+<div class="app-content">
+  <button mat-raised-button routerLink="../../home" routerLinkActive="active" fxLayoutAlign="">Back to list
+  </button>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Order Identification - Reactive Forms</span>
+      </mat-card-title>
+      <mat-card-content fxLayout="column">
+
+        <mat-form-field>
+          <input type="text" matInput placeholder="Card ID" name="cardId" formControlName="cardId" class="form-control">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Card token" name="cardToken" formControlName="cardToken"
+            class="form-control">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Delivery date" name="deliveryDate"
+            formControlName="deliveryDate" class="form-control">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Order type" name="orderType" formControlName="orderType" class="form-control">
+            <mat-option *ngFor="let order of orderTypes" [value]="order.value">
+              {{order.label}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Shoppings</span>
+      </mat-card-title>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Additional Comments</span>
+      </mat-card-title>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Statements</span>
+      </mat-card-title>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+
+
+    <button type="submit" mat-raised-button class="app-primary-btn">Submit</button>
+  </form>
+
+</div>

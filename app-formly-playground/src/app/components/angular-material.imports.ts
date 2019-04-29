@@ -10,6 +10,14 @@ import {
 } from '@angular/material';
 
 
+// additional imports for reactive forms
+import {
+  MatInputModule,
+  MatDatepickerModule,
+  MatSelectModule
+} from '@angular/material';
+
+
 @NgModule({
   imports: [
     MatButtonModule,
@@ -18,7 +26,10 @@ import {
     MatCardModule,
     MatTableModule,
     MatNativeDateModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatSelectModule
 
   ],
   exports: [
@@ -28,8 +39,10 @@ import {
     MatCardModule,
     MatTableModule,
     MatNativeDateModule,
-    MatDividerModule
-  
+    MatDividerModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatSelectModule
   ],
   declarations: []
 })
