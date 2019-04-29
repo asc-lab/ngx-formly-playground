@@ -45,7 +45,7 @@ export class ExerciseTwoRfComponent implements OnInit {
       deliveryDate: [new Date(), Validators.required],
       orderType: ['', Validators.required],
       shoppings: this.fb.array([ this.createShoppingItem() ]),
-      comments: [''],
+      comments: ['', [ Validators.required, Validators.maxLength(6000)]],
       acceptTerms: [false, Validators.required]
     });
   }
