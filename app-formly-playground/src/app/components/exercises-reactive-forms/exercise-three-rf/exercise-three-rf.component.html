@@ -10,18 +10,22 @@
         <mat-form-field>
           <input type="text" matInput placeholder="Card ID" name="cardId" formControlName="cardId">
           <mat-error>
-            <span *ngIf="hasError('cardId', 'required')">This field is required</span>
-            <span *ngIf="hasError('cardId', 'minlength')">Card ID length is 5 characters</span>
-            <span *ngIf="hasError('cardId', 'maxlength')">Card ID length is 5 characters</span>
+            <span *ngIf="fc.cardId.errors.required">This field is required</span>
+            <span *ngIf="fc.cardId.errors.minlength">Card ID length is {{fc.cardId.errors.minlength.requiredLength}}
+              characters</span>
+            <span *ngIf="fc.cardId.errors.maxlength">Card ID length is {{fc.cardId.errors.maxlength.requiredLength}}
+              characters</span>
           </mat-error>
 
         </mat-form-field>
         <mat-form-field>
           <input type="text" matInput placeholder="Card token" name="cardToken" formControlName="cardToken">
           <mat-error>
-            <span *ngIf="hasError('cardToken', 'required')">This field is required</span>
-            <span *ngIf="hasError('cardToken', 'minlength')">Card token length is 5 characters</span>
-            <span *ngIf="hasError('cardToken', 'maxlength')">Card token length is 5 characters</span>
+            <span *ngIf="fc.cardToken.errors.required">This field is required</span>
+            <span *ngIf="fc.cardToken.errors.minlength">Card token length is
+              {{fc.cardId.errors.minlength.requiredLength}} characters</span>
+            <span *ngIf="fc.cardToken.errors.maxlength">Card token length is
+              {{fc.cardId.errors.maxlength.requiredLength}} characters</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field>
@@ -29,8 +33,8 @@
             formControlName="deliveryDate">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="!form.controls['deliveryDate'].valid && form.controls['deliveryDate'].touched">
-            <span *ngIf="hasError('cardId', 'required')">This field is required</span>
+          <mat-error *ngIf="!fc.deliveryDate.valid">
+            <span *ngIf="fc.deliveryDate.errors.required">This field is required</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field>
@@ -40,7 +44,7 @@
             </mat-option>
           </mat-select>
           <mat-error>
-            <span *ngIf="hasError('orderType', 'required')">This field is required</span>
+            <span *ngIf="fc.orderType.errors.required">This field is required</span>
           </mat-error>
         </mat-form-field>
 
@@ -64,16 +68,19 @@
                   <mat-form-field>
                     <input type="text" matInput placeholder="Order" name="order" formControlName="order">
                     <mat-error>
-                      <span *ngIf="hasErrorShoppingsGroup(i, 'order', 'required')">This field is required</span>
+                      <span *ngIf="shoppings.controls[i].controls.order.errors.required">This field is required</span>
+
                     </mat-error>
                   </mat-form-field>
                   <mat-form-field>
                     <textarea rows="5" cols="150" matInput placeholder="Description" name="description"
                       formControlName="description"></textarea>
                     <mat-error>
-                      <span *ngIf="hasErrorShoppingsGroup(i, 'description', 'required')">This field is required</span>
-                      <span *ngIf="hasErrorShoppingsGroup(i, 'description', 'maxlength')">This value should be less than
-                        {{form.controls['description'].errors.maxlength.requiredLength}} characters</span>
+                      <span *ngIf="shoppings.controls[i].controls.description.errors.required">This field is
+                        required</span>
+                      <span *ngIf="shoppings.controls[i].controls.description.errors.maxlength">This value should be
+                        less than
+                        {{fc.description.errors.maxlength.requiredLength}} characters</span>
                     </mat-error>
 
                   </mat-form-field>
@@ -85,19 +92,23 @@
                     <mat-form-field fxFlex="100%">
                       <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
                       <mat-error>
-                        <span *ngIf="hasErrorPriceRange(i, 'from', 'required')">This field is required</span>
-                        <span *ngIf="hasErrorPriceRange(i, 'from', 'min')">This value should be more than 0.01</span>
-                        <span *ngIf="hasErrorPriceRange(i, 'from', 'max')">This value should be less than 999999.99</span>
+                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.required">This field
+                          is required</span>
+                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.min">This value
+                          should be more than {{shoppings.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
+                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.max">This value
+                          should be less than {{shoppings.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
+
                       </mat-error>
 
                     </mat-form-field>
                     <mat-form-field fxFlex="100%">
                       <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
                       <mat-error>
-                          <span *ngIf="hasErrorPriceRange(i, 'to', 'required')">This field is required</span>
-                          <span *ngIf="hasErrorPriceRange(i, 'to', 'min')">This value should be more than 0.01</span>
-                          <span *ngIf="hasErrorPriceRange(i, 'to', 'max')">This value should be less than 999999.99</span>
-                        </mat-error>
+                        <span *ngIf="hasErrorPriceRange(i, 'to', 'required')">This field is required</span>
+                        <span *ngIf="hasErrorPriceRange(i, 'to', 'min')">This value should be more than 0.01</span>
+                        <span *ngIf="hasErrorPriceRange(i, 'to', 'max')">This value should be less than 999999.99</span>
+                      </mat-error>
 
                     </mat-form-field>
                   </div>
@@ -125,9 +136,10 @@
         <mat-form-field>
           <textarea rows="5" cols="150" matInput placeholder="Comments" name="comments"
             formControlName="comments"></textarea>
-          <mat-error>
-            <span *ngIf="hasError('comments', 'maxlength')">This value should be less than
-              {{form.controls['comments'].errors.maxlength.requiredLength}} characters</span>
+          <mat-error *ngIf="!fc.comments.valid">
+            <span *ngIf="fc.comments.errors.maxlength">This value should be less than
+              {{fc.comments.errors.maxlength.requiredLength}} characters</span>
+
           </mat-error>
         </mat-form-field>
       </mat-card-content>
@@ -142,17 +154,19 @@
           <input type="text" matInput placeholder="Confirm phone number" name="phoneNo" formControlName="phoneNo"
             class="form-control">
           <mat-error>
-            <span *ngIf="hasError('phoneNo', 'required')">This field is required</span>
-            <span *ngIf="hasError('phoneNo', 'minlength')">Phone no length is 9 characters</span>
-            <span *ngIf="hasError('phoneNo', 'maxlength')">Phone no length is 9 characters</span>
+            <span *ngIf="fc.phoneNo.errors.required">This field is required</span>
+            <span *ngIf="fc.phoneNo.errors.minlength">Phone No length is {{fc.phoneNo.errors.minlength.requiredLength}}
+              characters</span>
+            <span *ngIf="fc.phoneNo.errors.maxlength">Phone No length is {{fc.phoneNo.errors.maxlength.requiredLength}}
+              characters</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input type="email" matInput placeholder="Confirm email address" name="email" formControlName="email"
             class="form-control">
           <mat-error>
-            <span *ngIf="hasError('email', 'required')">This field is required</span>
-            <span *ngIf="hasError('email', 'pattern')">{{form.controls['email'].value}} is not a valid email
+            <span *ngIf="fc.email.errors.required">This field is required</span>
+            <span *ngIf="fc.email.errors.pattern">{{form.controls['email'].value}} is not a valid email
               Address</span>
           </mat-error>
 
@@ -174,7 +188,6 @@
         <mat-hint>In order to proceed, please accept terms</mat-hint>
       </mat-card-content>
     </mat-card>
-
 
     <button type="submit" mat-raised-button class="app-primary-btn">Submit</button>
   </form>

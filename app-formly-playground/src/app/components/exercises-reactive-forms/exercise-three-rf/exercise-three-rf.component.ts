@@ -57,21 +57,7 @@ export class ExerciseThreeRfComponent implements OnInit {
     return this.form.get('shoppings') as FormArray;
   }
 
-  hasError = (controlName: string, errorName: string) => {
-    return this.form.controls[controlName].hasError(errorName);
-  }
-
-  hasErrorShoppingsGroup = (index: number, controlName: string, errorName: string) => {
-    const shoopingGroup = this.shoppings.controls[index] as FormGroup;
-    return shoopingGroup.controls[controlName].hasError(errorName);
-  }
-
-  hasErrorPriceRange = (index: number, controlName: string, errorName: string) => {
-    const shoopingGroup = this.shoppings.controls[index] as FormGroup;
-    // tslint:disable-next-line:no-string-literal
-    const priceRangeGroup = shoopingGroup.controls['priceRange'] as FormGroup;
-    return priceRangeGroup.controls[controlName].hasError(errorName);
-  }
+  get fc() { return this.form.controls; }
 
   removeItem(index: number) {
     this.shoppings.removeAt(index);

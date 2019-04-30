@@ -19,7 +19,8 @@ export class ExerciseThreeComponent {
     requestToCharllote: new RequestToCharllote()
   };
   orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
-  acceptTerms: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. '
+  // tslint:disable-next-line:max-line-length
+  acceptTerms = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. ';
 
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
@@ -206,6 +207,7 @@ export class ExerciseThreeComponent {
           templateOptions: {
             type: 'text',
             label: 'Confirm email address',
+            // tslint:disable-next-line:max-line-length
             pattern: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
             required: true,
           },
