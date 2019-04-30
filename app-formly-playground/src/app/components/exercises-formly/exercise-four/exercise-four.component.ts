@@ -99,7 +99,7 @@ export class ExerciseFourComponent {
           type: 'repeat-section',
           templateOptions: {
             sectionTitle: 'Shopping item',
-            addItem: 'Add another shopping item',
+            addItem: 'Add shopping item',
           },
           fieldArray: {
             fieldGroup: [
@@ -166,6 +166,105 @@ export class ExerciseFourComponent {
     {
       key: 'requestToCharllote',
       wrappers: ['card'],
+      templateOptions: { cardTitle: 'Services' },
+      fieldGroup: [
+        {
+          key: 'Services',
+          type: 'repeat-section',
+          templateOptions: {
+            sectionTitle: 'Service item',
+            addItem: 'Add service item',
+          },
+          fieldArray: {
+            fieldGroup: [
+              {
+                key: 'serviceType',
+                type: 'input',
+                templateOptions: {
+                  type: 'text',
+                  label: 'Service type',
+                  required: true,
+                },
+              },
+              {
+                key: 'description',
+                type: 'textarea',
+                templateOptions: {
+                  type: 'text',
+                  label: 'Description',
+                  maxLength: 6000,
+                  rows: 5,
+                },
+              },
+              {
+                key: 'date',
+                type: 'datepicker',
+                templateOptions: {
+                  type: 'date',
+                  label: 'Expected service date',
+                  required: true,
+                },
+              },
+              {
+                key: 'secondChoiceDate',
+                type: 'datepicker',
+                templateOptions: {
+                  type: 'secondChoiceDate',
+                  label: 'Second choice date',
+                },
+              },
+              {
+                key: 'timeRange',
+                type: 'input',
+                templateOptions: {
+                  type: 'text',
+                  label: 'Time range',
+                  required: true,
+                },
+              },
+              {
+                key: 'selectedServiceProvider',
+                type: 'input',
+                templateOptions: {
+                  type: 'text',
+                  label: 'Selected service provider',
+                },
+              },
+              {
+                key: 'priceRange',
+                fieldGroup: [
+                  {
+                    key: 'from',
+                    type: 'input',
+                    templateOptions: {
+                      type: 'number',
+                      label: 'Price range form',
+                      min: 1,
+                      max: 999999,
+                      required: true
+                    },
+                  },
+                  {
+                    key: 'to',
+                    type: 'input',
+                    templateOptions: {
+                      type: 'number',
+                      label: 'Price range to',
+                      min: 1,
+                      max: 999999,
+                      required: true,
+                    },
+                  }
+                ]
+              },
+            ]
+          }
+        }
+      ]
+    },
+    {
+      key: 'requestToCharllote',
+      wrappers: ['card'],
       templateOptions: { cardTitle: 'Additional Comments' },
       fieldGroup: [
         {
@@ -191,13 +290,12 @@ export class ExerciseFourComponent {
           type: 'input',
           templateOptions: {
             type: 'number',
-            label: 'Confirm phone number ',
-            required: true,
+            label: 'Confirm phone number '
           },
           validators: {
             phoneNo: {
-              expression: (fc: FormControl) => !fc.value || fc.value.length === 9,
-              message: (err, field: FormlyFieldConfig) => `Phone no length is 9 characters`
+              expression: (fc) => !fc.value || fc.value.length === 9,
+              message: (err, field: FormlyFieldConfig) => `Phone No length is 9 characters`
             }
           }
         },

@@ -1,4 +1,5 @@
 import { Shopping } from './Shopping';
+import { Service } from './Service';
 
 export class RequestToCharllote {
     constructor(
@@ -7,9 +8,10 @@ export class RequestToCharllote {
         public deliveryDate: Date = new Date(),
         public orderType: string = '',
         public acceptTerms: boolean = false,
-        public shoppings: Shopping [] = [ new Shopping() ],
         public phoneNo: number = null,
         public email: string = null,
+        public shoppings?: Shopping [],
+        public services?: Service[],
         public comments?: string
     ) { }
 }

@@ -190,14 +190,14 @@ export class ExerciseThreeComponent {
           key: 'phoneNo',
           type: 'input',
           templateOptions: {
-            type: 'number',
+            type: 'text',
             label: 'Confirm phone number ',
             required: true,
           },
           validators: {
             phoneNo: {
-              expression: (fc: FormControl) => !fc.value || fc.value.length === 9,
-              message: (err, field: FormlyFieldConfig) => `Phone no length is 9 characters`
+              expression: (fc) => !fc.value || fc.value.length === 9,
+              message: (err, field: FormlyFieldConfig) => `Phone No length is 9 characters`
             }
           }
         },
