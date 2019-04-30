@@ -15,7 +15,12 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { CardWrapperComponent, RepeatSectionComponent } from '@app/shared/custom-wrrappers';
 import { HomeComponent } from '@app/components';
-import { ExerciseOneComponent, ExerciseTwoComponent, ExerciseThreeComponent } from '@app/components/exercises-formly';
+import {
+  ExerciseOneComponent,
+  ExerciseTwoComponent,
+  ExerciseThreeComponent,
+  ExerciseFourComponent
+} from '@app/components/exercises-formly';
 import { ExerciseOneRfComponent, ExerciseTwoRfComponent, ExerciseThreeRfComponent } from '@app/components/exercises-reactive-forms';
 
 import { RequestService, DictService } from '@app/shared/services';
@@ -26,6 +31,7 @@ import {
   minValidationMessage,
   maxValidationMessage
 } from '@app/shared/validations';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +44,8 @@ import {
     RepeatSectionComponent,
     ExerciseThreeComponent,
     ExerciseTwoRfComponent,
-    ExerciseThreeRfComponent
+    ExerciseThreeRfComponent,
+    ExerciseFourComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
 import { RequestService, DictService } from '@app/shared/services';
 import { DictionaryItem } from '@app/shared/model/common';
@@ -41,7 +41,7 @@ export class ExerciseThreeRfComponent implements OnInit {
 
   applyDisplayMode() {
     this.form = this.fb.group({
-      cardId: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+      cardId: ['',  Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(5)])],
       cardToken: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
       deliveryDate: [new Date(), Validators.required],
       orderType: ['', Validators.required],

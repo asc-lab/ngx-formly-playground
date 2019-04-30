@@ -6,7 +6,7 @@ const existingCardId: string[] = [
     '12345',
     '11111',
     '54321'
-  ];
+];
 
 @Injectable({
     providedIn: 'root'

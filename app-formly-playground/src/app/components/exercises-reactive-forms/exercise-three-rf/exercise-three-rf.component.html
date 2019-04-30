@@ -9,12 +9,14 @@
       <mat-card-content fxLayout="column">
         <mat-form-field>
           <input type="text" matInput placeholder="Card ID" name="cardId" formControlName="cardId">
-          <mat-error>
+          <mat-error *ngIf="!fc.cardId.valid">
             <span *ngIf="fc.cardId.errors.required">This field is required</span>
             <span *ngIf="fc.cardId.errors.minlength">Card ID length is {{fc.cardId.errors.minlength.requiredLength}}
               characters</span>
             <span *ngIf="fc.cardId.errors.maxlength">Card ID length is {{fc.cardId.errors.maxlength.requiredLength}}
               characters</span>
+            <span *ngIf="fc.cardId.errors.cardExist">This Card ID does not exist please check your identification
+              card</span>
           </mat-error>
 
         </mat-form-field>
@@ -91,23 +93,29 @@
                   <div formGroupName="priceRange" fxLayout="column">
                     <mat-form-field fxFlex="100%">
                       <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
-                      <mat-error>
+                      <mat-error *ngIf="!shoppings.controls[i].controls.priceRange.controls.from.valid">
                         <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.required">This field
                           is required</span>
                         <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.min">This value
-                          should be more than {{shoppings.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
+                          should be more than
+                          {{shoppings.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
                         <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.max">This value
-                          should be less than {{shoppings.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
-
+                          should be less than
+                          {{shoppings.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
                       </mat-error>
 
                     </mat-form-field>
                     <mat-form-field fxFlex="100%">
                       <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
-                      <mat-error>
-                        <span *ngIf="hasErrorPriceRange(i, 'to', 'required')">This field is required</span>
-                        <span *ngIf="hasErrorPriceRange(i, 'to', 'min')">This value should be more than 0.01</span>
-                        <span *ngIf="hasErrorPriceRange(i, 'to', 'max')">This value should be less than 999999.99</span>
+                      <mat-error *ngIf="!shoppings.controls[i].controls.priceRange.controls.to.valid">
+                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.required">This field
+                          is required</span>
+                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.min">This value
+                          should be more than
+                          {{shoppings.controls[i].controls.priceRange.controls.to.errors.min.min}}</span>
+                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.max">This value
+                          should be less than
+                          {{shoppings.controls[i].controls.priceRange.controls.to.errors.max.max}}</span>
                       </mat-error>
 
                     </mat-form-field>
@@ -181,9 +189,9 @@
       <mat-card-content fxLayout="column">
         <mat-checkbox name="acceptTerms" formControlName="acceptTerms"
           description="In order to proceed, please accept terms">{{acceptTerms}}</mat-checkbox>
-        <mat-error *ngIf="!form.controls['acceptTerms'].valid && form.controls['acceptTerms'].touched">
-          <span *ngIf="hasError('acceptTerms', 'required')">This field is required</span>
-          <span *ngIf="hasError('acceptTerms', 'pattern')">To proceed please accept terms</span>
+        <mat-error *ngIf="!fc.acceptTerms.valid">
+          <span *ngIf="fc.acceptTerms.errors.required">This field is required</span>
+          <span *ngIf="fc.acceptTerms.errors.pattern">To proceed please accept terms</span>
         </mat-error>
         <mat-hint>In order to proceed, please accept terms</mat-hint>
       </mat-card-content>
