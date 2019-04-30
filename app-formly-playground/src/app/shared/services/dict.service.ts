@@ -6,6 +6,7 @@ const dictionariesDB: Dictionary [] = [
         code: 'ORDER_TYPE',
         dictionaryItems: [
             {value: 'SHOPPINGS', label: 'SHOPPINGS' },
+            {value: 'SERVICES', label: 'SERVICES' },
         ]
     }
 ];

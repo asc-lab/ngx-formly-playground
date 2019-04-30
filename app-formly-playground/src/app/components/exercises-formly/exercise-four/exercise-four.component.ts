@@ -91,6 +91,7 @@ export class ExerciseFourComponent {
     },
     {
       key: 'requestToCharllote',
+      hideExpression: (model) => this.model.requestToCharllote.orderType !== 'SHOPPINGS',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Shoppings' },
       fieldGroup: [
@@ -165,6 +166,7 @@ export class ExerciseFourComponent {
     },
     {
       key: 'requestToCharllote',
+      hideExpression: (model) => this.model.requestToCharllote.orderType !== 'SERVICES',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Services' },
       fieldGroup: [
