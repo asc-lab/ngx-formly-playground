@@ -1,112 +1,182 @@
 <div class="app-content">
-    <button mat-raised-button routerLink="../../home" routerLinkActive="active" fxLayoutAlign="">Back to list
-    </button>
-    <form [formGroup]="form" (ngSubmit)="submit()">
-      <mat-card class="app-content-card">
-        <mat-card-title>
-          <span>Order Identification - Reactive Forms</span>
-        </mat-card-title>
-        <mat-card-content fxLayout="column">
-  
-          <mat-form-field>
-            <input type="text" matInput placeholder="Card ID" name="cardId" formControlName="cardId" class="form-control">
-          </mat-form-field>
-          <mat-form-field>
-            <input type="text" matInput placeholder="Card token" name="cardToken" formControlName="cardToken"
-              class="form-control">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Delivery date" name="deliveryDate"
-              formControlName="deliveryDate" class="form-control">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-select placeholder="Order type" name="orderType" formControlName="orderType" class="form-control">
-              <mat-option *ngFor="let order of orderTypes" [value]="order.value">
-                {{order.label}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-  
-        </mat-card-content>
-      </mat-card>
-  
-      <mat-card class="app-content-card">
-        <mat-card-title>
-          <span>Shoppings</span>
-        </mat-card-title>
-        <mat-card-content fxLayout="column">
-          <div formArrayName="shoppings" *ngFor="let item of form.get('shoppings').controls; let i = index;"
-            class="app-section-item">
-            <div [formGroupName]="i">
-  
-              <div fxLayout="column">
-                <h3 fxLayoutAlign="start">Shopping item</h3>
-  
-                <div fxLayout="row" fxLayout.xs="column">
-  
-                  <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
-                    <mat-form-field>
-                      <input type="text" matInput placeholder="Order" name="order" formControlName="order">
+  <button mat-raised-button routerLink="../../home" routerLinkActive="active" fxLayoutAlign="">Back to list
+  </button>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Order Identification - Reactive Forms</span>
+      </mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Card ID" name="cardId" formControlName="cardId">
+          <mat-error>
+            <span *ngIf="hasError('cardId', 'required')">This field is required</span>
+            <span *ngIf="hasError('cardId', 'minlength')">Card ID length is 5 characters</span>
+            <span *ngIf="hasError('cardId', 'maxlength')">Card ID length is 5 characters</span>
+          </mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Card token" name="cardToken" formControlName="cardToken">
+          <mat-error>
+            <span *ngIf="hasError('cardToken', 'required')">This field is required</span>
+            <span *ngIf="hasError('cardToken', 'minlength')">Card token length is 5 characters</span>
+            <span *ngIf="hasError('cardToken', 'maxlength')">Card token length is 5 characters</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Delivery date" name="deliveryDate"
+            formControlName="deliveryDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="!form.controls['deliveryDate'].valid && form.controls['deliveryDate'].touched">
+            <span *ngIf="hasError('cardId', 'required')">This field is required</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Order type" name="orderType" formControlName="orderType">
+            <mat-option *ngFor="let order of orderTypes" [value]="order.value">
+              {{order.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            <span *ngIf="hasError('orderType', 'required')">This field is required</span>
+          </mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Shoppings</span>
+      </mat-card-title>
+      <mat-card-content fxLayout="column">
+        <div formArrayName="shoppings" *ngFor="let item of form.get('shoppings').controls; let i = index;"
+          class="app-section-item">
+          <div [formGroupName]="i">
+
+            <div fxLayout="column">
+              <h3 fxLayoutAlign="start">Shopping item</h3>
+              <div fxLayout="row" fxLayout.xs="column">
+
+                <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="Order" name="order" formControlName="order">
+                    <mat-error>
+                      <span *ngIf="hasErrorShoppingsGroup(i, 'order', 'required')">This field is required</span>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <textarea rows="5" cols="150" matInput placeholder="Description" name="description"
+                      formControlName="description"></textarea>
+                    <mat-error>
+                      <span *ngIf="hasErrorShoppingsGroup(i, 'description', 'required')">This field is required</span>
+                      <span *ngIf="hasErrorShoppingsGroup(i, 'description', 'maxlength')">This value should be less than
+                        {{form.controls['description'].errors.maxlength.requiredLength}} characters</span>
+                    </mat-error>
+
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="Selected shop" name="selectedShop"
+                      formControlName="selectedShop">
+                  </mat-form-field>
+                  <div formGroupName="priceRange" fxLayout="column">
+                    <mat-form-field fxFlex="100%">
+                      <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
+                      <mat-error>
+                        <span *ngIf="hasErrorPriceRange(i, 'from', 'required')">This field is required</span>
+                        <span *ngIf="hasErrorPriceRange(i, 'from', 'min')">This value should be more than 0.01</span>
+                        <span *ngIf="hasErrorPriceRange(i, 'from', 'max')">This value should be less than 999999.99</span>
+                      </mat-error>
+
                     </mat-form-field>
-                    <mat-form-field>
-                      <textarea rows="5" cols="150" matInput placeholder="Description" maxlength="6000" name="comments"
-                        formControlName="description"></textarea>
+                    <mat-form-field fxFlex="100%">
+                      <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
+                      <mat-error>
+                          <span *ngIf="hasErrorPriceRange(i, 'to', 'required')">This field is required</span>
+                          <span *ngIf="hasErrorPriceRange(i, 'to', 'min')">This value should be more than 0.01</span>
+                          <span *ngIf="hasErrorPriceRange(i, 'to', 'max')">This value should be less than 999999.99</span>
+                        </mat-error>
+
                     </mat-form-field>
-                    <mat-form-field>
-                      <input type="text" matInput placeholder="Selected shop" name="selectedShop"
-                        formControlName="selectedShop">
-                    </mat-form-field>
-                    <div formGroupName="priceRange" fxLayout="column">
-                      <mat-form-field fxFlex="100%">
-                        <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
-                      </mat-form-field>
-                      <mat-form-field fxFlex="100%">
-                        <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
-                      </mat-form-field>
-                    </div>
-                  </div>
-                  <div fxFlex="10%" fxFlex.xs="100%">
-                    <button mat-raised-button type="button" (click)="removeItem(i)">Remove</button>
                   </div>
                 </div>
+                <div fxFlex="10%" fxFlex.xs="100%">
+                  <button mat-raised-button type="button" (click)="removeItem(i)">Remove</button>
+                </div>
               </div>
-  
             </div>
+
           </div>
-          <div>
-            <button mat-raised-button type="button" (click)="addItem()" class="app-secondary-btn">Add another shopping
-              item</button>
-          </div>
-        </mat-card-content>
-      </mat-card>
-  
-      <mat-card class="app-content-card">
-        <mat-card-title>
-          <span>Additional Comments</span>
-        </mat-card-title>
-        <mat-card-content fxLayout="column">
-          <mat-form-field>
-            <textarea rows="5" cols="150" matInput placeholder="Comments" maxlength="6000" name="comments"
-              formControlName="comments"></textarea>
-          </mat-form-field>
-        </mat-card-content>
-      </mat-card>
-  
-      <mat-card class="app-content-card">
-        <mat-card-title>
-          <span>Statements</span>
-        </mat-card-title>
-        <mat-card-content fxLayout="column">
-          <mat-checkbox name="acceptTerms" formControlName="acceptTerms"
-            description="In order to proceed, please accept terms">{{acceptTerms}}</mat-checkbox>
-            <mat-hint>In order to proceed, please accept terms</mat-hint>
-        </mat-card-content>
-      </mat-card>
-  
-  
-      <button type="submit" mat-raised-button class="app-primary-btn">Submit</button>
-    </form>
-  
-  </div>
+        </div>
+        <div>
+          <button mat-raised-button type="button" (click)="addItem()" class="app-secondary-btn">Add another shopping
+            item</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Additional Comments</span>
+      </mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <textarea rows="5" cols="150" matInput placeholder="Comments" name="comments"
+            formControlName="comments"></textarea>
+          <mat-error>
+            <span *ngIf="hasError('comments', 'maxlength')">This value should be less than
+              {{form.controls['comments'].errors.maxlength.requiredLength}} characters</span>
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Confirmations</span>
+      </mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Confirm phone number" name="phoneNo" formControlName="phoneNo"
+            class="form-control">
+          <mat-error>
+            <span *ngIf="hasError('phoneNo', 'required')">This field is required</span>
+            <span *ngIf="hasError('phoneNo', 'minlength')">Phone no length is 9 characters</span>
+            <span *ngIf="hasError('phoneNo', 'maxlength')">Phone no length is 9 characters</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="email" matInput placeholder="Confirm email address" name="email" formControlName="email"
+            class="form-control">
+          <mat-error>
+            <span *ngIf="hasError('email', 'required')">This field is required</span>
+            <span *ngIf="hasError('email', 'pattern')">{{form.controls['email'].value}} is not a valid email
+              Address</span>
+          </mat-error>
+
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="app-content-card">
+      <mat-card-title>
+        <span>Statements</span>
+      </mat-card-title>
+      <mat-card-content fxLayout="column">
+        <mat-checkbox name="acceptTerms" formControlName="acceptTerms"
+          description="In order to proceed, please accept terms">{{acceptTerms}}</mat-checkbox>
+        <mat-error *ngIf="!form.controls['acceptTerms'].valid && form.controls['acceptTerms'].touched">
+          <span *ngIf="hasError('acceptTerms', 'required')">This field is required</span>
+          <span *ngIf="hasError('acceptTerms', 'pattern')">To proceed please accept terms</span>
+        </mat-error>
+        <mat-hint>In order to proceed, please accept terms</mat-hint>
+      </mat-card-content>
+    </mat-card>
+
+
+    <button type="submit" mat-raised-button class="app-primary-btn">Submit</button>
+  </form>
+
+</div>
