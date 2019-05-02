@@ -133,9 +133,14 @@ export class ExerciseFourComponent {
                 },
               },
               {
+                template: '<div class="app-template-label"><strong>Price range:</strong>',
+              },
+              {
                 key: 'priceRange',
+                fieldGroupClassName: 'display-flex',
                 fieldGroup: [
                   {
+                    className: 'flex-2',
                     key: 'from',
                     type: 'input',
                     templateOptions: {
@@ -147,6 +152,7 @@ export class ExerciseFourComponent {
                     },
                   },
                   {
+                    className: 'flex-2',
                     key: 'to',
                     type: 'input',
                     templateOptions: {
@@ -200,30 +206,53 @@ export class ExerciseFourComponent {
                 },
               },
               {
-                key: 'date',
-                type: 'datepicker',
-                templateOptions: {
-                  type: 'date',
-                  label: 'Expected service date',
-                  required: true,
-                },
+                fieldGroupClassName: 'display-flex',
+                fieldGroup: [
+                  {
+                    className: 'flex-4',
+                    key: 'date',
+                    type: 'datepicker',
+                    templateOptions: {
+                      type: 'date',
+                      label: 'Expected service date',
+                      required: true,
+                    },
+                  },
+                  {
+                    className: 'flex-2',
+                    key: 'timeRange',
+                    type: 'input',
+                    templateOptions: {
+                      type: 'text',
+                      label: 'Time range',
+                      required: true,
+                    },
+                  },
+                ]
               },
               {
-                key: 'secondChoiceDate',
-                type: 'datepicker',
-                templateOptions: {
-                  type: 'secondChoiceDate',
-                  label: 'Second choice date',
-                },
-              },
-              {
-                key: 'timeRange',
-                type: 'input',
-                templateOptions: {
-                  type: 'text',
-                  label: 'Time range',
-                  required: true,
-                },
+                fieldGroupClassName: 'display-flex',
+                fieldGroup: [
+                  {
+                    className: 'flex-4',
+                    key: 'secondChoiceDate',
+                    type: 'datepicker',
+                    templateOptions: {
+                      type: 'secondChoiceDate',
+                      label: 'Second choice date',
+                    },
+                  },
+                  {
+                    className: 'flex-2',
+                    key: 'secondChoiceTimeRange',
+                    type: 'input',
+                    templateOptions: {
+                      type: 'text',
+                      label: 'Time range',
+                      required: true,
+                    },
+                  },
+                ]
               },
               {
                 key: 'selectedServiceProvider',
@@ -234,9 +263,14 @@ export class ExerciseFourComponent {
                 },
               },
               {
+                template: '<div class="app-template-label"><strong>Price range:</strong>',
+              },
+              {
                 key: 'priceRange',
+                fieldGroupClassName: 'display-flex',
                 fieldGroup: [
                   {
+                    className: 'flex-2',
                     key: 'from',
                     type: 'input',
                     templateOptions: {
@@ -248,6 +282,7 @@ export class ExerciseFourComponent {
                     },
                   },
                   {
+                    className: 'flex-2',
                     key: 'to',
                     type: 'input',
                     templateOptions: {

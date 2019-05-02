@@ -1,6 +1,6 @@
 <span class="app-label" fxLayoutAlign="start">{{to.label}} *</span>
 <div fxLayout="row wrap">
-  <div *ngFor="let option of to.options; let i=index" class="app-radio-selector" fxLayout="column" fxFlex="20%"  fxFlex.xs="100%">
+  <div *ngFor="let option of to.options; let i=index" class="app-radio-selector" fxLayout="column" fxFlex.lt-md="100%"  fxFlex="20%">
     <input type="radio" [name]="to.name" [formControl]="formControl" [formlyAttributes]="field" [value]="option.key"
       class="app-selector-card {{option.description}}">
     <span class="app-radio-label">{{option.value}}</span>

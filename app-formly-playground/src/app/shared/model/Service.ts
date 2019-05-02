@@ -8,6 +8,7 @@ export class Service {
         public date: Date = new Date(),
         public timeRange: string = '',
         public secondChoiceDate?: Date,
+        public secondChoiceTimeRange?: string,
         public selectedServiceProvider?: string
     ) {}
 }

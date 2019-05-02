@@ -125,6 +125,11 @@ body {
     border-bottom: 1px solid;
 }
 
+.app-template-label {
+    text-align: left;
+    margin-bottom: 3px;
+}
+
 
 // overwritte anuglar matieral style
 .mat-card {
@@ -148,8 +153,36 @@ body {
     text-align: left;
 }
 
-@media (min-width: 992px) { 
+
+@media (min-width: 1200px) { 
     .app-selector-card{
         height: 200px;
     }
+
+    [class*="flex-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+      
+    [class*="flex-"]:first-child {
+        padding-left: 0;
+    }
+    
+    [class*="flex-"]:last-child {
+        padding-right: 0;
+    }
+
+    .display-flex { 
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flex-2 {
+        flex: 2; 
+    }
+
+    .flex-4  {
+        flex: 4; 
+    }
+
 }
