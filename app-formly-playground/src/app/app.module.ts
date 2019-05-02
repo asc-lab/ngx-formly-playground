@@ -19,7 +19,8 @@ import {
   ExerciseOneComponent,
   ExerciseTwoComponent,
   ExerciseThreeComponent,
-  ExerciseFourComponent
+  ExerciseFourComponent,
+  ExerciseFiveComponent
 } from '@app/components/exercises-formly';
 import { ExerciseOneRfComponent, ExerciseTwoRfComponent, ExerciseThreeRfComponent } from '@app/components/exercises-reactive-forms';
 
@@ -45,7 +46,8 @@ import {
     ExerciseTwoRfComponent,
     ExerciseThreeRfComponent,
     ExerciseFourComponent,
-    ImgRadioTypeComponent
+    ImgRadioTypeComponent,
+    ExerciseFiveComponent
   ],
   imports: [
     BrowserModule,
