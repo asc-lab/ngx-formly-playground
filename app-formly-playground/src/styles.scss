@@ -72,6 +72,7 @@ body {
 // img radio
 .app-radio-selector {
     margin:5px;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 .app-radio-selector input{
     margin:0px;
@@ -121,13 +122,21 @@ body {
 
 .app-radio-label {
     color: #e37e1d;
-    margin:5px;
-    border-bottom: 1px solid;
+    margin-bottom:5px;
 }
 
 .app-template-label {
     text-align: left;
     margin-bottom: 3px;
+}
+
+.app-international-phone {
+	margin-top: 15px;
+}
+
+.app-international-phone > div > input {
+	border: 0px;
+
 }
 
 
