@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Dictionary } from '../model/common';
 
-const dictionariesDB: Dictionary [] = [
+const dictionariesDB: Dictionary[] = [
     {
         code: 'ORDER_TYPE',
         dictionaryItems: [
-            {value: 'SHOPPINGS', label: 'SHOPPINGS' },
-            {value: 'SERVICES', label: 'SERVICES' },
+            {
+                value: 'SHOPPINGS',
+                key: 'SHOPPINGS',
+                description: 'shoppings-img',
+            },
+            {
+                value: 'SERVICES',
+                key: 'SERVICES',
+                description: 'services-img'
+            },
         ]
     }
 ];

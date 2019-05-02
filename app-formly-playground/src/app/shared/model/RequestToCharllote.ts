@@ -6,12 +6,12 @@ export class RequestToCharllote {
         public cardId: string = '',
         public cardToken: string = '',
         public deliveryDate: Date = new Date(),
-        public orderType: string = '',
+        public orderType: string = 'SHOPPINGS',
         public acceptTerms: boolean = false,
         public phoneNo: number = null,
         public email: string = null,
-        public shoppings?: Shopping [],
-        public services?: Service[],
+        public shoppings: Shopping[] = [ new Shopping() ],
+        public services: Service[]  = [ new Service() ],
         public comments?: string
     ) { }
 }

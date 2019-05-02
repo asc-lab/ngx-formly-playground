@@ -13,7 +13,7 @@ import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 import { AppRoutingModule } from '@app/app-routing.module';
 
 import { AppComponent } from '@app/app.component';
-import { CardWrapperComponent, RepeatSectionComponent } from '@app/shared/custom-wrrappers';
+import { CardWrapperComponent, RepeatSectionComponent, ImgRadioTypeComponent } from '@app/shared/custom-wrrappers';
 import { HomeComponent } from '@app/components';
 import {
   ExerciseOneComponent,
@@ -32,7 +32,6 @@ import {
   maxValidationMessage
 } from '@app/shared/validations';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +44,8 @@ import {
     ExerciseThreeComponent,
     ExerciseTwoRfComponent,
     ExerciseThreeRfComponent,
-    ExerciseFourComponent
+    ExerciseFourComponent,
+    ImgRadioTypeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +57,7 @@ import {
       ],
       types: [
         { name: 'repeat-section', component: RepeatSectionComponent },
+        { name: 'app-radio', component: ImgRadioTypeComponent },
       ],
       validationMessages: [
         { name: 'required', message: 'This field is required' },

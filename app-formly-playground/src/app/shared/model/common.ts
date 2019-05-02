@@ -5,7 +5,7 @@ export interface Dictionary {
 
 export interface DictionaryItem {
     value: string;
-    label: string;
+    key: string;
     description?: string;
     dictCode?: string;
 }

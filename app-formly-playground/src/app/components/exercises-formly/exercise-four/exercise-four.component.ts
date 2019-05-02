@@ -80,9 +80,10 @@ export class ExerciseFourComponent {
         },
         {
           key: 'orderType',
-          type: 'select',
+          type: 'app-radio',
           templateOptions: {
             label: 'Order type',
+            name: 'orderType',
             options: this.orderTypes,
             required: true,
           },
@@ -171,7 +172,7 @@ export class ExerciseFourComponent {
       templateOptions: { cardTitle: 'Services' },
       fieldGroup: [
         {
-          key: 'Services',
+          key: 'services',
           type: 'repeat-section',
           templateOptions: {
             sectionTitle: 'Service item',
@@ -296,7 +297,7 @@ export class ExerciseFourComponent {
           },
           validators: {
             phoneNo: {
-              expression: (fc) => !fc.value || fc.value.length === 9,
+              expression: (fc) => !fc.value,
               message: (err, field: FormlyFieldConfig) => `Phone No length is 9 characters`
             }
           }
@@ -339,8 +340,10 @@ export class ExerciseFourComponent {
     },
   ];
 
-  constructor(public requestService: RequestService, public dictionaryService: DictService) { }
-
+  constructor(
+    public requestService: RequestService,
+    public dictionaryService: DictService) { console.log(this.model)}
+    
   submit() {
     if (this.form.valid) {
       this.requestService.saveRequest(this.model.requestToCharllote);
