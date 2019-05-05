@@ -2,7 +2,7 @@ import { PriceRange } from './PriceRange';
 
 export class Service {
     constructor(
-        public serviceType: string = '',
+        public order: string = '',
         public description: string = '',
         public priceRange: PriceRange = new PriceRange(),
         public date: Date = new Date(),

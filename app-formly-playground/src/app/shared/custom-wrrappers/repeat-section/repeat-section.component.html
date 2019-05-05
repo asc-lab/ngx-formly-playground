@@ -1,6 +1,6 @@
 <div *ngFor="let field of field.fieldGroup; let i = index;" class="app-section-item">
   <div fxLayout="column">
-    <h3 fxLayoutAlign="start">{{ to.sectionTitle }}</h3>
+    <h3 fxLayoutAlign="start">{{ to.sectionTitle }}: {{to.description[i].order}}</h3>
     <div fxLayout="row" fxLayout.xs="column">
       <formly-field [field]="field" fxFlex="90%" fxFlex.xs="100%"></formly-field>
       <div fxFlex="10%" fxFlex.xs="100%">

@@ -165,7 +165,7 @@ body {
 
 @media (min-width: 1200px) { 
     .app-selector-card{
-        height: 200px;
+        height: 150px;
     }
 
     [class*="flex-"] {
@@ -194,4 +194,10 @@ body {
         flex: 4; 
     }
 
+}
+
+@media (min-width: 1600px) { 
+    .app-selector-card{
+        height: 200px;
+    }
 }

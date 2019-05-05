@@ -101,6 +101,7 @@ export class ExerciseFourComponent {
           type: 'repeat-section',
           templateOptions: {
             sectionTitle: 'Shopping item',
+            description: this.model.requestToCharllote.shoppings,
             addItem: 'Add shopping item',
           },
           fieldArray: {
@@ -175,19 +176,22 @@ export class ExerciseFourComponent {
       key: 'requestToCharllote',
       hideExpression: (model) => this.model.requestToCharllote.orderType !== 'SERVICES',
       wrappers: ['card'],
-      templateOptions: { cardTitle: 'Services' },
+      templateOptions: {
+        cardTitle: 'Services',
+      },
       fieldGroup: [
         {
           key: 'services',
           type: 'repeat-section',
           templateOptions: {
             sectionTitle: 'Service item',
+            description: this.model.requestToCharllote.services,
             addItem: 'Add service item',
           },
           fieldArray: {
             fieldGroup: [
               {
-                key: 'serviceType',
+                key: 'order',
                 type: 'input',
                 templateOptions: {
                   type: 'text',
@@ -377,8 +381,8 @@ export class ExerciseFourComponent {
 
   constructor(
     public requestService: RequestService,
-    public dictionaryService: DictService) { console.log(this.model)}
-    
+    public dictionaryService: DictService) { }
+
   submit() {
     if (this.form.valid) {
       this.requestService.saveRequest(this.model.requestToCharllote);
