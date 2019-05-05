@@ -1,3 +1,23 @@
-<p>
-  exercise-five works!
-</p>
+<div class="app-content">
+  <button mat-raised-button routerLink="../../home" routerLinkActive="active" fxLayoutAlign="">Back to list
+  </button>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="app-steper">
+      <mat-horizontal-stepper>
+        <mat-step *ngFor="let step of steps; let index = index; let last = last;">
+          <ng-template matStepLabel>{{ step.label }}</ng-template>
+          <formly-form
+            [form]="form.at(index)"
+            [model]="model"
+            [fields]="step.fields"
+            [options]="options[index]">
+          </formly-form>
+    
+          <div>
+            <button *ngIf="index !== 0" matStepperPrevious mat-raised-button class="app-back-btn" type="button" (click)="prevStep(index)" >Back</button>
+            <button *ngIf="!last" matStepperNext mat-raised-button class="app-secondary-btn app-next-btn" type="button" [disabled]="!form.at(index).valid" (click)="nextStep(index)">Next</button>
+            <button *ngIf="last" mat-raised-button class="app-primary-btn app-next-btn" [disabled]="!form.valid" type="submit">Submit</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </form>
+</div>

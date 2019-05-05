@@ -70,15 +70,6 @@ export class ExerciseThreeComponent {
           }
         },
         {
-          key: 'deliveryDate',
-          type: 'datepicker',
-          templateOptions: {
-            type: 'date',
-            label: 'Delivery date',
-            required: true,
-          },
-        },
-        {
           key: 'orderType',
           type: 'select',
           templateOptions: {
@@ -99,6 +90,7 @@ export class ExerciseThreeComponent {
           type: 'repeat-section',
           templateOptions: {
             sectionTitle: 'Shopping item',
+            description: this.model.requestToCharllote.shoppings,
             addItem: 'Add another shopping item',
           },
           fieldArray: {
@@ -120,6 +112,15 @@ export class ExerciseThreeComponent {
                   label: 'Description',
                   maxLength: 6000,
                   rows: 5,
+                },
+              },
+              {
+                key: 'deliveryDate',
+                type: 'datepicker',
+                templateOptions: {
+                  type: 'date',
+                  label: 'Delivery date',
+                  required: true,
                 },
               },
               {

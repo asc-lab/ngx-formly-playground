@@ -8,6 +8,7 @@ import {
   MatTableModule,
   MatDividerModule
 } from '@angular/material';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 // additional imports for reactive forms
@@ -31,8 +32,8 @@ import {
     MatInputModule,
     MatDatepickerModule,
     MatSelectModule,
-    MatCheckboxModule
-
+    MatCheckboxModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -45,7 +46,8 @@ import {
     MatInputModule,
     MatDatepickerModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatStepperModule
   ],
   declarations: []
 })

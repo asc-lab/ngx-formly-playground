@@ -70,15 +70,6 @@ export class ExerciseFourComponent {
           }
         },
         {
-          key: 'deliveryDate',
-          type: 'datepicker',
-          templateOptions: {
-            type: 'date',
-            label: 'Delivery date',
-            required: true,
-          },
-        },
-        {
           key: 'orderType',
           type: 'app-radio',
           templateOptions: {
@@ -123,6 +114,15 @@ export class ExerciseFourComponent {
                   label: 'Description',
                   maxLength: 6000,
                   rows: 5,
+                },
+              },
+              {
+                key: 'deliveryDate',
+                type: 'datepicker',
+                templateOptions: {
+                  type: 'date',
+                  label: 'Delivery date',
+                  required: true,
                 },
               },
               {
@@ -252,8 +252,7 @@ export class ExerciseFourComponent {
                     type: 'input',
                     templateOptions: {
                       type: 'text',
-                      label: 'Time range',
-                      required: true,
+                      label: 'Time range'
                     },
                   },
                 ]
@@ -319,7 +318,6 @@ export class ExerciseFourComponent {
             rows: 5,
           },
         },
-
       ],
     },
     {
@@ -374,7 +372,6 @@ export class ExerciseFourComponent {
             required: true,
           },
         },
-
       ],
     },
   ];

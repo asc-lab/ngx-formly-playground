@@ -130,13 +130,18 @@ body {
     margin-bottom: 3px;
 }
 
-.app-international-phone {
-	margin-top: 15px;
-}
-
-.app-international-phone > div > input {
-	border: 0px;
-
+.app-steper {
+    width: 90%;
+    margin: 5px auto;
+    .app-content-card{
+        width: 90%;
+    }
+    .app-next-btn {
+        float: right;
+    }
+    .app-back-btn {
+        float: left;
+    }
 }
 
 
@@ -160,6 +165,10 @@ body {
 .mat-hint {
     color: $secondary-color !important;
     text-align: left;
+}
+
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color:  $secondary-color !important;
 }
 
 
