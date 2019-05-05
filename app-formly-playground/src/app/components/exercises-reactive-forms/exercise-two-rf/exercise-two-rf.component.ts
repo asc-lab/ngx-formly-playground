@@ -15,7 +15,8 @@ export class ExerciseTwoRfComponent implements OnInit {
   requestToCharllote: RequestToCharllote = new RequestToCharllote();
   orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
 
-  acceptTerms: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. '
+  // tslint:disable-next-line:max-line-length
+  acceptTerms = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. ';
 
   constructor(
     public requestService: RequestService,
@@ -30,6 +31,7 @@ export class ExerciseTwoRfComponent implements OnInit {
     return this.fb.group({
       order: ['', Validators.required],
       description: ['', [ Validators.required, Validators.maxLength(6000)]],
+      deliveryDate: [new Date(), Validators.required],
       priceRange: this.fb.group({
         from: [0, [ Validators.required, Validators.min(0.1), Validators.max(999999.99)]],
         to: [9999, [ Validators.required, Validators.min(0.1), Validators.max(999999.99)]],
@@ -42,7 +44,6 @@ export class ExerciseTwoRfComponent implements OnInit {
     this.form = this.fb.group({
       cardId: ['', [ Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
       cardToken: ['', [ Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
-      deliveryDate: [new Date(), Validators.required],
       orderType: ['', Validators.required],
       shoppings: this.fb.array([ this.createShoppingItem() ]),
       comments: ['', [ Validators.required, Validators.maxLength(6000)]],

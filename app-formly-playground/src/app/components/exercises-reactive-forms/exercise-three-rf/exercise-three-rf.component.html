@@ -31,21 +31,12 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Delivery date" name="deliveryDate"
-            formControlName="deliveryDate">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="!fc.deliveryDate.valid">
-            <span *ngIf="fc.deliveryDate.errors.required">This field is required</span>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
           <mat-select placeholder="Order type" name="orderType" formControlName="orderType">
-            <mat-option *ngFor="let order of orderTypes" [value]="order.value">
-              {{order.label}}
+            <mat-option *ngFor="let order of orderTypes" [value]="order.key">
+              {{order.value}}
             </mat-option>
           </mat-select>
-          <mat-error>
+          <mat-error *ngIf="!fc.orderType.valid">
             <span *ngIf="fc.orderType.errors.required">This field is required</span>
           </mat-error>
         </mat-form-field>
@@ -84,8 +75,19 @@
                         less than
                         {{fc.description.errors.maxlength.requiredLength}} characters</span>
                     </mat-error>
-
                   </mat-form-field>
+
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Delivery date" name="deliveryDate"
+                      formControlName="deliveryDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="!shoppings.controls[i].controls.deliveryDate.valid">
+                      <span *ngIf="shoppings.controls[i].controls.deliveryDate.errors.required">This field is
+                        required</span>
+                    </mat-error>
+                  </mat-form-field>
+
                   <mat-form-field>
                     <input type="text" matInput placeholder="Selected shop" name="selectedShop"
                       formControlName="selectedShop">

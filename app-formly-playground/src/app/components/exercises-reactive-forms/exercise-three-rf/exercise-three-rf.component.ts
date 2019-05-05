@@ -31,6 +31,7 @@ export class ExerciseThreeRfComponent implements OnInit {
     return this.fb.group({
       order: ['', Validators.required],
       description: ['', [Validators.required, Validators.maxLength(6000)]],
+      deliveryDate: [new Date(), Validators.required],
       priceRange: this.fb.group({
         from: [0, [Validators.required, Validators.min(0.1), Validators.max(999999.99)]],
         to: [9999, [Validators.required, Validators.min(0.1), Validators.max(999999.99)]],
@@ -43,7 +44,6 @@ export class ExerciseThreeRfComponent implements OnInit {
     this.form = this.fb.group({
       cardId: ['',  Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(5)])],
       cardToken: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
-      deliveryDate: [new Date(), Validators.required],
       orderType: ['', Validators.required],
       shoppings: this.fb.array([this.createShoppingItem()]),
       comments: ['', [Validators.maxLength(6000)]],
