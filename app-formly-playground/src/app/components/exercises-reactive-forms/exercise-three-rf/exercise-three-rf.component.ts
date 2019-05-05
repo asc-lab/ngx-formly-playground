@@ -74,5 +74,4 @@ export class ExerciseThreeRfComponent implements OnInit {
     }
   }
 
-
 }

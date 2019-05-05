@@ -4,3 +4,4 @@ export * from '@app/components/exercises-formly/exercise-two/exercise-two.compon
 export * from '@app/components/exercises-formly/exercise-three/exercise-three.component';
 export * from '@app/components/exercises-formly/exercise-four/exercise-four.component';
 export * from '@app/components/exercises-formly/exercise-five/exercise-five.component';
+export * from '@app/components/exercises-formly/exercise-six/exercise-six.component';

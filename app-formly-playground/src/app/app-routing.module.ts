@@ -7,7 +7,8 @@ import {
   ExerciseTwoComponent,
   ExerciseThreeComponent,
   ExerciseFourComponent,
-  ExerciseFiveComponent
+  ExerciseFiveComponent,
+  ExerciseSixComponent
 } from '@app/components/exercises-formly';
 import { ExerciseOneRfComponent, ExerciseTwoRfComponent, ExerciseThreeRfComponent } from '@app/components/exercises-reactive-forms';
 
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'exerciseFive',
         component: ExerciseFiveComponent
+      },
+      {
+        path: 'exerciseSix',
+        component: ExerciseSixComponent
       }
     ]
   },
