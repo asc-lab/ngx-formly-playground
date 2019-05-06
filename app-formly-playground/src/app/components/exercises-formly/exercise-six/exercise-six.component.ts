@@ -385,7 +385,9 @@ export class ExerciseSixComponent implements OnInit {
         {
           key: 'RequestToConcierge',
           wrappers: ['card'],
-          templateOptions: this.translate.instant('RequestToConcierge.readStatements'),
+          templateOptions: {
+            cardTitle: this.translate.instant('RequestToConcierge.readStatements'),
+          },
           fieldGroup: [
             {
               key: 'acceptTerms',
