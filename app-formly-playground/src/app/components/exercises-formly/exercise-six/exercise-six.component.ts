@@ -26,7 +26,7 @@ export class ExerciseSixComponent implements OnInit {
   };
   steps: StepType[] = [
     {
-      label: this.translate.stream('RequestToCharllote.orderIdentification').subscribe(label => this.steps[0].label = label),
+      label: this.translate.instant('RequestToCharllote.orderIdentification'),
       fields: [
         {
           key: 'requestToCharllote',
@@ -40,8 +40,6 @@ export class ExerciseSixComponent implements OnInit {
               type: 'input',
               templateOptions: {
                 type: 'text',
-                label: this.translate.instant('RequestToCharllote.cardId'),
-                description: this.translate.instant('RequestToCharllote.cardIdDesc'),
                 required: true,
               },
               expressionProperties: {
@@ -68,7 +66,6 @@ export class ExerciseSixComponent implements OnInit {
               type: 'input',
               templateOptions: {
                 type: 'text',
-                label: this.translate.instant('RequestToCharllote.cardToken'),
                 required: true,
               },
               expressionProperties: {
@@ -85,7 +82,6 @@ export class ExerciseSixComponent implements OnInit {
               key: 'orderType',
               type: 'app-radio',
               templateOptions: {
-                label: this.translate.instant('RequestToCharllote.orderType'),
                 name: 'orderType',
                 options: this.orderTypes,
                 required: true,
@@ -99,7 +95,7 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: this.translate.stream('RequestToCharllote.orderType').subscribe(label => this.steps[1].label = label),
+      label: this.translate.instant('RequestToCharllote.orderType'),
       fields: [
         {
           key: 'requestToCharllote',
@@ -113,9 +109,7 @@ export class ExerciseSixComponent implements OnInit {
               key: 'shoppings',
               type: 'repeat-section',
               templateOptions: {
-                sectionTitle: this.translate.instant('RequestToCharllote.shoppingItem'),
                 description: this.model.requestToCharllote.shoppings,
-                addItem: this.translate.instant('RequestToCharllote.addShoppingItem'),
               },
               expressionProperties: {
                 'templateOptions.sectionTitle': this.translate.stream('RequestToCharllote.shoppingItem'),
@@ -128,7 +122,6 @@ export class ExerciseSixComponent implements OnInit {
                     type: 'input',
                     templateOptions: {
                       type: 'text',
-                      label: this.translate.instant('RequestToCharllote.order'),
                       required: true,
                     },
                     expressionProperties: {
@@ -140,7 +133,6 @@ export class ExerciseSixComponent implements OnInit {
                     type: 'textarea',
                     templateOptions: {
                       type: 'text',
-                      label: this.translate.instant('RequestToCharllote.description'),
                       maxLength: 6000,
                       rows: 5,
                     },
@@ -153,7 +145,6 @@ export class ExerciseSixComponent implements OnInit {
                     type: 'datepicker',
                     templateOptions: {
                       type: 'date',
-                      label: this.translate.instant('RequestToCharllote.deliveryDate'),
                       required: true,
                     },
                     expressionProperties: {
@@ -165,7 +156,6 @@ export class ExerciseSixComponent implements OnInit {
                     type: 'input',
                     templateOptions: {
                       type: 'text',
-                      label: this.translate.instant('RequestToCharllote.selectedShop'),
                     },
                     expressionProperties: {
                       'templateOptions.label': this.translate.stream('RequestToCharllote.selectedShop'),
@@ -184,7 +174,6 @@ export class ExerciseSixComponent implements OnInit {
                         type: 'input',
                         templateOptions: {
                           type: 'number',
-                          label: this.translate.instant('RequestToCharllote.priceRangeForm'),
                           min: 1,
                           max: 999999,
                           required: true
@@ -199,7 +188,6 @@ export class ExerciseSixComponent implements OnInit {
                         type: 'input',
                         templateOptions: {
                           type: 'number',
-                          label: this.translate.instant('RequestToCharllote.priceRangeTo'),
                           min: 1,
                           max: 999999,
                           required: true,
@@ -228,9 +216,7 @@ export class ExerciseSixComponent implements OnInit {
               key: 'services',
               type: 'repeat-section',
               templateOptions: {
-                sectionTitle: this.translate.instant('RequestToCharllote.serviceItem'),
                 description: this.model.requestToCharllote.services,
-                addItem: this.translate.instant('RequestToCharllote.addServiceItem'),
               },
               expressionProperties: {
                 'templateOptions.sectionTitle': this.translate.stream('RequestToCharllote.serviceItem'),
@@ -243,7 +229,6 @@ export class ExerciseSixComponent implements OnInit {
                     type: 'input',
                     templateOptions: {
                       type: 'text',
-                      label: this.translate.instant('RequestToCharllote.serviceType'),
                       required: true,
                     },
                     expressionProperties: {
@@ -255,7 +240,6 @@ export class ExerciseSixComponent implements OnInit {
                     type: 'textarea',
                     templateOptions: {
                       type: 'text',
-                      label: this.translate.instant('RequestToCharllote.description'),
                       maxLength: 6000,
                       rows: 5,
                     },
@@ -272,7 +256,6 @@ export class ExerciseSixComponent implements OnInit {
                         type: 'datepicker',
                         templateOptions: {
                           type: 'date',
-                          label: this.translate.instant('RequestToCharllote.expectedServiceDate'),
                           required: true,
                         },
                         expressionProperties: {
@@ -285,7 +268,6 @@ export class ExerciseSixComponent implements OnInit {
                         type: 'input',
                         templateOptions: {
                           type: 'text',
-                          label: this.translate.instant('RequestToCharllote.timeRange'),
                           required: true,
                         },
                         expressionProperties: {
@@ -303,7 +285,6 @@ export class ExerciseSixComponent implements OnInit {
                         type: 'datepicker',
                         templateOptions: {
                           type: 'secondChoiceDate',
-                          label: this.translate.instant('RequestToCharllote.secondChoiceDate'),
                         },
                         expressionProperties: {
                           'templateOptions.label': this.translate.stream('RequestToCharllote.secondChoiceDate'),
@@ -315,7 +296,6 @@ export class ExerciseSixComponent implements OnInit {
                         type: 'input',
                         templateOptions: {
                           type: 'text',
-                          label: this.translate.instant('RequestToCharllote.timeRange'),
                         },
                         expressionProperties: {
                           'templateOptions.label': this.translate.stream('RequestToCharllote.timeRange'),
@@ -328,7 +308,6 @@ export class ExerciseSixComponent implements OnInit {
                     type: 'input',
                     templateOptions: {
                       type: 'text',
-                      label: this.translate.instant('RequestToCharllote.selectedServiceProvider'),
                     },
                     expressionProperties: {
                       'templateOptions.label': this.translate.stream('RequestToCharllote.selectedServiceProvider'),
@@ -347,7 +326,6 @@ export class ExerciseSixComponent implements OnInit {
                         type: 'input',
                         templateOptions: {
                           type: 'number',
-                          label: this.translate.instant('RequestToCharllote.priceRangeForm'),
                           min: 1,
                           max: 999999,
                           required: true
@@ -362,7 +340,6 @@ export class ExerciseSixComponent implements OnInit {
                         type: 'input',
                         templateOptions: {
                           type: 'number',
-                          label: this.translate.instant('RequestToCharllote.priceRangeTo'),
                           min: 1,
                           max: 999999,
                           required: true,
@@ -381,7 +358,7 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: this.translate.stream('RequestToCharllote.comments').subscribe(label => this.steps[2].label = label),
+      label: this.translate.instant('RequestToCharllote.comments'),
       fields: [
         {
           key: 'requestToCharllote',
@@ -395,7 +372,6 @@ export class ExerciseSixComponent implements OnInit {
               type: 'textarea',
               templateOptions: {
                 type: 'text',
-                label: this.translate.instant('RequestToCharllote.commentsToOrder'),
                 maxLength: 6000,
                 rows: 5,
               },
@@ -408,7 +384,7 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: this.translate.stream('RequestToCharllote.confirmations').subscribe(label => this.steps[3].label = label),
+      label: this.translate.instant('RequestToCharllote.confirmations'),
       fields: [
         {
           key: 'requestToCharllote',
@@ -422,7 +398,6 @@ export class ExerciseSixComponent implements OnInit {
               type: 'input',
               templateOptions: {
                 type: 'number',
-                label: this.translate.instant('RequestToCharllote.phoneNo'),
               },
               expressionProperties: {
                 'templateOptions.label': this.translate.stream('RequestToCharllote.phoneNo'),
@@ -439,7 +414,6 @@ export class ExerciseSixComponent implements OnInit {
               type: 'input',
               templateOptions: {
                 type: 'text',
-                label: this.translate.instant('RequestToCharllote.email'),
                 // tslint:disable-next-line:max-line-length
                 pattern: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
                 required: true,
@@ -458,7 +432,7 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: this.translate.stream('RequestToCharllote.statements').subscribe(label => this.steps[4].label = label),
+      label: this.translate.instant('RequestToCharllote.statements'),
       fields: [
         {
           key: 'requestToCharllote',
@@ -472,7 +446,6 @@ export class ExerciseSixComponent implements OnInit {
               type: 'checkbox',
               templateOptions: {
                 label: this.acceptTerms,
-                description: this.translate.instant('RequestToCharllote.acceptTermsDesc'),
                 pattern: 'true',
                 required: true,
               },
@@ -499,8 +472,13 @@ export class ExerciseSixComponent implements OnInit {
 
   ngOnInit() {
     this.model.lang = this.translate.currentLang;
-  }
 
+    this.translate.stream('RequestToCharllote.orderIdentification').subscribe(label => this.steps[0].label = label);
+    this.translate.stream('RequestToCharllote.orderType').subscribe(label => this.steps[1].label = label);
+    this.translate.stream('RequestToCharllote.comments').subscribe(label => this.steps[2].label = label);
+    this.translate.stream('RequestToCharllote.confirmations').subscribe(label => this.steps[3].label = label);
+    this.translate.stream('RequestToCharllote.statements').subscribe(label => this.steps[4].label = label);
+  }
 
   submit() {
     if (this.form.valid) {
