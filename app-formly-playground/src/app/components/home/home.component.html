@@ -1,67 +1,66 @@
 <div class="app-content">
 
-
   <mat-card class="app-content-card">
     <mat-card-title>
       <p>Formly - exercises' list</p>
     </mat-card-title>
     <mat-card-content>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseOne"
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../formly/exerciseOne"
             routerLinkActive="active">Exercise one</button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" class="app-list-item">
           <p>Exercise one - custom wrraper, e.g how to use Angular Material Card Component as wrraper in Formly</p>
         </div>
       </div>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseTwo"
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../formly/exerciseTwo"
             routerLinkActive="active">Exercise two</button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" class="app-list-item">
           <p>Exercise two - simple form with default values</p>
         </div>
       </div>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseThree"
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../formly/exerciseThree"
             routerLinkActive="active">Exercise three</button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" class="app-list-item">
           <p>Exercise three - validations (build-in, custom, async validation), paterns, descriptions</p>
         </div>
       </div>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseFour"
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../formly/exerciseFour"
             routerLinkActive="active">Exercise four</button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" class="app-list-item">
           <p>Exercise four - custom input (radio buttons as images), hideExpression used in acction, flex checked,
             dynamic labels at array items</p>
         </div>
       </div>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseFive"
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../formly/exerciseFive"
             routerLinkActive="active">Exercise five</button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" class="app-list-item">
           <p>Exercise five - stepper added</p>
         </div>
       </div>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseSix"
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../formly/exerciseSix"
             routerLinkActive="active">Exercise six</button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
-          <div>
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" fxLayout="row" fxLayout.xs="column"  class="app-list-item">
+          <div fxFlex="40%" fxFlex.xs="100%">
             <p>Exercise six - i18n</p>
           </div>
-          <div class="app-lang-select">
+          <div class="app-lang-select" fxFlex="60%" fxFlex.xs="100%">
             <form [formGroup]="form" (ngSubmit)="submit()">
               <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
             </form>
@@ -77,30 +76,30 @@
       <p>Reactive forms - exercises' list</p>
     </mat-card-title>
     <mat-card-content>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../reactivForms/exerciseOne"
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../reactivForms/exerciseOne"
             routerLinkActive="active">Exercise one </button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" class="app-list-item">
           <p>Exercise one</p>
         </div>
       </div>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../reactivForms/exerciseTwo"
-            routerLinkActive="active">Exercise Two </button>
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../reactivForms/exerciseTwo"
+            routerLinkActive="active">Exercise two </button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" class="app-list-item">
           <p>Exercise two</p>
         </div>
       </div>
-      <div fxLayout="row" class="app-row">
-        <div fxFlex="30%" fxLayoutAlign="end">
-          <button mat-raised-button class="app-primary-btn" routerLink="../reactivForms/exerciseThree"
-            routerLinkActive="active">Exercise Three </button>
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+        <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+          <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../reactivForms/exerciseThree"
+            routerLinkActive="active">Exercise three </button>
         </div>
-        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" class="app-list-item">
           <p>Exercise three</p>
         </div>
       </div>

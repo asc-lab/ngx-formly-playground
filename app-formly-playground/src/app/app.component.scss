@@ -8,7 +8,7 @@
     background-color: $primary-color;
     color: #fff;
     height: 80px;
-    font-size: 36px;
+    font-size: 26px;
     .app-header-title {
         padding: 10px;
     };
@@ -16,5 +16,11 @@
         border: 1px solid $secondary-color;
         width: 30%;
         margin: 10px auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .app-header {
+        font-size: 36px;
     }
 }
