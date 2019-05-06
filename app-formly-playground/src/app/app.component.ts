@@ -9,8 +9,6 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Call Charlotte !!!';
-
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
