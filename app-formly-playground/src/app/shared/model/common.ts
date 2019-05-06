@@ -1,5 +1,5 @@
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 export interface Dictionary {
     code: string;
@@ -14,7 +14,7 @@ export interface DictionaryItem {
 }
 
 export interface StepType {
-    label?: string | ((model: any, formState: any) => any) | Observable<any>;
+    label: any;
     fields: FormlyFieldConfig[];
     expressionProperties?: {
         [property: string]: string | ((model: any, formState: any) => any) | Observable<any>;

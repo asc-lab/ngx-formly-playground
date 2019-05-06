@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
@@ -13,12 +13,12 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './exercise-six.component.html',
   styleUrls: ['./exercise-six.component.scss']
 })
-export class ExerciseSixComponent {
+export class ExerciseSixComponent implements OnInit {
   activedStep = 0;
 
   orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
-   // tslint:disable-next-line:max-line-length
-   acceptTerms = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. ';
+  // tslint:disable-next-line:max-line-length
+  acceptTerms = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. ';
 
 
   model: any = {
@@ -26,7 +26,7 @@ export class ExerciseSixComponent {
   };
   steps: StepType[] = [
     {
-      label: this.translate.stream('RequestToCharllote.orderIdentification'),
+      label: this.translate.instant('RequestToCharllote.orderIdentification'),
       fields: [
         {
           key: 'requestToCharllote',
@@ -41,11 +41,12 @@ export class ExerciseSixComponent {
               templateOptions: {
                 type: 'text',
                 label: this.translate.instant('RequestToCharllote.cardId'),
-                description: 'Use one of this card IDs: 12345, 54321, 11111',
+                description: this.translate.instant('RequestToCharllote.cardIdDesc'),
                 required: true,
               },
               expressionProperties: {
                 'templateOptions.label': this.translate.stream('RequestToCharllote.cardId'),
+                'templateOptions.description': this.translate.stream('RequestToCharllote.cardIdDesc'),
               },
               validators: {
                 cardId: {
@@ -487,15 +488,19 @@ export class ExerciseSixComponent {
 
   form = new FormArray(this.steps.map(() => new FormGroup({})));
   // tslint:disable-next-line:no-angle-bracket-type-assertion
-  options = this.steps.map(() => <FormlyFormOptions> {});
+  options = this.steps.map(() => <FormlyFormOptions>{});
 
 
   constructor(
     public requestService: RequestService,
     public dictionaryService: DictService,
     public translate: TranslateService) {
-      this.model.lang = translate.currentLang;
-    }
+  }
+
+  ngOnInit() {
+    this.model.lang = this.translate.currentLang;
+  }
+
 
   submit() {
     if (this.form.valid) {
