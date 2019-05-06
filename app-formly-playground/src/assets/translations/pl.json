@@ -24,7 +24,7 @@
         "confirmContactData": "Potwierdź dane kontaktowe",
         "readStatements": "Przeczytaj proszę uważnie oświadczenia",
         "cardId": "ID karty",
-        "cardIdDesc": "Use one of this card IDs: 12345, 54321, 11111",
+        "cardIdDesc": "Użyj jednego z tych ID: 12345, 54321, 11111",
         "cardToken": "Token karty",
         "shoppingItem": "Zakup",
         "addShoppingItem": "Dodaje nowy zakup",

@@ -26,7 +26,7 @@ export class ExerciseSixComponent implements OnInit {
   };
   steps: StepType[] = [
     {
-      label: this.translate.instant('RequestToCharllote.orderIdentification'),
+      label: this.translate.stream('RequestToCharllote.orderIdentification').subscribe(label => this.steps[0].label = label),
       fields: [
         {
           key: 'requestToCharllote',
@@ -99,7 +99,7 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: 'Order Type',
+      label: this.translate.stream('RequestToCharllote.orderType').subscribe(label => this.steps[1].label = label),
       fields: [
         {
           key: 'requestToCharllote',
@@ -381,7 +381,7 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: 'Comments',
+      label: this.translate.stream('RequestToCharllote.comments').subscribe(label => this.steps[2].label = label),
       fields: [
         {
           key: 'requestToCharllote',
@@ -408,7 +408,7 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: 'Confirmations',
+      label: this.translate.stream('RequestToCharllote.confirmations').subscribe(label => this.steps[3].label = label),
       fields: [
         {
           key: 'requestToCharllote',
@@ -458,7 +458,7 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: 'Statements',
+      label: this.translate.stream('RequestToCharllote.statements').subscribe(label => this.steps[4].label = label),
       fields: [
         {
           key: 'requestToCharllote',

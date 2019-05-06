@@ -25,6 +25,7 @@
         "confirmContactData": "Confirm your contact data",
         "readStatements": "Please read statements carefully",
         "cardId": "Card ID",
+        "cardIdDesc": "Use one of this card IDs: 12345, 54321, 11111",
         "cardToken": "Card token",
         "shoppingItem": "Shopping item",
         "addShoppingItem": "Add shopping item",
