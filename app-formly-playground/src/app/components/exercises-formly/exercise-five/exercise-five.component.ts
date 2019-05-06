@@ -3,14 +3,9 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
-import { DictionaryItem } from '@app/shared/model/common';
+import { DictionaryItem, StepType } from '@app/shared/model/common';
 
 import { RequestService, DictService } from '@app/shared/services';
-
-export interface StepType {
-  label: string;
-  fields: FormlyFieldConfig[];
-}
 
 @Component({
   selector: 'app-exercise-five',

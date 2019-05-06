@@ -1,0 +1,28 @@
+{
+    "Global": {
+        "yes": "Tak",
+        "no": "Nie",
+        "header": "Wezwij Charlotte !!!",
+        "language": "Język",
+        "Btn": {
+            "backToList": "Wróć na listę",
+            "next": "Dalej",
+            "back": "Wróć",
+            "submit": "Zatwierdź"
+        }
+    },
+    "RequestToCharllote": {
+        "orderIdentification": "Order Identification",
+        "orderType": "Order Type",
+        "comments": "Comments",
+        "confirmations": "Confirmations",
+        "statements": "Statements",
+        "cardIdentification": "Card identification",
+        "shoppings": "Shoppings",
+        "services": "Services",
+        "additionalComments": "Additional comments",
+        "confirmContactData": "Confirm your contact data",
+        "readStatements": "Please read statements carefully",
+        "cardId": "ID Karty"
+    }
+}

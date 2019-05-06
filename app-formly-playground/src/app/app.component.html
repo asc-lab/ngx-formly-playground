@@ -1,6 +1,14 @@
 <div class="app-header">
-  <div class="app-header-title">{{ title }}
-    <div class="app-header-title-line"></div>
+  <div class="app-header-title">
+    <div fxFlex="95%">
+      <span>{{ title }}</span>
+      <div class="app-header-title-line"></div>
+    </div>
+    <div fxFlex="5%" class="app-lang-select">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+      </form>
+    </div>
   </div>
 </div>
 

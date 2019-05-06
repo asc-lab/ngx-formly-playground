@@ -25,3 +25,8 @@ This project use Angular matieral library https://material.angular.io/
 
 ## Angular Flex-Layout library
 This project use Flex-Layoutlibrary  https://github.com/angular/flex-layout 
+
+## The internationalization (i18n) library for Angular
+
+This project use https://github.com/ngx-translate/core.
+https://github.com/ngx-translate/http-loader.

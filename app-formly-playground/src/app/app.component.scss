@@ -10,11 +10,19 @@
     height: 80px;
     font-size: 36px;
     .app-header-title {
-        padding: 20px;
+        padding: 10px;
     };
     .app-header-title-line {
-        width: 20%;
         border: 1px solid $secondary-color;
-        margin: 0 auto;
+        width: 20%;
+        margin: 0 auto
+    }
+    .app-lang-select {
+        font-size: 12px;
+        background-color: #fff;
+        border-radius: 10px;
+        form {
+            padding: 10px;
+        }
     }
 }

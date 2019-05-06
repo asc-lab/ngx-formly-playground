@@ -34,6 +34,15 @@ import {
   maxValidationMessage
 } from '@app/shared/validations';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, 'assets/translations/');
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +84,15 @@ import {
     FormlyMatDatepickerModule,
     BrowserAnimationsModule,
     SHARED_ANGULAR_MATERIAL,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     RequestService,
@@ -83,4 +100,5 @@ import {
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

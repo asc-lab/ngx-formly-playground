@@ -24,6 +24,8 @@
     "@angular/router": "~7.2.0",
     "@ngx-formly/core": "^5.0.4",
     "@ngx-formly/material": "^5.0.4",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
