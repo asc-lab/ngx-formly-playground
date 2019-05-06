@@ -8,7 +8,8 @@
             "backToList": "Wróć na listę",
             "next": "Dalej",
             "back": "Wróć",
-            "submit": "Zatwierdź"
+            "submit": "Zatwierdź",
+            "remove": "Usuń"
         }
     },
     "RequestToConcierge": {
@@ -46,5 +47,11 @@
         "phoneNo": "Potwierdź numer telefonu",
         "email": "Potwirdź adres email",
         "acceptTermsDesc": "Aby przejść dalej, proszę przeczytaj i potwierdź oświadczenia"
+    },
+    "Validations": {
+        "cardIDLength" : "ID Karty powinno mieć 5 znaków",
+        "cardNotExist" : "Podane ID Karty nie isnieje, sprawdź swoje dane identyfikacyjne",
+        "cardTokenLength": "Ilość znaków tokenu karty to 5 znaków",
+        "emailCheck": " jest niepoprawnym adresem email"
     }
 }

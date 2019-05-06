@@ -47,5 +47,11 @@
         "phoneNo": "Confirm phone number",
         "email": "Confirm email",
         "acceptTermsDesc": "In order to proceed, please accept terms"
+    },
+    "Validations": {
+        "cardIDLength" : "Card ID length is 5 characters",
+        "cardNotExist" : "This Card ID does not exist please check your identification card",
+        "cardTokenLength": "Card Token length is 5 characters",
+        "emailCheck": " is not a valid email address"
     }
 }

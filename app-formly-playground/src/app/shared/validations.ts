@@ -1,5 +1,4 @@
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { FormControl, ValidationErrors } from '@angular/forms';
 
 // common validations
 export function minlengthValidationMessage(err, field: FormlyFieldConfig) {

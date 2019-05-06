@@ -1,4 +1,6 @@
 <div class="app-content">
+
+
   <mat-card class="app-content-card">
     <mat-card-title>
       <p>Formly - exercises' list</p>
@@ -37,7 +39,8 @@
             routerLinkActive="active">Exercise four</button>
         </div>
         <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
-          <p>Exercise four - custom input (radio buttons as images), hideExpression used in acction, flex checked, dynamic labels at array items</p>
+          <p>Exercise four - custom input (radio buttons as images), hideExpression used in acction, flex checked,
+            dynamic labels at array items</p>
         </div>
       </div>
       <div fxLayout="row" class="app-row">
@@ -50,14 +53,22 @@
         </div>
       </div>
       <div fxLayout="row" class="app-row">
-          <div fxFlex="30%" fxLayoutAlign="end">
-            <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseSix"
-              routerLinkActive="active">Exercise six</button>
-          </div>
-          <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+        <div fxFlex="30%" fxLayoutAlign="end">
+          <button mat-raised-button class="app-primary-btn" routerLink="../formly/exerciseSix"
+            routerLinkActive="active">Exercise six</button>
+        </div>
+        <div fxFlex="70%" fxLayoutAlign="start" class="app-list-item">
+          <div>
             <p>Exercise six - i18n</p>
           </div>
+          <div class="app-lang-select">
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+            </form>
+          </div>
+
         </div>
+      </div>
     </mat-card-content>
   </mat-card>
 

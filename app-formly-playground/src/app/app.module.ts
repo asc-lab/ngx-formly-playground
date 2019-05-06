@@ -25,7 +25,7 @@ import {
 } from '@app/components/exercises-formly';
 import { ExerciseOneRfComponent, ExerciseTwoRfComponent, ExerciseThreeRfComponent } from '@app/components/exercises-reactive-forms';
 
-import { RequestService, DictService } from '@app/shared/services';
+import { RequestService, DictService, LanguageService } from '@app/shared/services';
 
 import {
   minlengthValidationMessage,
@@ -34,13 +34,8 @@ import {
   maxValidationMessage
 } from '@app/shared/validations';
 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-
-export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, 'assets/translations/');
-}
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -86,17 +81,13 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SHARED_ANGULAR_MATERIAL,
     FlexLayoutModule,
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
+    TranslateModule.forRoot(),
   ],
   providers: [
     RequestService,
-    DictService
+    DictService,
+    LanguageService,
+    TranslateService
   ],
   bootstrap: [AppComponent]
 })
