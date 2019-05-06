@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class ExerciseSixComponent implements OnInit {
   activedStep = 0;
 
-  orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
+  orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE_LANG');
   // tslint:disable-next-line:max-line-length
   acceptTerms = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. ';
 
@@ -80,6 +80,7 @@ export class ExerciseSixComponent implements OnInit {
                 name: 'orderType',
                 label: this.translate.instant('RequestToConcierge.orderType'),
                 options: this.orderTypes,
+                currentLang: this.translate.currentLang,
                 required: true,
               },
             }

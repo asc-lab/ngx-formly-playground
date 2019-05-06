@@ -7,8 +7,10 @@ export interface Dictionary {
 }
 
 export interface DictionaryItem {
-    value: string;
     key: string;
+    value?: string;
+    valueEN?: string;
+    valuePL?: string;
     description?: string;
     dictCode?: string;
 }

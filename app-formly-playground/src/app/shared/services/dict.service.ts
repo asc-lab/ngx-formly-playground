@@ -16,6 +16,23 @@ const dictionariesDB: Dictionary[] = [
                 description: 'services-img'
             },
         ]
+    },
+    {
+        code: 'ORDER_TYPE_LANG',
+        dictionaryItems: [
+            {
+                valueEN: 'SHOPPINGS',
+                valuePL: 'ZAKUPY',
+                key: 'SHOPPINGS',
+                description: 'shoppings-img',
+            },
+            {
+                valueEN: 'SERVICES',
+                valuePL: 'USŁUGI',
+                key: 'SERVICES',
+                description: 'services-img'
+            },
+        ]
     }
 ];
 
