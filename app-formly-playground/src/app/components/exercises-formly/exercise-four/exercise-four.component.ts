@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
-import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
+import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
 import { DictionaryItem } from '@app/shared/model/common';
 
 import { RequestService, DictService } from '@app/shared/services';
@@ -16,7 +16,7 @@ export class ExerciseFourComponent {
 
   form = new FormGroup({});
   model: any = {
-    requestToCharllote: new RequestToCharllote()
+    RequestToConcierge: new RequestToConcierge()
   };
   orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
   // tslint:disable-next-line:max-line-length
@@ -25,7 +25,7 @@ export class ExerciseFourComponent {
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
     {
-      key: 'requestToCharllote',
+      key: 'RequestToConcierge',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Order Identification' },
       fieldGroup: [
@@ -82,8 +82,8 @@ export class ExerciseFourComponent {
       ],
     },
     {
-      key: 'requestToCharllote',
-      hideExpression: (model) => this.model.requestToCharllote.orderType !== 'SHOPPINGS',
+      key: 'RequestToConcierge',
+      hideExpression: (model) => this.model.RequestToConcierge.orderType !== 'SHOPPINGS',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Shoppings' },
       fieldGroup: [
@@ -92,7 +92,7 @@ export class ExerciseFourComponent {
           type: 'repeat-section',
           templateOptions: {
             sectionTitle: 'Shopping item',
-            description: this.model.requestToCharllote.shoppings,
+            description: this.model.RequestToConcierge.shoppings,
             addItem: 'Add shopping item',
           },
           fieldArray: {
@@ -173,8 +173,8 @@ export class ExerciseFourComponent {
       ],
     },
     {
-      key: 'requestToCharllote',
-      hideExpression: (model) => this.model.requestToCharllote.orderType !== 'SERVICES',
+      key: 'RequestToConcierge',
+      hideExpression: (model) => this.model.RequestToConcierge.orderType !== 'SERVICES',
       wrappers: ['card'],
       templateOptions: {
         cardTitle: 'Services',
@@ -185,7 +185,7 @@ export class ExerciseFourComponent {
           type: 'repeat-section',
           templateOptions: {
             sectionTitle: 'Service item',
-            description: this.model.requestToCharllote.services,
+            description: this.model.RequestToConcierge.services,
             addItem: 'Add service item',
           },
           fieldArray: {
@@ -304,7 +304,7 @@ export class ExerciseFourComponent {
       ]
     },
     {
-      key: 'requestToCharllote',
+      key: 'RequestToConcierge',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Additional Comments' },
       fieldGroup: [
@@ -321,7 +321,7 @@ export class ExerciseFourComponent {
       ],
     },
     {
-      key: 'requestToCharllote',
+      key: 'RequestToConcierge',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Confirmations' },
       fieldGroup: [
@@ -358,7 +358,7 @@ export class ExerciseFourComponent {
       ],
     },
     {
-      key: 'requestToCharllote',
+      key: 'RequestToConcierge',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Statements' },
       fieldGroup: [
@@ -382,7 +382,7 @@ export class ExerciseFourComponent {
 
   submit() {
     if (this.form.valid) {
-      this.requestService.saveRequest(this.model.requestToCharllote);
+      this.requestService.saveRequest(this.model.RequestToConcierge);
     }
   }
 

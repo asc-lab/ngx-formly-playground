@@ -12,7 +12,7 @@
             "remove": "Remove"
         }
     },
-    "RequestToCharllote": {
+    "RequestToConcierge": {
         "orderIdentification": "Order Identification",
         "orderType": "Order Type",
         "comments": "Comments",

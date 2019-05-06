@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
+import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
 import { FormControl } from '@angular/forms';
 
 const existingCardId: string[] = [
@@ -22,7 +22,7 @@ export class RequestService {
         });
     }
 
-    saveRequest(request: RequestToCharllote) {
+    saveRequest(request: RequestToConcierge) {
         return alert(JSON.stringify(request));
     }
 }

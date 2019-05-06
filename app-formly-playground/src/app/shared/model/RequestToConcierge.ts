@@ -1,7 +1,7 @@
 import { Shopping } from './Shopping';
 import { Service } from './Service';
 
-export class RequestToCharllote {
+export class RequestToConcierge {
     constructor(
         public cardId: string = '',
         public cardToken: string = '',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
-import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
+import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
 import { RequestService, DictService } from '@app/shared/services';
 import { DictionaryItem } from '@app/shared/model/common';
 
@@ -12,7 +12,7 @@ import { DictionaryItem } from '@app/shared/model/common';
 export class ExerciseThreeRfComponent implements OnInit {
 
   form = new FormGroup({});
-  requestToCharllote: RequestToCharllote = new RequestToCharllote();
+  RequestToConcierge: RequestToConcierge = new RequestToConcierge();
   orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
 
   // tslint:disable-next-line:max-line-length
@@ -69,8 +69,8 @@ export class ExerciseThreeRfComponent implements OnInit {
 
   submit() {
     if (this.form.valid) {
-      this.requestToCharllote = this.form.value;
-      this.requestService.saveRequest(this.requestToCharllote);
+      this.RequestToConcierge = this.form.value;
+      this.requestService.saveRequest(this.RequestToConcierge);
     }
   }
 

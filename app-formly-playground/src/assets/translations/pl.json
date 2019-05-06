@@ -11,7 +11,7 @@
             "submit": "Zatwierdź"
         }
     },
-    "RequestToCharllote": {
+    "RequestToConcierge": {
         "orderIdentification": "Identyfikacja zamówienia",
         "orderType": "Typ zamówienia",
         "comments": "Komentarze",

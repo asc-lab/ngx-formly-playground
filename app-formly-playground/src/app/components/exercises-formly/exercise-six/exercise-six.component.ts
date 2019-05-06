@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
-import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
+import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
 import { DictionaryItem, StepType } from '@app/shared/model/common';
 
 import { RequestService, DictService } from '@app/shared/services';
@@ -22,16 +22,16 @@ export class ExerciseSixComponent implements OnInit {
 
 
   model: any = {
-    requestToCharllote: new RequestToCharllote()
+    RequestToConcierge: new RequestToConcierge()
   };
   steps: StepType[] = [
     {
-      label: this.translate.instant('RequestToCharllote.orderIdentification'),
+      label: this.translate.instant('RequestToConcierge.orderIdentification'),
       fields: [
         {
-          key: 'requestToCharllote',
+          key: 'RequestToConcierge',
           expressionProperties: {
-            'templateOptions.cardTitle': this.translate.stream('RequestToCharllote.cardIdentification'),
+            'templateOptions.cardTitle': this.translate.stream('RequestToConcierge.cardIdentification'),
           },
           wrappers: ['card'],
           fieldGroup: [
@@ -43,8 +43,8 @@ export class ExerciseSixComponent implements OnInit {
                 required: true,
               },
               expressionProperties: {
-                'templateOptions.label': this.translate.stream('RequestToCharllote.cardId'),
-                'templateOptions.description': this.translate.stream('RequestToCharllote.cardIdDesc'),
+                'templateOptions.label': this.translate.stream('RequestToConcierge.cardId'),
+                'templateOptions.description': this.translate.stream('RequestToConcierge.cardIdDesc'),
               },
               validators: {
                 cardId: {
@@ -69,7 +69,7 @@ export class ExerciseSixComponent implements OnInit {
                 required: true,
               },
               expressionProperties: {
-                'templateOptions.label': this.translate.stream('RequestToCharllote.cardToken'),
+                'templateOptions.label': this.translate.stream('RequestToConcierge.cardToken'),
               },
               validators: {
                 cardToken: {
@@ -87,7 +87,7 @@ export class ExerciseSixComponent implements OnInit {
                 required: true,
               },
               expressionProperties: {
-                'templateOptions.label': this.translate.stream('RequestToCharllote.orderType'),
+                'templateOptions.label': this.translate.stream('RequestToConcierge.orderType'),
               },
             }
           ],
@@ -95,25 +95,25 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: this.translate.instant('RequestToCharllote.orderType'),
+      label: this.translate.instant('RequestToConcierge.orderType'),
       fields: [
         {
-          key: 'requestToCharllote',
-          hideExpression: (model) => this.model.requestToCharllote.orderType !== 'SHOPPINGS',
+          key: 'RequestToConcierge',
+          hideExpression: (model) => this.model.RequestToConcierge.orderType !== 'SHOPPINGS',
           wrappers: ['card'],
           expressionProperties: {
-            'templateOptions.cardTitle': this.translate.stream('RequestToCharllote.shoppings'),
+            'templateOptions.cardTitle': this.translate.stream('RequestToConcierge.shoppings'),
           },
           fieldGroup: [
             {
               key: 'shoppings',
               type: 'repeat-section',
               templateOptions: {
-                description: this.model.requestToCharllote.shoppings,
+                description: this.model.RequestToConcierge.shoppings,
               },
               expressionProperties: {
-                'templateOptions.sectionTitle': this.translate.stream('RequestToCharllote.shoppingItem'),
-                'templateOptions.addItem': this.translate.stream('RequestToCharllote.addShoppingItem'),
+                'templateOptions.sectionTitle': this.translate.stream('RequestToConcierge.shoppingItem'),
+                'templateOptions.addItem': this.translate.stream('RequestToConcierge.addShoppingItem'),
               },
               fieldArray: {
                 fieldGroup: [
@@ -125,7 +125,7 @@ export class ExerciseSixComponent implements OnInit {
                       required: true,
                     },
                     expressionProperties: {
-                      'templateOptions.label': this.translate.stream('RequestToCharllote.order'),
+                      'templateOptions.label': this.translate.stream('RequestToConcierge.order'),
                     },
                   },
                   {
@@ -137,7 +137,7 @@ export class ExerciseSixComponent implements OnInit {
                       rows: 5,
                     },
                     expressionProperties: {
-                      'templateOptions.label': this.translate.stream('RequestToCharllote.description'),
+                      'templateOptions.label': this.translate.stream('RequestToConcierge.description'),
                     },
                   },
                   {
@@ -148,7 +148,7 @@ export class ExerciseSixComponent implements OnInit {
                       required: true,
                     },
                     expressionProperties: {
-                      'templateOptions.label': this.translate.stream('RequestToCharllote.deliveryDate'),
+                      'templateOptions.label': this.translate.stream('RequestToConcierge.deliveryDate'),
                     },
                   },
                   {
@@ -158,11 +158,11 @@ export class ExerciseSixComponent implements OnInit {
                       type: 'text',
                     },
                     expressionProperties: {
-                      'templateOptions.label': this.translate.stream('RequestToCharllote.selectedShop'),
+                      'templateOptions.label': this.translate.stream('RequestToConcierge.selectedShop'),
                     },
                   },
                   {
-                    template: '<div class="app-template-label"><strong>{{ "RequestToCharllote.priceRange" | translate }} </strong>',
+                    template: '<div class="app-template-label"><strong>{{ "RequestToConcierge.priceRange" | translate }} </strong>',
                   },
                   {
                     key: 'priceRange',
@@ -179,7 +179,7 @@ export class ExerciseSixComponent implements OnInit {
                           required: true
                         },
                         expressionProperties: {
-                          'templateOptions.label': this.translate.stream('RequestToCharllote.priceRangeForm'),
+                          'templateOptions.label': this.translate.stream('RequestToConcierge.priceRangeForm'),
                         },
                       },
                       {
@@ -193,7 +193,7 @@ export class ExerciseSixComponent implements OnInit {
                           required: true,
                         },
                         expressionProperties: {
-                          'templateOptions.label': this.translate.stream('RequestToCharllote.priceRangeTo'),
+                          'templateOptions.label': this.translate.stream('RequestToConcierge.priceRangeTo'),
                         },
                       }
                     ]
@@ -205,22 +205,22 @@ export class ExerciseSixComponent implements OnInit {
           ],
         },
         {
-          key: 'requestToCharllote',
-          hideExpression: (model) => this.model.requestToCharllote.orderType !== 'SERVICES',
+          key: 'RequestToConcierge',
+          hideExpression: (model) => this.model.RequestToConcierge.orderType !== 'SERVICES',
           wrappers: ['card'],
           expressionProperties: {
-            'templateOptions.cardTitle': this.translate.stream('RequestToCharllote.services'),
+            'templateOptions.cardTitle': this.translate.stream('RequestToConcierge.services'),
           },
           fieldGroup: [
             {
               key: 'services',
               type: 'repeat-section',
               templateOptions: {
-                description: this.model.requestToCharllote.services,
+                description: this.model.RequestToConcierge.services,
               },
               expressionProperties: {
-                'templateOptions.sectionTitle': this.translate.stream('RequestToCharllote.serviceItem'),
-                'templateOptions.addItem': this.translate.stream('RequestToCharllote.addServiceItem'),
+                'templateOptions.sectionTitle': this.translate.stream('RequestToConcierge.serviceItem'),
+                'templateOptions.addItem': this.translate.stream('RequestToConcierge.addServiceItem'),
               },
               fieldArray: {
                 fieldGroup: [
@@ -232,7 +232,7 @@ export class ExerciseSixComponent implements OnInit {
                       required: true,
                     },
                     expressionProperties: {
-                      'templateOptions.label': this.translate.stream('RequestToCharllote.serviceType'),
+                      'templateOptions.label': this.translate.stream('RequestToConcierge.serviceType'),
                     },
                   },
                   {
@@ -244,7 +244,7 @@ export class ExerciseSixComponent implements OnInit {
                       rows: 5,
                     },
                     expressionProperties: {
-                      'templateOptions.label': this.translate.stream('RequestToCharllote.description'),
+                      'templateOptions.label': this.translate.stream('RequestToConcierge.description'),
                     },
                   },
                   {
@@ -259,7 +259,7 @@ export class ExerciseSixComponent implements OnInit {
                           required: true,
                         },
                         expressionProperties: {
-                          'templateOptions.label': this.translate.stream('RequestToCharllote.expectedServiceDate'),
+                          'templateOptions.label': this.translate.stream('RequestToConcierge.expectedServiceDate'),
                         },
                       },
                       {
@@ -271,7 +271,7 @@ export class ExerciseSixComponent implements OnInit {
                           required: true,
                         },
                         expressionProperties: {
-                          'templateOptions.label': this.translate.stream('RequestToCharllote.timeRange'),
+                          'templateOptions.label': this.translate.stream('RequestToConcierge.timeRange'),
                         },
                       },
                     ]
@@ -287,7 +287,7 @@ export class ExerciseSixComponent implements OnInit {
                           type: 'secondChoiceDate',
                         },
                         expressionProperties: {
-                          'templateOptions.label': this.translate.stream('RequestToCharllote.secondChoiceDate'),
+                          'templateOptions.label': this.translate.stream('RequestToConcierge.secondChoiceDate'),
                         },
                       },
                       {
@@ -298,7 +298,7 @@ export class ExerciseSixComponent implements OnInit {
                           type: 'text',
                         },
                         expressionProperties: {
-                          'templateOptions.label': this.translate.stream('RequestToCharllote.timeRange'),
+                          'templateOptions.label': this.translate.stream('RequestToConcierge.timeRange'),
                         },
                       },
                     ]
@@ -310,7 +310,7 @@ export class ExerciseSixComponent implements OnInit {
                       type: 'text',
                     },
                     expressionProperties: {
-                      'templateOptions.label': this.translate.stream('RequestToCharllote.selectedServiceProvider'),
+                      'templateOptions.label': this.translate.stream('RequestToConcierge.selectedServiceProvider'),
                     },
                   },
                   {
@@ -331,7 +331,7 @@ export class ExerciseSixComponent implements OnInit {
                           required: true
                         },
                         expressionProperties: {
-                          'templateOptions.label': this.translate.stream('RequestToCharllote.priceRangeForm'),
+                          'templateOptions.label': this.translate.stream('RequestToConcierge.priceRangeForm'),
                         },
                       },
                       {
@@ -345,7 +345,7 @@ export class ExerciseSixComponent implements OnInit {
                           required: true,
                         },
                         expressionProperties: {
-                          'templateOptions.label': this.translate.stream('RequestToCharllote.priceRangeTo'),
+                          'templateOptions.label': this.translate.stream('RequestToConcierge.priceRangeTo'),
                         },
                       }
                     ]
@@ -358,12 +358,12 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: this.translate.instant('RequestToCharllote.comments'),
+      label: this.translate.instant('RequestToConcierge.comments'),
       fields: [
         {
-          key: 'requestToCharllote',
+          key: 'RequestToConcierge',
           expressionProperties: {
-            'templateOptions.cardTitle': this.translate.stream('RequestToCharllote.additionalComments'),
+            'templateOptions.cardTitle': this.translate.stream('RequestToConcierge.additionalComments'),
           },
           wrappers: ['card'],
           fieldGroup: [
@@ -376,7 +376,7 @@ export class ExerciseSixComponent implements OnInit {
                 rows: 5,
               },
               expressionProperties: {
-                'templateOptions.label': this.translate.stream('RequestToCharllote.commentsToOrder'),
+                'templateOptions.label': this.translate.stream('RequestToConcierge.commentsToOrder'),
               },
             },
           ],
@@ -384,12 +384,12 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: this.translate.instant('RequestToCharllote.confirmations'),
+      label: this.translate.instant('RequestToConcierge.confirmations'),
       fields: [
         {
-          key: 'requestToCharllote',
+          key: 'RequestToConcierge',
           expressionProperties: {
-            'templateOptions.cardTitle': this.translate.stream('RequestToCharllote.confirmContactData'),
+            'templateOptions.cardTitle': this.translate.stream('RequestToConcierge.confirmContactData'),
           },
           wrappers: ['card'],
           fieldGroup: [
@@ -400,7 +400,7 @@ export class ExerciseSixComponent implements OnInit {
                 type: 'number',
               },
               expressionProperties: {
-                'templateOptions.label': this.translate.stream('RequestToCharllote.phoneNo'),
+                'templateOptions.label': this.translate.stream('RequestToConcierge.phoneNo'),
               },
               validators: {
                 phoneNo: {
@@ -419,7 +419,7 @@ export class ExerciseSixComponent implements OnInit {
                 required: true,
               },
               expressionProperties: {
-                'templateOptions.label': this.translate.stream('RequestToCharllote.email'),
+                'templateOptions.label': this.translate.stream('RequestToConcierge.email'),
               },
               validation: {
                 messages: {
@@ -432,13 +432,13 @@ export class ExerciseSixComponent implements OnInit {
       ],
     },
     {
-      label: this.translate.instant('RequestToCharllote.statements'),
+      label: this.translate.instant('RequestToConcierge.statements'),
       fields: [
         {
-          key: 'requestToCharllote',
+          key: 'RequestToConcierge',
           wrappers: ['card'],
           expressionProperties: {
-            'templateOptions.cardTitle': this.translate.stream('RequestToCharllote.readStatements'),
+            'templateOptions.cardTitle': this.translate.stream('RequestToConcierge.readStatements'),
           },
           fieldGroup: [
             {
@@ -450,7 +450,7 @@ export class ExerciseSixComponent implements OnInit {
                 required: true,
               },
               expressionProperties: {
-                'templateOptions.description': this.translate.stream('RequestToCharllote.acceptTermsDesc'),
+                'templateOptions.description': this.translate.stream('RequestToConcierge.acceptTermsDesc'),
               },
             },
           ],
@@ -461,8 +461,7 @@ export class ExerciseSixComponent implements OnInit {
 
   form = new FormArray(this.steps.map(() => new FormGroup({})));
   // tslint:disable-next-line:no-angle-bracket-type-assertion
-  options = this.steps.map(() => <FormlyFormOptions>{});
-
+  options = this.steps.map(() => <FormlyFormOptions> {});
 
   constructor(
     public requestService: RequestService,
@@ -473,16 +472,16 @@ export class ExerciseSixComponent implements OnInit {
   ngOnInit() {
     this.model.lang = this.translate.currentLang;
 
-    this.translate.stream('RequestToCharllote.orderIdentification').subscribe(label => this.steps[0].label = label);
-    this.translate.stream('RequestToCharllote.orderType').subscribe(label => this.steps[1].label = label);
-    this.translate.stream('RequestToCharllote.comments').subscribe(label => this.steps[2].label = label);
-    this.translate.stream('RequestToCharllote.confirmations').subscribe(label => this.steps[3].label = label);
-    this.translate.stream('RequestToCharllote.statements').subscribe(label => this.steps[4].label = label);
+    this.translate.stream('RequestToConcierge.orderIdentification').subscribe(label => this.steps[0].label = label);
+    this.translate.stream('RequestToConcierge.orderType').subscribe(label => this.steps[1].label = label);
+    this.translate.stream('RequestToConcierge.comments').subscribe(label => this.steps[2].label = label);
+    this.translate.stream('RequestToConcierge.confirmations').subscribe(label => this.steps[3].label = label);
+    this.translate.stream('RequestToConcierge.statements').subscribe(label => this.steps[4].label = label);
   }
 
   submit() {
     if (this.form.valid) {
-      this.requestService.saveRequest(this.model.requestToCharllote);
+      this.requestService.saveRequest(this.model.RequestToConcierge);
     }
   }
 

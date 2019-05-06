@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
-import { RequestToCharllote } from '@app/shared/model/RequestToCharllote';
+import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
 import { DictionaryItem } from '@app/shared/model/common';
 
 import { RequestService, DictService } from '@app/shared/services';
@@ -14,14 +14,15 @@ import { RequestService, DictService } from '@app/shared/services';
 })
 export class ExerciseTwoComponent {
   form = new FormGroup({});
-  model: any = { requestToCharllote: new RequestToCharllote() };
+  model: any = { RequestToConcierge: new RequestToConcierge() };
   orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
-  acceptTerms: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. '
+  // tslint:disable-next-line:max-line-length
+  acceptTerms = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. ';
 
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = [
     {
-      key: 'requestToCharllote',
+      key: 'RequestToConcierge',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Order Identification' },
       fieldGroup: [
@@ -59,7 +60,7 @@ export class ExerciseTwoComponent {
       ],
     },
     {
-      key: 'requestToCharllote',
+      key: 'RequestToConcierge',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Shoppings' },
       fieldGroup: [
@@ -68,7 +69,7 @@ export class ExerciseTwoComponent {
           type: 'repeat-section',
           templateOptions: {
             sectionTitle: 'Shopping item',
-            description: this.model.requestToCharllote.shoppings,
+            description: this.model.RequestToConcierge.shoppings,
             addItem: 'Add another shopping item',
           },
           fieldArray: {
@@ -143,7 +144,7 @@ export class ExerciseTwoComponent {
       ],
     },
     {
-      key: 'requestToCharllote',
+      key: 'RequestToConcierge',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Additional Comments' },
       fieldGroup: [
@@ -161,7 +162,7 @@ export class ExerciseTwoComponent {
       ],
     },
     {
-      key: 'requestToCharllote',
+      key: 'RequestToConcierge',
       wrappers: ['card'],
       templateOptions: { cardTitle: 'Statements' },
       fieldGroup: [
@@ -184,7 +185,7 @@ export class ExerciseTwoComponent {
 
   submit() {
     if (this.form.valid) {
-      this.requestService.saveRequest(this.model.requestToCharllote);
+      this.requestService.saveRequest(this.model.RequestToConcierge);
     }
   }
 }
