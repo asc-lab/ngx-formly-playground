@@ -3,7 +3,8 @@
   <div *ngFor="let option of to.options; let i=index" class="app-radio-selector" fxLayout="column" fxFlex.lt-md="100%"  fxFlex="20%">
     <input type="radio" [name]="to.name" [formControl]="formControl" [formlyAttributes]="field" [value]="option.key"
       class="app-selector-card {{option.description}}">
-    <span *ngIf="to.currentLang==='en'" class="app-radio-label">{{option.valueEN}}</span>
+      <span *ngIf="!to.currentLang" class="app-radio-label">{{option.value}}</span>
+      <span *ngIf="to.currentLang==='en'" class="app-radio-label">{{option.valueEN}}</span>
     <span *ngIf="to.currentLang==='pl'" class="app-radio-label">{{option.valuePL}}</span>
   </div>
 </div>
