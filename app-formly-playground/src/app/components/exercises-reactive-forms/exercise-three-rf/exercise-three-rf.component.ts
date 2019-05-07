@@ -10,7 +10,6 @@ import { DictionaryItem } from '@app/shared/model/common';
   styleUrls: ['./exercise-three-rf.component.scss']
 })
 export class ExerciseThreeRfComponent implements OnInit {
-
   form = new FormGroup({});
   RequestToConcierge: RequestToConcierge = new RequestToConcierge();
   orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE');
@@ -73,5 +72,4 @@ export class ExerciseThreeRfComponent implements OnInit {
       this.requestService.saveRequest(this.RequestToConcierge);
     }
   }
-
 }
