@@ -23,7 +23,12 @@ import {
   ExerciseFiveComponent,
   ExerciseSixComponent
 } from '@app/components/exercises-formly';
-import { ExerciseOneRfComponent, ExerciseTwoRfComponent, ExerciseThreeRfComponent } from '@app/components/exercises-reactive-forms';
+import {
+  ExerciseOneRfComponent,
+  ExerciseTwoRfComponent,
+  ExerciseThreeRfComponent,
+  ExerciseFourFtComponent
+} from '@app/components/exercises-reactive-forms';
 
 import { RequestService, DictService, LanguageService } from '@app/shared/services';
 
@@ -36,7 +41,6 @@ import {
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [
@@ -53,7 +57,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExerciseFourComponent,
     ImgRadioTypeComponent,
     ExerciseFiveComponent,
-    ExerciseSixComponent
+    ExerciseSixComponent,
+    ExerciseFourFtComponent
   ],
   imports: [
     BrowserModule,
