@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Dictionary } from '../model/common';
+import { Dictionary, DictionaryWithTranslations } from '../model/common';
 
 const dictionariesDB: Dictionary[] = [
     {
@@ -16,20 +16,27 @@ const dictionariesDB: Dictionary[] = [
                 description: 'services-img'
             },
         ]
-    },
+    }
+];
+
+const dictionariesDBWithTransl: DictionaryWithTranslations[] = [
     {
-        code: 'ORDER_TYPE_LANG',
+        code: 'ORDER_TYPE',
         dictionaryItems: [
             {
-                valueEN: 'SHOPPINGS',
-                valuePL: 'ZAKUPY',
                 key: 'SHOPPINGS',
+                translations: new Map([
+                    ['en', 'SHOPPING'],
+                    ['pl', 'ZAKUPY']
+                ]),
                 description: 'shoppings-img',
             },
             {
-                valueEN: 'SERVICES',
-                valuePL: 'USŁUGI',
                 key: 'SERVICES',
+                translations: new Map([
+                    ['en', 'SERVICES'],
+                    ['pl', 'USŁUGI']
+                ]),
                 description: 'services-img'
             },
         ]
@@ -44,6 +51,11 @@ export class DictService {
 
     getDictionaryItems(dictCode: string) {
         const dictionaryToFind = dictionariesDB.find(dict => dict.code === dictCode);
+        return dictionaryToFind.dictionaryItems;
+    }
+
+    getDictionaryItemsWithTranslations(dictCode: string) {
+        const dictionaryToFind = dictionariesDBWithTransl.find(dict => dict.code === dictCode);
         return dictionaryToFind.dictionaryItems;
     }
 

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
-import { DictionaryItem, StepType } from '@app/shared/model/common';
+import { StepType, DictionaryItemWithTranslations } from '@app/shared/model/common';
 
 import { RequestService, DictService } from '@app/shared/services';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class ExerciseSixComponent implements OnInit {
   activedStep = 0;
 
-  orderTypes: DictionaryItem[] = this.dictionaryService.getDictionaryItems('ORDER_TYPE_LANG');
+  orderTypes: DictionaryItemWithTranslations[] = this.dictionaryService.getDictionaryItemsWithTranslations('ORDER_TYPE');
   // tslint:disable-next-line:max-line-length
   acceptTerms = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. ';
 
