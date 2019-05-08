@@ -1,3 +1,366 @@
-<p>
-  exercise-five-ft works!
-</p>
+<div class="app-content">
+  <button mat-raised-button routerLink="../../home" routerLinkActive="active" fxLayoutAlign="">Back to list
+  </button>
+
+  <mat-horizontal-stepper #stepper class="app-steper">
+    <mat-step [stepControl]="form">
+      <ng-template matStepLabel>Order Identification</ng-template>
+      <form [formGroup]="form">
+        <mat-card class="app-content-card">
+          <mat-card-title>
+            <span>Order Identification - Reactive Forms</span>
+          </mat-card-title>
+          <mat-card-content fxLayout="column">
+            <mat-form-field>
+              <input type="text" matInput placeholder="Card ID" name="cardId" formControlName="cardId">
+              <mat-error *ngIf="!fc.cardId.valid">
+                <span *ngIf="fc.cardId.errors.required">This field is required</span>
+                <span *ngIf="fc.cardId.errors.minlength">Card ID length is {{fc.cardId.errors.minlength.requiredLength}}
+                  characters</span>
+                <span *ngIf="fc.cardId.errors.maxlength">Card ID length is {{fc.cardId.errors.maxlength.requiredLength}}
+                  characters</span>
+                <span *ngIf="fc.cardId.errors.cardExist">This Card ID does not exist please check your identification
+                  card</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input type="text" matInput placeholder="Card token" name="cardToken" formControlName="cardToken">
+              <mat-error *ngIf="!fc.cardToken.valid">
+                <span *ngIf="fc.cardToken.errors.required">This field is required</span>
+                <span *ngIf="fc.cardToken.errors.minlength">Card token length is
+                  {{fc.cardToken.errors.minlength.requiredLength}} characters</span>
+                <span *ngIf="fc.cardToken.errors.maxlength">Card token length is
+                  {{fc.cardToken.errors.maxlength.requiredLength}} characters</span>
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <span class="app-label" fxLayoutAlign="start">Order type</span>
+              <div fxLayout="row wrap">
+                <div *ngFor="let order of orderTypes; let i=index" class="app-radio-selector" fxLayout="column"
+                  fxFlex.lt-md="100%" fxFlex="20%">
+                  <input type="radio" name="orderType" formControlName="orderType" [value]="order.value"
+                    class="app-selector-card {{order.description}}">
+                  <span class="app-radio-label">{{order.value}}</span>
+                </div>
+              </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+        <div>
+          <button mat-raised-button matStepperNext class="app-secondary-btn app-next-btn" type="button">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <ng-template matStepLabel>Order Type</ng-template>
+      <form [formGroup]="form">
+        <mat-card class="app-content-card" *ngIf="fc.orderType.value==='SHOPPINGS'">
+          <mat-card-title>
+            <span>Shoppings</span>
+          </mat-card-title>
+          <mat-card-content fxLayout="column">
+            <div formArrayName="shoppings" *ngFor="let item of form.get('shoppings').controls; let i = index;"
+              class="app-section-item">
+              <div [formGroupName]="i">
+                <div fxLayout="column">
+                  <h3 fxLayoutAlign="start">Shopping item</h3>
+                  <div fxLayout="row" fxLayout.xs="column">
+                    <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
+                      <mat-form-field>
+                        <input type="text" matInput placeholder="Order" name="order" formControlName="order">
+                        <mat-error *ngIf="!shoppings.controls[i].controls.order.valid">
+                          <span *ngIf="shoppings.controls[i].controls.order.errors.required">This field is
+                            required</span>
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <textarea rows="5" cols="150" matInput placeholder="Description" name="description"
+                          formControlName="description"></textarea>
+                        <mat-error *ngIf="!shoppings.controls[i].controls.description.valid">
+                          <span *ngIf="shoppings.controls[i].controls.description.errors.required">This field is
+                            required</span>
+                          <span *ngIf="shoppings.controls[i].controls.description.errors.maxlength">This value should be
+                            less than
+                            {{fc.description.errors.maxlength.requiredLength}} characters</span>
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Delivery date" name="deliveryDate"
+                          formControlName="deliveryDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="!shoppings.controls[i].controls.deliveryDate.valid">
+                          <span *ngIf="shoppings.controls[i].controls.deliveryDate.errors.required">This field is
+                            required</span>
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input type="text" matInput placeholder="Selected shop" name="selectedShop"
+                          formControlName="selectedShop">
+                      </mat-form-field>
+                      <div formGroupName="priceRange" fxLayout="column">
+                        <div class="app-template-label"><strong>Price range:</strong></div>
+                        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                          <mat-form-field fxFlex="49%" fxFlex.xs="100%">
+                            <input type="number" matInput placeholder="Price range from" name="from"
+                              formControlName="from">
+                            <mat-error *ngIf="!shoppings.controls[i].controls.priceRange.controls.from.valid">
+                              <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.required">This
+                                field
+                                is required</span>
+                              <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.min">This
+                                value
+                                should be more than
+                                {{shoppings.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
+                              <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.max">This
+                                value
+                                should be less than
+                                {{shoppings.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
+                            </mat-error>
+                          </mat-form-field>
+                          <mat-form-field fxFlex="49%" fxFlex.xs="100%">
+                            <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
+                            <mat-error *ngIf="!shoppings.controls[i].controls.priceRange.controls.to.valid">
+                              <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.required">This
+                                field
+                                is required</span>
+                              <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.min">This value
+                                should be more than
+                                {{shoppings.controls[i].controls.priceRange.controls.to.errors.min.min}}</span>
+                              <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.max">This value
+                                should be less than
+                                {{shoppings.controls[i].controls.priceRange.controls.to.errors.max.max}}</span>
+                            </mat-error>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxFlex="10%" fxFlex.xs="100%">
+                      <button mat-raised-button type="button" (click)="removeShoppingItem(i)">Remove</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button mat-raised-button type="button" (click)="addShoppingItem()" class="app-secondary-btn">Add another
+                shopping
+                item</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="app-content-card" *ngIf="fc.orderType.value==='SERVICES'">
+          <mat-card-title>
+            <span>Services</span>
+          </mat-card-title>
+          <mat-card-content fxLayout="column">
+            <div formArrayName="services" *ngFor="let item of form.get('services').controls; let i = index;"
+              class="app-section-item">
+              <div [formGroupName]="i">
+                <div fxLayout="column">
+                  <h3 fxLayoutAlign="start">Service item</h3>
+                  <div fxLayout="row" fxLayout.xs="column">
+                    <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
+                      <mat-form-field>
+                        <input type="text" matInput placeholder="Order" name="order" formControlName="order">
+                        <mat-error *ngIf="!services.controls[i].controls.order.valid">
+                          <span *ngIf="services.controls[i].controls.order.errors.required">This field is
+                            required</span>
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <textarea rows="5" cols="150" matInput placeholder="Description" name="description"
+                          formControlName="description"></textarea>
+                        <mat-error *ngIf="!services.controls[i].controls.description.valid">
+                          <span *ngIf="services.controls[i].controls.description.errors.required">This field is
+                            required</span>
+                          <span *ngIf="services.controls[i].controls.description.errors.maxlength">This value should be
+                            less than
+                            {{fc.description.errors.maxlength.requiredLength}} characters</span>
+                        </mat-error>
+                      </mat-form-field>
+                      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                        <mat-form-field fxFlex="69%" fxFlex.xs="100%">
+                          <input matInput [matDatepicker]="picker" placeholder="Expected service date" name="date"
+                            formControlName="date">
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                          <mat-error *ngIf="!services.controls[i].controls.date.valid">
+                            <span *ngIf="services.controls[i].controls.date.errors.required">This field is
+                              required</span>
+                          </mat-error>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="29%" fxFlex.xs="100%">
+                          <input type="text" matInput placeholder="Time range" name="timeRange"
+                            formControlName="timeRange">
+                          <mat-error *ngIf="!services.controls[i].controls.timeRange.valid">
+                            <span *ngIf="services.controls[i].controls.timeRange.errors.required">This field is
+                              required</span>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                        <mat-form-field fxFlex="69%" fxFlex.xs="100%">
+                          <input matInput [matDatepicker]="picker_2" placeholder="Second choice sevice date"
+                            name="secondChoiceDate" formControlName="secondChoiceDate">
+                          <mat-datepicker-toggle matSuffix [for]="picker_2"></mat-datepicker-toggle>
+                          <mat-datepicker #picker_2></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="29%" fxFlex.xs="100%">
+                          <input type="text" matInput placeholder="Time range" name="secondChoiceTimeRange"
+                            formControlName="secondChoiceTimeRange">
+                        </mat-form-field>
+                      </div>
+                      <mat-form-field>
+                        <input type="text" matInput placeholder="Selected service provider"
+                          name="selectedServiceProvider" formControlName="selectedServiceProvider">
+                      </mat-form-field>
+                      <div formGroupName="priceRange" fxLayout="column">
+                        <div class="app-template-label"><strong>Price range:</strong></div>
+                        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                          <mat-form-field fxFlex="49%" fxFlex.xs="100%">
+                            <input type="number" matInput placeholder="Price range from" name="from"
+                              formControlName="from">
+                            <mat-error *ngIf="!services.controls[i].controls.priceRange.controls.from.valid">
+                              <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.required">This
+                                field
+                                is required</span>
+                              <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.min">This value
+                                should be more than
+                                {{services.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
+                              <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.max">This value
+                                should be less than
+                                {{services.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
+                            </mat-error>
+                          </mat-form-field>
+                          <mat-form-field fxFlex="49%" fxFlex.xs="100%">
+                            <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
+                            <mat-error *ngIf="!services.controls[i].controls.priceRange.controls.to.valid">
+                              <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.required">This
+                                field
+                                is required</span>
+                              <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.min">This value
+                                should be more than
+                                {{services.controls[i].controls.priceRange.controls.to.errors.min.min}}</span>
+                              <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.max">This value
+                                should be less than
+                                {{services.controls[i].controls.priceRange.controls.to.errors.max.max}}</span>
+                            </mat-error>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxFlex="10%" fxFlex.xs="100%">
+                      <button mat-raised-button type="button" (click)="removeServiceItem(i)">Remove</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button mat-raised-button type="button" (click)="addServiceItem()" class="app-secondary-btn">Add another
+                service
+                item</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <div>
+          <button matStepperPrevious mat-raised-button class="app-back-btn" type="button">Back</button>
+          <button mat-raised-button matStepperNext class="app-secondary-btn app-next-btn" type="button">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <ng-template matStepLabel>Comments</ng-template>
+      <form [formGroup]="form">
+        <mat-card class="app-content-card">
+          <mat-card-title>
+            <span>Additional Comments</span>
+          </mat-card-title>
+          <mat-card-content fxLayout="column">
+            <mat-form-field>
+              <textarea rows="5" cols="150" matInput placeholder="Comments" name="comments"
+                formControlName="comments"></textarea>
+              <mat-error *ngIf="!fc.comments.valid">
+                <span *ngIf="fc.comments.errors.maxlength">This value should be less than
+                  {{fc.comments.errors.maxlength.requiredLength}} characters</span>
+              </mat-error>
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+        <div>
+          <button matStepperPrevious mat-raised-button class="app-back-btn" type="button">Back</button>
+          <button mat-raised-button matStepperNext class="app-secondary-btn app-next-btn" type="button">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <ng-template matStepLabel>Confirmations</ng-template>
+      <form [formGroup]="form">
+        <mat-card class="app-content-card">
+          <mat-card-title>
+            <span>Confirmations</span>
+          </mat-card-title>
+          <mat-card-content fxLayout="column">
+            <mat-form-field>
+              <input type="text" matInput placeholder="Confirm phone number" name="phoneNo" formControlName="phoneNo"
+                class="form-control">
+              <mat-error *ngIf="!fc.phoneNo.valid">
+                <span *ngIf="fc.phoneNo.errors.required">This field is required</span>
+                <span *ngIf="fc.phoneNo.errors.minlength">Phone No length is
+                  {{fc.phoneNo.errors.minlength.requiredLength}}
+                  characters</span>
+                <span *ngIf="fc.phoneNo.errors.maxlength">Phone No length is
+                  {{fc.phoneNo.errors.maxlength.requiredLength}}
+                  characters</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input type="email" matInput placeholder="Confirm email address" name="email" formControlName="email"
+                class="form-control">
+              <mat-error *ngIf="!fc.email.valid">
+                <span *ngIf="fc.email.errors.required">This field is required</span>
+                <span *ngIf="fc.email.errors.pattern">{{form.controls['email'].value}} is not a valid email
+                  Address</span>
+              </mat-error>
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+        <div>
+          <button matStepperPrevious mat-raised-button class="app-back-btn" type="button">Back</button>
+          <button mat-raised-button matStepperNext class="app-secondary-btn app-next-btn" type="button">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <ng-template matStepLabel>Statements</ng-template>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-card class="app-content-card">
+          <mat-card-title>
+            <span>Statements</span>
+          </mat-card-title>
+          <mat-card-content fxLayout="column">
+            <mat-checkbox name="acceptTerms" formControlName="acceptTerms"
+              description="In order to proceed, please accept terms">{{acceptTerms}}</mat-checkbox>
+            <mat-error *ngIf="!fc.acceptTerms.valid">
+              <span *ngIf="fc.acceptTerms.errors.required">This field is required</span>
+              <span *ngIf="fc.acceptTerms.errors.pattern">To proceed please accept terms</span>
+            </mat-error>
+            <mat-hint>In order to proceed, please accept terms</mat-hint>
+          </mat-card-content>
+        </mat-card>
+        <div>
+          <button matStepperPrevious mat-raised-button class="app-back-btn" type="button">Back</button>
+          <button mat-raised-button class="app-primary-btn app-next-btn" [disabled]="!form.valid"
+            type="submit">Submit</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
