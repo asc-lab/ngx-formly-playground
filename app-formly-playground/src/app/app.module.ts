@@ -27,7 +27,8 @@ import {
   ExerciseOneRfComponent,
   ExerciseTwoRfComponent,
   ExerciseThreeRfComponent,
-  ExerciseFourFtComponent
+  ExerciseFourFtComponent,
+  ExerciseFiveFtComponent
 } from '@app/components/exercises-reactive-forms';
 
 import { RequestService, DictService, LanguageService } from '@app/shared/services';
@@ -58,7 +59,8 @@ import { HttpClientModule } from '@angular/common/http';
     ImgRadioTypeComponent,
     ExerciseFiveComponent,
     ExerciseSixComponent,
-    ExerciseFourFtComponent
+    ExerciseFourFtComponent,
+    ExerciseFiveFtComponent
   ],
   imports: [
     BrowserModule,

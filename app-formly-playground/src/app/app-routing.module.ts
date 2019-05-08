@@ -14,7 +14,8 @@ import {
   ExerciseOneRfComponent,
   ExerciseTwoRfComponent,
   ExerciseThreeRfComponent,
-  ExerciseFourFtComponent
+  ExerciseFourFtComponent,
+  ExerciseFiveFtComponent
 } from '@app/components/exercises-reactive-forms';
 
 
@@ -67,6 +68,10 @@ const routes: Routes = [
       {
         path: 'exerciseFour',
         component: ExerciseFourFtComponent
+      },
+      {
+        path: 'exerciseFive',
+        component: ExerciseFiveFtComponent
       },
     ]
   },
