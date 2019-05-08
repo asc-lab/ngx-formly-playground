@@ -134,7 +134,7 @@ export class ExerciseFourComponent {
                 },
               },
               {
-                template: '<div class="app-template-label"><strong>Price range:</strong>',
+                template: '<div class="app-template-label"><strong>Price range:</strong></div>',
               },
               {
                 key: 'priceRange',
@@ -266,7 +266,7 @@ export class ExerciseFourComponent {
                 },
               },
               {
-                template: '<div class="app-template-label"><strong>Price range:</strong>',
+                template: '<div class="app-template-label"><strong>Price range:</strong></div>',
               },
               {
                 key: 'priceRange',

@@ -56,14 +56,14 @@
                 <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
                   <mat-form-field>
                     <input type="text" matInput placeholder="Order" name="order" formControlName="order">
-                    <mat-error>
+                    <mat-error *ngIf="!shoppings.controls[i].controls.order.valid">
                       <span *ngIf="shoppings.controls[i].controls.order.errors.required">This field is required</span>
                     </mat-error>
                   </mat-form-field>
                   <mat-form-field>
                     <textarea rows="5" cols="150" matInput placeholder="Description" name="description"
                       formControlName="description"></textarea>
-                    <mat-error>
+                    <mat-error *ngIf="!shoppings.controls[i].controls.description.valid">
                       <span *ngIf="shoppings.controls[i].controls.description.errors.required">This field is
                         required</span>
                       <span *ngIf="shoppings.controls[i].controls.description.errors.maxlength">This value should be

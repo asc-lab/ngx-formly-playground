@@ -58,14 +58,14 @@
                 <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
                   <mat-form-field>
                     <input type="text" matInput placeholder="Order" name="order" formControlName="order">
-                    <mat-error>
+                    <mat-error *ngIf="!shoppings.controls[i].controls.order.valid">
                       <span *ngIf="shoppings.controls[i].controls.order.errors.required">This field is required</span>
                     </mat-error>
                   </mat-form-field>
                   <mat-form-field>
                     <textarea rows="5" cols="150" matInput placeholder="Description" name="description"
                       formControlName="description"></textarea>
-                    <mat-error>
+                    <mat-error *ngIf="!shoppings.controls[i].controls.description.valid">
                       <span *ngIf="shoppings.controls[i].controls.description.errors.required">This field is
                         required</span>
                       <span *ngIf="shoppings.controls[i].controls.description.errors.maxlength">This value should be
@@ -88,33 +88,37 @@
                       formControlName="selectedShop">
                   </mat-form-field>
                   <div formGroupName="priceRange" fxLayout="column">
-                    <mat-form-field fxFlex="100%">
-                      <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
-                      <mat-error *ngIf="!shoppings.controls[i].controls.priceRange.controls.from.valid">
-                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.required">This field
-                          is required</span>
-                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.min">This value
-                          should be more than
-                          {{shoppings.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
-                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.max">This value
-                          should be less than
-                          {{shoppings.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
-                      </mat-error>
-                    </mat-form-field>
-                    <mat-form-field fxFlex="100%">
-                      <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
-                      <mat-error *ngIf="!shoppings.controls[i].controls.priceRange.controls.to.valid">
-                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.required">This field
-                          is required</span>
-                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.min">This value
-                          should be more than
-                          {{shoppings.controls[i].controls.priceRange.controls.to.errors.min.min}}</span>
-                        <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.max">This value
-                          should be less than
-                          {{shoppings.controls[i].controls.priceRange.controls.to.errors.max.max}}</span>
-                      </mat-error>
-
-                    </mat-form-field>
+                    <div class="app-template-label"><strong>Price range:</strong></div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                      <mat-form-field fxFlex="49%" fxFlex.xs="100%">
+                        <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
+                        <mat-error *ngIf="!shoppings.controls[i].controls.priceRange.controls.from.valid">
+                          <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.required">This
+                            field
+                            is required</span>
+                          <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.min">This value
+                            should be more than
+                            {{shoppings.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
+                          <span *ngIf="shoppings.controls[i].controls.priceRange.controls.from.errors.max">This value
+                            should be less than
+                            {{shoppings.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field fxFlex="49%" fxFlex.xs="100%">
+                        <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
+                        <mat-error *ngIf="!shoppings.controls[i].controls.priceRange.controls.to.valid">
+                          <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.required">This
+                            field
+                            is required</span>
+                          <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.min">This value
+                            should be more than
+                            {{shoppings.controls[i].controls.priceRange.controls.to.errors.min.min}}</span>
+                          <span *ngIf="shoppings.controls[i].controls.priceRange.controls.to.errors.max">This value
+                            should be less than
+                            {{shoppings.controls[i].controls.priceRange.controls.to.errors.max.max}}</span>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
                   </div>
                 </div>
                 <div fxFlex="10%" fxFlex.xs="100%">
@@ -146,14 +150,14 @@
                 <div fxFlex="90%" fxFlex.xs="100%" fxLayout="column">
                   <mat-form-field>
                     <input type="text" matInput placeholder="Order" name="order" formControlName="order">
-                    <mat-error>
+                    <mat-error *ngIf="!services.controls[i].controls.order.valid">
                       <span *ngIf="services.controls[i].controls.order.errors.required">This field is required</span>
                     </mat-error>
                   </mat-form-field>
                   <mat-form-field>
                     <textarea rows="5" cols="150" matInput placeholder="Description" name="description"
                       formControlName="description"></textarea>
-                    <mat-error>
+                    <mat-error *ngIf="!services.controls[i].controls.description.valid">
                       <span *ngIf="services.controls[i].controls.description.errors.required">This field is
                         required</span>
                       <span *ngIf="services.controls[i].controls.description.errors.maxlength">This value should be
@@ -161,65 +165,72 @@
                         {{fc.description.errors.maxlength.requiredLength}} characters</span>
                     </mat-error>
                   </mat-form-field>
-                  <mat-form-field>
-                    <input matInput [matDatepicker]="picker" placeholder="Expected service date" name="date"
-                      formControlName="date">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                    <mat-error *ngIf="!services.controls[i].controls.date.valid">
-                      <span *ngIf="services.controls[i].controls.date.errors.required">This field is
-                        required</span>
-                    </mat-error>
-                  </mat-form-field>
-                  <mat-form-field>
-                    <input type="text" matInput placeholder="Time range" name="timeRange" formControlName="timeRange">
-                    <mat-error>
-                      <span *ngIf="services.controls[i].controls.timeRange.errors.required">This field is
-                        required</span>
-                    </mat-error>
-                  </mat-form-field>
-                  <mat-form-field>
-                    <input matInput [matDatepicker]="picker_2" placeholder="Second choice sevice date"
-                      name="secondChoiceDate" formControlName="secondChoiceDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker_2"></mat-datepicker-toggle>
-                    <mat-datepicker #picker_2></mat-datepicker>
-                  </mat-form-field>
-                  <mat-form-field>
-                    <input type="text" matInput placeholder="Time range" name="secondChoiceTimeRange"
-                      formControlName="secondChoiceTimeRange">
-                  </mat-form-field>
+                  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                    <mat-form-field fxFlex="69%" fxFlex.xs="100%">
+                      <input matInput [matDatepicker]="picker" placeholder="Expected service date" name="date"
+                        formControlName="date">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                      <mat-error *ngIf="!services.controls[i].controls.date.valid">
+                        <span *ngIf="services.controls[i].controls.date.errors.required">This field is
+                          required</span>
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="29%" fxFlex.xs="100%">
+                      <input type="text" matInput placeholder="Time range" name="timeRange" formControlName="timeRange">
+                      <mat-error *ngIf="!services.controls[i].controls.timeRange.valid">
+                        <span *ngIf="services.controls[i].controls.timeRange.errors.required">This field is
+                          required</span>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                    <mat-form-field fxFlex="69%" fxFlex.xs="100%">
+                      <input matInput [matDatepicker]="picker_2" placeholder="Second choice sevice date"
+                        name="secondChoiceDate" formControlName="secondChoiceDate">
+                      <mat-datepicker-toggle matSuffix [for]="picker_2"></mat-datepicker-toggle>
+                      <mat-datepicker #picker_2></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="29%" fxFlex.xs="100%">
+                      <input type="text" matInput placeholder="Time range" name="secondChoiceTimeRange"
+                        formControlName="secondChoiceTimeRange">
+                    </mat-form-field>
+                  </div>
                   <mat-form-field>
                     <input type="text" matInput placeholder="Selected service provider" name="selectedServiceProvider"
                       formControlName="selectedServiceProvider">
                   </mat-form-field>
                   <div formGroupName="priceRange" fxLayout="column">
-                    <mat-form-field fxFlex="100%">
-                      <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
-                      <mat-error *ngIf="!services.controls[i].controls.priceRange.controls.from.valid">
-                        <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.required">This field
-                          is required</span>
-                        <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.min">This value
-                          should be more than
-                          {{services.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
-                        <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.max">This value
-                          should be less than
-                          {{services.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
-                      </mat-error>
-                    </mat-form-field>
-                    <mat-form-field fxFlex="100%">
-                      <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
-                      <mat-error *ngIf="!services.controls[i].controls.priceRange.controls.to.valid">
-                        <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.required">This field
-                          is required</span>
-                        <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.min">This value
-                          should be more than
-                          {{services.controls[i].controls.priceRange.controls.to.errors.min.min}}</span>
-                        <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.max">This value
-                          should be less than
-                          {{services.controls[i].controls.priceRange.controls.to.errors.max.max}}</span>
-                      </mat-error>
-
-                    </mat-form-field>
+                    <div class="app-template-label"><strong>Price range:</strong></div>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+                      <mat-form-field fxFlex="49%" fxFlex.xs="100%">
+                        <input type="number" matInput placeholder="Price range from" name="from" formControlName="from">
+                        <mat-error *ngIf="!services.controls[i].controls.priceRange.controls.from.valid">
+                          <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.required">This
+                            field
+                            is required</span>
+                          <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.min">This value
+                            should be more than
+                            {{services.controls[i].controls.priceRange.controls.from.errors.min.min}}</span>
+                          <span *ngIf="services.controls[i].controls.priceRange.controls.from.errors.max">This value
+                            should be less than
+                            {{services.controls[i].controls.priceRange.controls.from.errors.max.max}}</span>
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field fxFlex="49%" fxFlex.xs="100%">
+                        <input type="number" matInput placeholder="Price range to" name="to" formControlName="to">
+                        <mat-error *ngIf="!services.controls[i].controls.priceRange.controls.to.valid">
+                          <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.required">This field
+                            is required</span>
+                          <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.min">This value
+                            should be more than
+                            {{services.controls[i].controls.priceRange.controls.to.errors.min.min}}</span>
+                          <span *ngIf="services.controls[i].controls.priceRange.controls.to.errors.max">This value
+                            should be less than
+                            {{services.controls[i].controls.priceRange.controls.to.errors.max.max}}</span>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
                   </div>
                 </div>
                 <div fxFlex="10%" fxFlex.xs="100%">

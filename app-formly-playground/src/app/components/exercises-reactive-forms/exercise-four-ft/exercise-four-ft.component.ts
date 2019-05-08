@@ -24,7 +24,6 @@ export class ExerciseFourFtComponent implements OnInit {
 
   ngOnInit() {
     this.applyDisplayMode();
-    console.log(this.fc.orderType)
   }
 
   createShoppingItem(): FormGroup {
