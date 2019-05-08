@@ -24,6 +24,7 @@ export class ExerciseFourFtComponent implements OnInit {
 
   ngOnInit() {
     this.applyDisplayMode();
+    console.log(this.fc.orderType)
   }
 
   createShoppingItem(): FormGroup {
@@ -59,11 +60,11 @@ export class ExerciseFourFtComponent implements OnInit {
     this.form = this.fb.group({
       cardId: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(5)])],
       cardToken: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
-      orderType: ['', Validators.required],
+      orderType: ['SHOPPINGS', Validators.required],
       shoppings: this.fb.array([this.createShoppingItem()]),
       services: this.fb.array([this.createServiceItem()]),
       comments: ['', [Validators.maxLength(6000)]],
-      phoneNo: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+      phoneNo: ['', [Validators.required]],
       email: [' ', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       acceptTerms: [false, [Validators.required, Validators.pattern('true')]]
     });

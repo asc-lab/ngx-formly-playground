@@ -16,7 +16,8 @@ import {
   MatInputModule,
   MatDatepickerModule,
   MatSelectModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatRadioModule
 } from '@angular/material';
 
 
@@ -33,7 +34,8 @@ import {
     MatDatepickerModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatStepperModule
+    MatStepperModule,
+    MatRadioModule
   ],
   exports: [
     MatButtonModule,
@@ -47,7 +49,8 @@ import {
     MatDatepickerModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatStepperModule
+    MatStepperModule,
+    MatRadioModule
   ],
   declarations: []
 })

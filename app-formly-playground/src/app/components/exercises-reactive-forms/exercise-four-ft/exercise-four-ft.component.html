@@ -21,28 +21,30 @@
         </mat-form-field>
         <mat-form-field>
           <input type="text" matInput placeholder="Card token" name="cardToken" formControlName="cardToken">
-          <mat-error>
+          <mat-error *ngIf="!fc.cardToken.valid">
             <span *ngIf="fc.cardToken.errors.required">This field is required</span>
             <span *ngIf="fc.cardToken.errors.minlength">Card token length is
-              {{fc.cardId.errors.minlength.requiredLength}} characters</span>
+              {{fc.cardToken.errors.minlength.requiredLength}} characters</span>
             <span *ngIf="fc.cardToken.errors.maxlength">Card token length is
-              {{fc.cardId.errors.maxlength.requiredLength}} characters</span>
+              {{fc.cardToken.errors.maxlength.requiredLength}} characters</span>
           </mat-error>
         </mat-form-field>
-        <mat-form-field>
-          <mat-select placeholder="Order type" name="orderType" formControlName="orderType">
-            <mat-option *ngFor="let order of orderTypes" [value]="order.key">
-              {{order.value}}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="!fc.orderType.valid">
-            <span *ngIf="fc.orderType.errors.required">This field is required</span>
-          </mat-error>
-        </mat-form-field>
+        <div>
+          <span class="app-label" fxLayoutAlign="start">Order type</span>
+          <div fxLayout="row wrap">
+            <div *ngFor="let order of orderTypes; let i=index" class="app-radio-selector" fxLayout="column"
+              fxFlex.lt-md="100%" fxFlex="20%">
+              <input type="radio" name="orderType" formControlName="orderType" [value]="order.value"
+                class="app-selector-card {{order.description}}">
+              <span class="app-radio-label">{{order.value}}</span>
+            </div>
+          </div>
+        </div>
+
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="app-content-card">
+    <mat-card class="app-content-card" *ngIf="fc.orderType.value==='SHOPPINGS'">
       <mat-card-title>
         <span>Shoppings</span>
       </mat-card-title>
@@ -130,7 +132,7 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="app-content-card">
+    <mat-card class="app-content-card" *ngIf="fc.orderType.value==='SERVICES'">
       <mat-card-title>
         <span>Services</span>
       </mat-card-title>
@@ -170,15 +172,15 @@
                     </mat-error>
                   </mat-form-field>
                   <mat-form-field>
-                    <input type="text" matInput placeholder="Time range" name="timeRange"
-                      formControlName="timeRange">
-                      <mat-error>
-                        <span *ngIf="services.controls[i].controls.timeRange.errors.required">This field is required</span>
-                      </mat-error>
+                    <input type="text" matInput placeholder="Time range" name="timeRange" formControlName="timeRange">
+                    <mat-error>
+                      <span *ngIf="services.controls[i].controls.timeRange.errors.required">This field is
+                        required</span>
+                    </mat-error>
                   </mat-form-field>
                   <mat-form-field>
-                    <input matInput [matDatepicker]="picker_2" placeholder="Second choice sevice date" name="secondChoiceDate"
-                      formControlName="secondChoiceDate">
+                    <input matInput [matDatepicker]="picker_2" placeholder="Second choice sevice date"
+                      name="secondChoiceDate" formControlName="secondChoiceDate">
                     <mat-datepicker-toggle matSuffix [for]="picker_2"></mat-datepicker-toggle>
                     <mat-datepicker #picker_2></mat-datepicker>
                   </mat-form-field>
@@ -235,7 +237,6 @@
       </mat-card-content>
     </mat-card>
 
-
     <mat-card class="app-content-card">
       <mat-card-title>
         <span>Additional Comments</span>
@@ -260,7 +261,7 @@
         <mat-form-field>
           <input type="text" matInput placeholder="Confirm phone number" name="phoneNo" formControlName="phoneNo"
             class="form-control">
-          <mat-error>
+          <mat-error *ngIf="!fc.phoneNo.valid">
             <span *ngIf="fc.phoneNo.errors.required">This field is required</span>
             <span *ngIf="fc.phoneNo.errors.minlength">Phone No length is {{fc.phoneNo.errors.minlength.requiredLength}}
               characters</span>
@@ -271,7 +272,7 @@
         <mat-form-field>
           <input type="email" matInput placeholder="Confirm email address" name="email" formControlName="email"
             class="form-control">
-          <mat-error>
+          <mat-error *ngIf="!fc.email.valid">
             <span *ngIf="fc.email.errors.required">This field is required</span>
             <span *ngIf="fc.email.errors.pattern">{{form.controls['email'].value}} is not a valid email
               Address</span>
