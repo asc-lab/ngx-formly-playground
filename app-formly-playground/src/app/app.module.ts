@@ -21,7 +21,8 @@ import {
   ExerciseThreeComponent,
   ExerciseFourComponent,
   ExerciseFiveComponent,
-  ExerciseSixComponent
+  ExerciseSixComponent,
+  ExerciseSevenComponent
 } from '@app/components/exercises-formly';
 import {
   ExerciseOneRfComponent,
@@ -53,7 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExerciseFiveComponent,
     ExerciseSixComponent,
     ExerciseFourFtComponent,
-    ExerciseFiveFtComponent
+    ExerciseFiveFtComponent,
+    ExerciseSevenComponent
   ],
   imports: [
     BrowserModule,

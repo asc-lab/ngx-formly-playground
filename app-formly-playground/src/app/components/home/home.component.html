@@ -67,6 +67,22 @@
           </div>
         </div>
       </div>
+      <div fxLayout="row" fxLayout.xs="column" class="app-row">
+          <div fxFlex="20%" fxLayoutAlign="end" fxFlex.xs="100%" fxLayoutAlign.xs="center">
+            <button mat-raised-button class="app-primary-btn app-list-button" routerLink="../formly/exerciseSeven"
+              routerLinkActive="active">Exercise seven</button>
+          </div>
+          <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" fxLayout="row" fxLayout.xs="column"  class="app-list-item">
+            <div fxFlex="40%" fxFlex.xs="100%">
+              <p>Exercise seven - formField metod in model class</p>
+            </div>
+            <div class="app-lang-select" fxFlex="60%" fxFlex.xs="100%">
+              <form [formGroup]="form" (ngSubmit)="submit()">
+                <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+              </form>
+            </div>
+          </div>
+        </div>
     </mat-card-content>
   </mat-card>
 
