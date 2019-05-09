@@ -10,7 +10,7 @@ export class ValidationLoader {
 
     init(): void {
         //message without params
-        this.formlyConfig.addValidatorMessage('required', this.translate.instant('Validations.required'));
+        this.formlyConfig.addValidatorMessage('required', (err, field) => this.translate.instant('Validations.required'));
         
         //message with params
         this.formlyConfig.addValidatorMessage('minlength', (err, field) => this.minlengthValidationMessage(err, field, this.translate));
