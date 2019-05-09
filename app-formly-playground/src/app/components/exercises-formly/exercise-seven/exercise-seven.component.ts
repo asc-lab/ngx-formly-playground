@@ -6,6 +6,7 @@ import { DictService, RequestService } from '@app/shared/services';
 import { StepType, DictionaryItemWithTranslations } from '@app/shared/model/common';
 import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
 import { Service } from '@app/shared/model/Service';
+import { Shopping } from '@app/shared/model/Shopping';
 
 @Component({
   selector: 'app-exercise-seven',
@@ -21,6 +22,7 @@ export class ExerciseSevenComponent implements OnInit {
   model: any = {
     RequestToConcierge: new RequestToConcierge()
   };
+  shoppingModel: Shopping;
   serviceModel: Service;
 
   steps: StepType[];
@@ -38,6 +40,7 @@ export class ExerciseSevenComponent implements OnInit {
   ngOnInit() {
     this.model.lang = this.translate.currentLang;
     this.serviceModel = new Service();
+    this.shoppingModel = new Shopping();
 
     this.steps = [
       {
@@ -124,77 +127,7 @@ export class ExerciseSevenComponent implements OnInit {
                   addItem: this.translate.instant('RequestToConcierge.addShoppingItem'),
                 },
                 fieldArray: {
-                  fieldGroup: [
-                    {
-                      key: 'order',
-                      type: 'input',
-                      templateOptions: {
-                        type: 'text',
-                        label: this.translate.instant('RequestToConcierge.order'),
-                        required: true,
-                      },
-                    },
-                    {
-                      key: 'description',
-                      type: 'textarea',
-                      templateOptions: {
-                        type: 'text',
-                        label: this.translate.instant('RequestToConcierge.description'),
-                        maxLength: 6000,
-                        rows: 5,
-                      },
-                    },
-                    {
-                      key: 'deliveryDate',
-                      type: 'datepicker',
-                      templateOptions: {
-                        type: 'date',
-                        label: this.translate.instant('RequestToConcierge.deliveryDate'),
-                        required: true,
-                      },
-                    },
-                    {
-                      key: 'selectedShop',
-                      type: 'input',
-                      templateOptions: {
-                        type: 'text',
-                        label: this.translate.instant('RequestToConcierge.selectedShop'),
-                      },
-                    },
-                    {
-                      template: `<div class="app-template-label"><strong>${this.translate.instant('RequestToConcierge.priceRange')}</strong>`,
-                    },
-                    {
-                      key: 'priceRange',
-                      fieldGroupClassName: 'display-flex',
-                      fieldGroup: [
-                        {
-                          className: 'flex-2',
-                          key: 'from',
-                          type: 'input',
-                          templateOptions: {
-                            type: 'number',
-                            label: this.translate.instant('RequestToConcierge.priceRangeForm'),
-                            min: 1,
-                            max: 999999,
-                            required: true
-                          },
-                        },
-                        {
-                          className: 'flex-2',
-                          key: 'to',
-                          type: 'input',
-                          templateOptions: {
-                            type: 'number',
-                            label: this.translate.instant('RequestToConcierge.priceRangeTo'),
-                            min: 1,
-                            max: 999999,
-                            required: true,
-                          },
-                        }
-                      ]
-                    },
-                  ]
+                  fieldGroup: this.shoppingModel.formField(this.translate)
                 },
               },
             ],
@@ -330,5 +263,4 @@ export class ExerciseSevenComponent implements OnInit {
   nextStep(step) {
     this.activedStep = step + 1;
   }
-
 }
