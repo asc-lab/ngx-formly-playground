@@ -1,4 +1,5 @@
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { TranslateService } from '@ngx-translate/core';
 
 export class PriceRange {
     constructor(
@@ -6,7 +7,7 @@ export class PriceRange {
         public to: number = 9999,
     ) { }
 
-    formField(translations: any) {
+    formField(translations: TranslateService): FormlyFieldConfig[] {
         return [
             {
                 className: 'flex-2',

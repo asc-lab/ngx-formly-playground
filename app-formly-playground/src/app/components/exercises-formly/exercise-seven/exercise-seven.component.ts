@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup, FormControl } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
-import { PriceRange } from '@app/shared/model/PriceRange';
 import { TranslateService } from '@ngx-translate/core';
 import { DictService, RequestService } from '@app/shared/services';
 import { StepType, DictionaryItemWithTranslations } from '@app/shared/model/common';
 import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
+import { Service } from '@app/shared/model/Service';
 
 @Component({
   selector: 'app-exercise-seven',
@@ -14,23 +14,21 @@ import { RequestToConcierge } from '@app/shared/model/RequestToConcierge';
 })
 export class ExerciseSevenComponent implements OnInit {
 
-  activedStep = 0;
-
   orderTypes: DictionaryItemWithTranslations[] = this.dictionaryService.getDictionaryItemsWithTranslations('ORDER_TYPE');
   // tslint:disable-next-line:max-line-length
   acceptTerms = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt neque eu massa imperdiet, vel efficitur arcu pharetra. Sed pulvinar turpis erat, sit amet euismod dui lacinia eget. Vivamus efficitur volutpat scelerisque. Sed condimentum ipsum nec leo aliquam placerat. Ut nec eros sodales, efficitur nisi non, euismod est. ';
 
-  priceRangeModel: PriceRange;
-  priceRangeFieldGroup;
-
   model: any = {
     RequestToConcierge: new RequestToConcierge()
   };
+  serviceModel: Service;
 
   steps: StepType[];
+  activedStep = 0;
+
   form: FormArray;
   options: FormlyFormOptions[];
-  
+
   constructor(
     public requestService: RequestService,
     public dictionaryService: DictService,
@@ -39,7 +37,7 @@ export class ExerciseSevenComponent implements OnInit {
 
   ngOnInit() {
     this.model.lang = this.translate.currentLang;
-    this.priceRangeModel = new PriceRange();
+    this.serviceModel = new Service();
 
     this.steps = [
       {
@@ -64,7 +62,8 @@ export class ExerciseSevenComponent implements OnInit {
                 validators: {
                   cardId: {
                     expression: (fc) => !fc.value || fc.value.length === 5,
-                    message: (err, field: FormlyFieldConfig) => this.translate.instant('Validations.cardIDLength')}
+                    message: (err, field: FormlyFieldConfig) => this.translate.instant('Validations.cardIDLength')
+                  }
                 },
                 asyncValidators: {
                   existingCardIdCheck: {
@@ -217,91 +216,7 @@ export class ExerciseSevenComponent implements OnInit {
                   addItem: this.translate.instant('RequestToConcierge.addServiceItem'),
                 },
                 fieldArray: {
-                  fieldGroup: [
-                    {
-                      key: 'order',
-                      type: 'input',
-                      templateOptions: {
-                        type: 'text',
-                        label: this.translate.instant('RequestToConcierge.serviceType'),
-                        required: true,
-                      },
-                    },
-                    {
-                      key: 'description',
-                      type: 'textarea',
-                      templateOptions: {
-                        type: 'text',
-                        label: this.translate.instant('RequestToConcierge.description'),
-                        maxLength: 6000,
-                        rows: 5,
-                      },
-                    },
-                    {
-                      fieldGroupClassName: 'display-flex',
-                      fieldGroup: [
-                        {
-                          className: 'flex-4',
-                          key: 'date',
-                          type: 'datepicker',
-                          templateOptions: {
-                            type: 'date',
-                            label: this.translate.instant('RequestToConcierge.expectedServiceDate'),
-                            required: true,
-                          },
-                        },
-                        {
-                          className: 'flex-2',
-                          key: 'timeRange',
-                          type: 'input',
-                          templateOptions: {
-                            type: 'text',
-                            label: this.translate.instant('RequestToConcierge.timeRange'),
-                            required: true,
-                          },
-                        },
-                      ]
-                    },
-                    {
-                      fieldGroupClassName: 'display-flex',
-                      fieldGroup: [
-                        {
-                          className: 'flex-4',
-                          key: 'secondChoiceDate',
-                          type: 'datepicker',
-                          templateOptions: {
-                            type: 'date',
-                            label: this.translate.instant('RequestToConcierge.secondChoiceDate'),
-                          },
-                        },
-                        {
-                          className: 'flex-2',
-                          key: 'secondChoiceTimeRange',
-                          type: 'input',
-                          templateOptions: {
-                            type: 'text',
-                            label: this.translate.instant('RequestToConcierge.timeRange'),
-                          },
-                        },
-                      ]
-                    },
-                    {
-                      key: 'selectedServiceProvider',
-                      type: 'input',
-                      templateOptions: {
-                        type: 'text',
-                        label: this.translate.instant('RequestToConcierge.selectedServiceProvider'),
-                      },
-                    },
-                    {
-                      template: `<div class="app-template-label"><strong>${this.translate.instant('RequestToConcierge.priceRange')}</strong>`,
-                    },
-                    {
-                      key: 'priceRange',
-                      fieldGroupClassName: 'display-flex',
-                      fieldGroup: this.priceRangeModel.formField(this.translate),
-                    },
-                  ]
+                  fieldGroup: this.serviceModel.formField(this.translate)
                 }
               }
             ]
@@ -396,7 +311,7 @@ export class ExerciseSevenComponent implements OnInit {
         ],
       },
     ];
-  
+
     this.form = new FormArray(this.steps.map(() => new FormGroup({})));
     // tslint:disable-next-line:no-angle-bracket-type-assertion
     this.options = this.steps.map(() => <FormlyFormOptions> {});
