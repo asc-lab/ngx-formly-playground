@@ -12,6 +12,17 @@
             "remove": "Usuń"
         }
     },
+    "Validations": {
+        "minLength": "Ilość znaków musi być większa niż {{number}}",
+        "maxLength": "Ilość znaków nie może przekraczać {{number}}",
+        "min": "Wartość nie powinna bvć niższa niż {{number}}",
+        "max": "Wartość nie powinna być wyższa niż {{number}}",
+        "required": "Pole wymagane",
+        "cardIDLength" : "ID Karty powinno mieć 5 znaków",
+        "cardNotExist" : "Podane ID Karty nie isnieje, sprawdź swoje dane identyfikacyjne",
+        "cardTokenLength": "Ilość znaków tokenu karty to 5 znaków",
+        "emailCheck": " jest niepoprawnym adresem email"
+    },
     "RequestToConcierge": {
         "orderIdentification": "Identyfikacja zamówienia",
         "orderType": "Typ zamówienia",
@@ -47,11 +58,5 @@
         "phoneNo": "Potwierdź numer telefonu",
         "email": "Potwirdź adres email",
         "acceptTermsDesc": "Aby przejść dalej, proszę przeczytaj i potwierdź oświadczenia"
-    },
-    "Validations": {
-        "cardIDLength" : "ID Karty powinno mieć 5 znaków",
-        "cardNotExist" : "Podane ID Karty nie isnieje, sprawdź swoje dane identyfikacyjne",
-        "cardTokenLength": "Ilość znaków tokenu karty to 5 znaków",
-        "emailCheck": " jest niepoprawnym adresem email"
     }
 }

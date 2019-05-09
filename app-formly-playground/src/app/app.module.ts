@@ -13,7 +13,7 @@ import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 import { AppRoutingModule } from '@app/app-routing.module';
 
 import { AppComponent } from '@app/app.component';
-import { CardWrapperComponent, RepeatSectionComponent, ImgRadioTypeComponent } from '@app/shared/custom-wrrappers';
+import { CardWrapperComponent, RepeatSectionComponent, ImgRadioTypeComponent } from '@app/shared/custom-wrappers';
 import { HomeComponent } from '@app/components';
 import {
   ExerciseOneComponent,
@@ -31,14 +31,7 @@ import {
   ExerciseFiveFtComponent
 } from '@app/components/exercises-reactive-forms';
 
-import { RequestService, DictService, LanguageService } from '@app/shared/services';
-
-import {
-  minlengthValidationMessage,
-  maxlengthValidationMessage,
-  minValidationMessage,
-  maxValidationMessage
-} from '@app/shared/validations';
+import { RequestService, DictService, LanguageService, ValidationLoader } from '@app/shared/services';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -73,14 +66,7 @@ import { HttpClientModule } from '@angular/common/http';
       types: [
         { name: 'repeat-section', component: RepeatSectionComponent },
         { name: 'app-radio', component: ImgRadioTypeComponent },
-      ],
-      validationMessages: [
-        { name: 'required', message: 'This field is required' },
-        { name: 'minlength', message: minlengthValidationMessage },
-        { name: 'maxlength', message: maxlengthValidationMessage },
-        { name: 'min', message: minValidationMessage },
-        { name: 'max', message: maxValidationMessage },
-      ],
+      ]
     }),
     FormlyMaterialModule,
     FormlyMatDatepickerModule,
@@ -94,7 +80,8 @@ import { HttpClientModule } from '@angular/common/http';
     RequestService,
     DictService,
     LanguageService,
-    TranslateService
+    TranslateService,
+    ValidationLoader
   ],
   bootstrap: [AppComponent]
 })
