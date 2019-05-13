@@ -13,7 +13,8 @@ import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 import { AppRoutingModule } from '@app/app-routing.module';
 
 import { AppComponent } from '@app/app.component';
-import { CardWrapperComponent, RepeatSectionComponent, ImgRadioTypeComponent } from '@app/shared/custom-wrappers';
+import { CardWrapperComponent } from '@app/shared/custom-wrappers';
+import { RepeatSectionComponent, ImgRadioTypeComponent } from '@app/shared/custom-types';
 import { HomeComponent } from '@app/components';
 import {
   ExerciseOneComponent,
