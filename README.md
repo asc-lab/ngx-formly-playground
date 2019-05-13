@@ -1,6 +1,14 @@
-# AppFormlyPlayground
+# Angular Formly Playground
+
+
+
+## Libraries
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+- [Angular Material](https://material.angular.io/)
+- [Angular Formly](https://github.com/ngx-formly/ngx-formly) & [Angular Material Formly Module](https://ngx-formly.github.io/ngx-formly/ui/material)
+- [Angular Flex-Layout](https://github.com/angular/flex-layout)
+- [ngx-translate](https://github.com/ngx-translate/core)
 
 ## Development server
 
@@ -13,20 +21,3 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Formly & FormlyMaterialModule package
-This project use Formly library & FormlyMaterialModule package
-
-https://github.com/ngx-formly/ngx-formly
-https://ngx-formly.github.io/ngx-formly/ui/material
-
-## Angular Matieral
-This project use Angular matieral library https://material.angular.io/
-
-## Angular Flex-Layout library
-This project use Flex-Layoutlibrary  https://github.com/angular/flex-layout 
-
-## The internationalization (i18n) library for Angular
-
-This project use https://github.com/ngx-translate/core.
-https://github.com/ngx-translate/http-loader.
