@@ -37,7 +37,7 @@ Component [Card](https://material.angular.io/components/card/overview) should be
 Task list
 - generate component `exercies-one`
 - read documentation [custom-formly-wrapper](https://ngx-formly.github.io/ngx-formly/guide/custom-formly-wrapper)
-- in `shared/custom-wrappers` folder create `card-wrapper`
+- in `shared/custom-wrappers` folder create component `card-wrapper`
 - in `app.module.ts` register new custom wrapper
 - in component `exercies-one` create "Order Identification" Card using `card-wrapper`
 - check if app works
@@ -52,8 +52,22 @@ Below screen of component after adding some custom style.
     <img alt="Exercise-one-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-one%200.png"/>
 </p>
 
-
 ## Exercise Two
+Add questions to each section. In section Shopping user should be able add and remove shopping items.
+
+Task list
+- generate component `exercies-two`
+- copy code from component `exercies-one`
+- add: Shoppings, Additional Comments, Statements sections - use `card-wrapper` created in exercise one
+- read documentation [ui material guide](https://ngx-formly.github.io/ngx-formly/ui/material)
+- in `shared/model` folder add ts files with model
+- in `shared/services` folder add `request.service.ts` with `saveRequest` method to simulate connection to api
+- in `shared/services` folder add `dict.service.ts` with `getDictionaryItems` method to simulate connection to api
+- add some fields to each section in component `exercies-two` (use different types of fields)
+- read documentation [repeating-section](https://ngx-formly.github.io/ngx-formly/examples/advanced/repeating-section)
+- in `shared/custom-types` folder create component `repeat-section`
+
+
 
 ## Exercise Three
 
