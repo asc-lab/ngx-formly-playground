@@ -49,7 +49,7 @@ In this project
 Below screen of component after adding some custom style. 
 
 <p align="center">
-    <img alt="Exercise-one-screen" src=""/>
+    <img alt="Exercise-one-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-one%200.png"/>
 </p>
 
 
