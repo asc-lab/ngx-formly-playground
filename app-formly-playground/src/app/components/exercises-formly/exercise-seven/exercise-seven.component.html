@@ -2,7 +2,7 @@
   <button mat-raised-button routerLink="../../home" routerLinkActive="active"
     fxLayoutAlign="">{{ 'Global.Btn.backToList' | translate }}
   </button>
-  <form [formGroup]="form" (ngSubmit)="submit()" class="app-steper">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="app-stepper">
     <mat-horizontal-stepper>
       <mat-step *ngFor="let step of steps; let index = index; let last = last;">
         <ng-template matStepLabel>{{ step.label }}</ng-template>

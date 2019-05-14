@@ -54,7 +54,6 @@ body {
     color: #fff;
 }
 
-
 .app-back-to-list-btn {
     margin-left: 100px
 }
@@ -65,7 +64,7 @@ body {
     border-bottom: 1px solid $secondary-color;
 }
 
-// img radio
+// img radio used in shared custom-types START
 .app-radio-selector {
     margin:5px;
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -126,7 +125,11 @@ body {
     margin-bottom: 3px;
 }
 
-.app-steper {
+// img radio ENDS
+
+
+// stepper used from exercies five
+.app-stepper {
     width: 90%;
     margin: 5px auto;
     .app-content-card{
@@ -139,6 +142,8 @@ body {
         float: left;
     }
 }
+
+// stepper ENDS
 
 
 // overwritte anuglar matieral style
@@ -198,7 +203,6 @@ body {
     .flex-4  {
         flex: 4; 
     }
-
 }
 
 @media (min-width: 1600px) { 
