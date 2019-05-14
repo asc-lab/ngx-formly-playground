@@ -61,7 +61,7 @@
             <p>Exercise six - i18n</p>
           </div>
           <div class="app-lang-select" fxFlex="60%" fxFlex.xs="100%">
-            <form [formGroup]="form" (ngSubmit)="submit()">
+            <form [formGroup]="form">
               <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
             </form>
           </div>
@@ -75,11 +75,6 @@
           <div fxFlex="80%" fxLayoutAlign="start" fxFlex.xs="100%" fxLayoutAlign.xs="center" fxLayout="row" fxLayout.xs="column"  class="app-list-item">
             <div fxFlex="40%" fxFlex.xs="100%">
               <p>Exercise seven - formField metod in model class</p>
-            </div>
-            <div class="app-lang-select" fxFlex="60%" fxFlex.xs="100%">
-              <form [formGroup]="form" (ngSubmit)="submit()">
-                <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
-              </form>
             </div>
           </div>
         </div>
