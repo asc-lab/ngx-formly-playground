@@ -33,11 +33,12 @@ Request to Concierge should be divided into sections:
 - Statements
 
 Component [Card](https://material.angular.io/components/card/overview) should be used as section layout.
+Add Order Identification card.
 
 Task list
 - generate component `exercies-one`
 - read documentation [custom-formly-wrapper](https://ngx-formly.github.io/ngx-formly/guide/custom-formly-wrapper)
-- in `shared/custom-wrappers` folder create component `card-wrapper`
+- in `shared\custom-wrappers` folder create component `card-wrapper`
 - in `app.module.ts` register new custom wrapper as a wrapper
 - in component `exercies-one` create "Order Identification" Card using `card-wrapper`
 - check if app works
@@ -53,21 +54,21 @@ Below screen of component after adding some custom style.
 </p>
 
 ## Exercise Two
-Add questions to each section. In section Shopping user should be able add and remove shopping items.
+Add other sections and add questions to each section. In section Shopping user should be able to add and remove shopping items.
 
 Task list
 - generate component `exercies-two`
 - copy code from component `exercies-one`
 - add: Shoppings, Additional Comments, Statements sections - use `card-wrapper` created in exercise one
 - read documentation [ui material guide](https://ngx-formly.github.io/ngx-formly/ui/material)
-- in `shared/model` folder add ts files with model
-- in `shared/services` folder add `request.service.ts` with `saveRequest` method to simulate connection to api
-- in `shared/services` folder add `dict.service.ts` with `getDictionaryItems` method to simulate connection to api
+- in `shared\model` folder add ts files with model
+- in `shared\services` folder add `request.service.ts` with `saveRequest` method to simulate connection to api
+- in `shared\services` folder add `dict.service.ts` with `getDictionaryItems` method to simulate connection to api
 - add some fields to each section in component `exercies-two` (use different types of fields)
 - read documentation [repeating-section](https://ngx-formly.github.io/ngx-formly/examples/advanced/repeating-section)
-- in `shared/custom-types` folder create component `repeat-section`
-- in `app.module.ts` register new repeat-section as a type
-- in component `exercies-two` in section Shopping create use `repeat-section`
+- in `shared\custom-types` folder create component `repeat-section`
+- in `app.module.ts` register new `repeat-section` as a type
+- in component `exercies-two` in section Shopping use `repeat-section`
 - check if app works
 
 In this project
@@ -77,7 +78,7 @@ In this project
 Below screen of component after adding some questions and custom style
 
 <p align="center">
-    <img alt="Exercise-one-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-two_2%200.png"/>
+    <img alt="Exercise-two-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-two_2%200.png"/>
 </p>
 
 ## Exercise Three
@@ -88,19 +89,83 @@ Task list
 - copy code from component `exercies-two`
 - read documentation [built-in validations](https://ngx-formly.github.io/ngx-formly/examples/validation/built-in-validations)
 - add global validations to `app.module.ts` 
-- add 
+- in component ts file add some custom validations
 
 In this project
+- in file `app-routing.module.ts` route to component was added
 - in exercise seven approach to global validation was changed - go to exercise seven to see it
-- 
+- in field `cardId` [async validator](https://ngx-formly.github.io/ngx-formly/examples/validation/unique-value-async-validation) was used
+- in field `email` [validation message](https://ngx-formly.github.io/ngx-formly/examples/validation/validation-message) to attribute pattern was added
 
 ## Exercise Four
+Add new section Services (use `repeat-section`). Section Services should be visible when order type = SERVICES. Section Shoppings should be visible when order type = SHOPPINGS.
+Change `order type` field in custom type filed. Replace "boring" select by "fanyc" radio buttons images.
+
+Task list
+- generate component `exercies-four`
+- copy code from component `exercies-three`
+- in `shared\model` folder add ts files with model
+- add: Services sections - use `card-wrapper` created in exercise one
+- in section Services use `repeat-section` created in exercise two
+- in `shared\custom-types` folder create component `img-radio-type`
+- in `app.module.ts` register new `img-radio-type` as a type
+- in component `exercies-four` replace type in filed `orderType` by a new created type
+- check if app works
+
+In this project
+- in file `app-routing.module.ts` route to component was added
+- in section Shoppings and Services [Flex - Layout](https://ngx-formly.github.io/ngx-formly/examples/other/advanced-layout-flex) was used
+
+Below screen of component after adding new section, custom radio btn and custom styles
+
+<p align="center">
+    <img alt="Exercise-one-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-four.gif"/>
+</p>
 
 ## Exercise Five
+Request form is to long to one screen, change form layout to stepper.
+
+Task list
+- generate component `exercies-five`
+- copy code from component `exercies-four`
+- read documentation [multi-step-form](https://ngx-formly.github.io/ngx-formly/examples/advanced/multi-step-form)
+- remember to import `MatStepperModule` from `@angular/material/stepper`
+- in component `exercies-five` add described in documentation changes (you have to make changes in html i ts files)
+
+In this project
+- in file `app-routing.module.ts` route to component was added
+
+Below screen of component with stepper and custom styles
+
+<p align="center">
+    <img alt="Exercise-five-screen" src=""/>
+</p>
 
 ## Exercise Six
+Add translation module to project, and use it in request form.
 
-## Seven
+Task list
+- install [ngx-translate](https://github.com/ngx-translate/core)
+- read documentation [i18n](https://ngx-formly.github.io/ngx-formly/examples/advanced/i18n)
+- in `scr\assets\translations` folder add json files with translations (in this project there are to files en.json and pl.json)
+- in `shared\services\i18n` folder add `translation-loader.service.ts` with `loadTranslations` method to load translations files
+- in `shared\services\i18n` folder add `language.service.ts` with `getCurrentLanguage` method to set up selected language
+- in this project `translationLoader` is initialized in `home component`
+- in component `exercise-six` inject `TranslateService` and now it is possible to use translation service, use `instant` method to load translations e.g. `label: this.translate.instant('RequestToConcierge.orderIdentification')`
+- add new method `getDictionaryItemsWithTranslations` in `dict.service.ts` (service was added in ex two)
+- in component `exercise-six` in filed `orderTypes` load dictionary items with translations
+
+In this project
+- in file `app-routing.module.ts` route to component was added
+- `validtaion.loader` was added in exercise seven
+
+Below screen of component with translations in action
+
+<p align="center">
+    <img alt="Exercise-six-screen" src=""/>
+</p>
+
+## Exercise Seven
 
 ## Libraries
 

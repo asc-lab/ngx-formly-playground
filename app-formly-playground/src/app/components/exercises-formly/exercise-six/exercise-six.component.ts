@@ -30,8 +30,8 @@ export class ExerciseSixComponent implements OnInit {
       fields: [
         {
           key: 'RequestToConcierge',
-          expressionProperties: {
-            'templateOptions.cardTitle': this.translate.stream('RequestToConcierge.cardIdentification'),
+          templateOptions: {
+            cardTitle: this.translate.instant('RequestToConcierge.cardIdentification')
           },
           wrappers: ['card'],
           fieldGroup: [
