@@ -76,6 +76,10 @@ In this project
 
 Below screen of component after adding some questions and custom style
 
+<p align="center">
+    <img alt="Exercise-one-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-two_2%200.png"/>
+</p>
+
 
 ## Exercise Three
 
