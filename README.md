@@ -131,6 +131,7 @@ Task list
 - read documentation [multi-step-form](https://ngx-formly.github.io/ngx-formly/examples/advanced/multi-step-form)
 - remember to import `MatStepperModule` from `@angular/material/stepper`
 - in component `exercies-five` add described in documentation changes (you have to make changes in html i ts files)
+- check if app works
 
 In this project
 - in file `app-routing.module.ts` route to component was added
@@ -154,6 +155,7 @@ Task list
 - in component `exercise-six` inject `TranslateService` and now it is possible to use translation service, use `instant` method to load translations e.g. `label: this.translate.instant('RequestToConcierge.orderIdentification')`
 - add new method `getDictionaryItemsWithTranslations` in `dict.service.ts` (service was added in ex two)
 - in component `exercise-six` in filed `orderTypes` load dictionary items with translations
+- check if app works
 
 In this project
 - in file `app-routing.module.ts` route to component was added
@@ -166,6 +168,55 @@ Below screen of component with translations in action
 </p>
 
 ## Exercise Seven
+Add translation to global validation. Component ts file is to long and e.g code to Price range fields are repeats itself, refactor code.
+
+Task list 
+- to load global validation you need use [FormlyConfig service by calling addValidatorMessage](https://github.com/ngx-formly/ngx-formly/issues/313)
+- in `shared\services` folder add `validations.loader.ts` with `init` method
+- in this project `validationsLoader` is initialized in `home component`
+- in model `PriceRange.ts` add `formField` method, type of `FormlyFieldConfig[]` it should return fields config (the same as in component ts) e.g
+
+`
+ formField(translations: TranslateService): FormlyFieldConfig[] {
+        return [
+            {
+                className: 'flex-2',
+                key: 'from',
+                type: 'input',
+                templateOptions: {
+                    type: 'number',
+                    label: translations.instant('RequestToConcierge.priceRangeForm'),
+                    min: 1,
+                    max: 999999,
+                    required: true
+                },
+            },
+            {
+                className: 'flex-2',
+                key: 'to',
+                type: 'input',
+                templateOptions: {
+                    type: 'number',
+                    label: translations.instant('RequestToConcierge.priceRangeTo'),
+                    min: 1,
+                    max: 999999,
+                    required: true,
+                },
+            }
+        ];
+    }
+`
+
+- in this project similar `formField` methods were created in `Service.ts` and `Shopping.ts`
+- new methods can be now use in other components eg. 
+
+`
+  fieldArray: {
+    fieldGroup: this.shoppingModel.formField(this.translate)
+    },
+` 
+
+- check if app works
 
 ## Libraries
 
