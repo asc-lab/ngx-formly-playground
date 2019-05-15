@@ -138,7 +138,7 @@ In this project
 Below screen of component with stepper and custom styles
 
 <p align="center">
-    <img alt="Exercise-five-screen" src=""/>
+    <img alt="Exercise-five-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-five.gif"/>
 </p>
 
 ## Exercise Six
@@ -162,7 +162,7 @@ In this project
 Below screen of component with translations in action
 
 <p align="center">
-    <img alt="Exercise-six-screen" src=""/>
+    <img alt="Exercise-six-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-six.gif"/>
 </p>
 
 ## Exercise Seven
