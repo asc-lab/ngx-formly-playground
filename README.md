@@ -38,7 +38,7 @@ Task list
 - generate component `exercies-one`
 - read documentation [custom-formly-wrapper](https://ngx-formly.github.io/ngx-formly/guide/custom-formly-wrapper)
 - in `shared/custom-wrappers` folder create component `card-wrapper`
-- in `app.module.ts` register new custom wrapper
+- in `app.module.ts` register new custom wrapper as a wrapper
 - in component `exercies-one` create "Order Identification" Card using `card-wrapper`
 - check if app works
 
@@ -66,7 +66,15 @@ Task list
 - add some fields to each section in component `exercies-two` (use different types of fields)
 - read documentation [repeating-section](https://ngx-formly.github.io/ngx-formly/examples/advanced/repeating-section)
 - in `shared/custom-types` folder create component `repeat-section`
+- in `app.module.ts` register new repeat-section as a type
+- in component `exercies-two` in section Shopping create use `repeat-section`
+- check if app works
 
+In this project
+- in file `app-routing.module.ts` route to component was added
+- to import all custom types with a single statement `index.ts` file was created
+
+Below screen of component after adding some questions and custom style
 
 
 ## Exercise Three
