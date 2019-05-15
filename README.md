@@ -1,6 +1,6 @@
 # Angular Formly Playground
 
-Formly Playgoround is a project with list of [Angular Formly](https://github.com/ngx-formly/ngx-formly)  exercises.
+Formly Playground is a project with list of [Angular Formly](https://github.com/ngx-formly/ngx-formly)  exercises.
 Every next exercise add new feature to the previous one.
 
 ## Business background
@@ -12,14 +12,14 @@ Why [Angular Formly](https://github.com/ngx-formly/ngx-formly). From the fist mo
 ## Before exercise one
 Application setup 
 
-Task list:
+### Task list
 - generate application with [Angular CLI](https://github.com/angular/angular-cli) 
 - install [Ngx Formly](https://ngx-formly.github.io/ngx-formly/guide/getting-started)
 - use one of UI library in our project, in this project Material2 was used
 - to app.module.ts import the FormlyModule and UI (pre-defined types/templates)
 - check if app works - run `ng serve` dev server and navigate to `http://localhost:4200/`
 
-In this project
+### In this project
 - `home component` was create as navigation page to each exercise
 - `angular-material.imports.ts` module was added to collect all [Angular Material](https://material.angular.io/) imports in one shared module
 - to import all exercises components with a single statement `index.ts` file was created
@@ -35,15 +35,15 @@ Request to Concierge should be divided into sections:
 Component [Card](https://material.angular.io/components/card/overview) should be used as section layout.
 Add Order Identification card.
 
-Task list
-- generate component `exercies-one`
+### Task list
+- generate component `exercise-one`
 - read documentation [custom-formly-wrapper](https://ngx-formly.github.io/ngx-formly/guide/custom-formly-wrapper)
 - in `shared\custom-wrappers` folder create component `card-wrapper`
 - in `app.module.ts` register new custom wrapper as a wrapper
-- in component `exercies-one` create "Order Identification" Card using `card-wrapper`
+- in component `exercise-one` create "Order Identification" Card using `card-wrapper`
 - check if app works
 
-In this project
+### In this project
 - in file `app-routing.module.ts` route to component was added
 - to import all custom wrappers with a single statement `index.ts` file was created
 
@@ -56,9 +56,9 @@ Below screen of component after adding some custom style.
 ## Exercise Two
 Add other sections and add questions to each section. In section Shopping user should be able to add and remove shopping items.
 
-Task list
-- generate component `exercies-two`
-- copy code from component `exercies-one`
+### Task list
+- generate component `exercise-two`
+- copy code from component `exercise-one`
 - add: Shoppings, Additional Comments, Statements sections - use `card-wrapper` created in exercise one
 - read documentation [ui material guide](https://ngx-formly.github.io/ngx-formly/ui/material)
 - in `shared\model` folder add ts files with model
@@ -71,7 +71,7 @@ Task list
 - in component `exercies-two` in section Shopping use `repeat-section`
 - check if app works
 
-In this project
+### In this project
 - in file `app-routing.module.ts` route to component was added
 - to import all custom types with a single statement `index.ts` file was created
 
@@ -84,9 +84,9 @@ Below screen of component after adding some questions and custom style
 ## Exercise Three
 Add validation to fields, use global and custom validations
 
-Task list
-- generate component `exercies-three`
-- copy code from component `exercies-two`
+### Task list
+- generate component `exercise-three`
+- copy code from component `exercise-two`
 - read documentation [built-in validations](https://ngx-formly.github.io/ngx-formly/examples/validation/built-in-validations)
 - add global validations to `app.module.ts` 
 - in component ts file add some custom validations
@@ -101,9 +101,9 @@ In this project
 Add new section Services (use `repeat-section`). Section Services should be visible when order type = SERVICES. Section Shoppings should be visible when order type = SHOPPINGS.
 Change `order type` field in custom type filed. Replace "boring" select by "fanyc" radio buttons images.
 
-Task list
-- generate component `exercies-four`
-- copy code from component `exercies-three`
+### Task list
+- generate component `exercise-four`
+- copy code from component `exercise-three`
 - in `shared\model` folder add ts files with model
 - add: Services sections - use `card-wrapper` created in exercise one
 - in section Services use `repeat-section` created in exercise two
@@ -112,7 +112,7 @@ Task list
 - in component `exercies-four` replace type in filed `orderType` by a new created type
 - check if app works
 
-In this project
+### In this project
 - in file `app-routing.module.ts` route to component was added
 - in section Shoppings and Services [Flex - Layout](https://ngx-formly.github.io/ngx-formly/examples/other/advanced-layout-flex) was used
 
@@ -125,15 +125,15 @@ Below screen of component after adding new section, custom radio btn and custom 
 ## Exercise Five
 Request form is to long to one screen, change form layout to stepper.
 
-Task list
-- generate component `exercies-five`
-- copy code from component `exercies-four`
+### Task list
+- generate component `exercise-five`
+- copy code from component `exercise-four`
 - read documentation [multi-step-form](https://ngx-formly.github.io/ngx-formly/examples/advanced/multi-step-form)
 - remember to import `MatStepperModule` from `@angular/material/stepper`
 - in component `exercies-five` add described in documentation changes (you have to make changes in html i ts files)
 - check if app works
 
-In this project
+### In this project
 - in file `app-routing.module.ts` route to component was added
 
 Below screen of component with stepper and custom styles
@@ -145,7 +145,7 @@ Below screen of component with stepper and custom styles
 ## Exercise Six
 Add translation module to project, and use it in request form.
 
-Task list
+### Task list
 - install [ngx-translate](https://github.com/ngx-translate/core)
 - read documentation [i18n](https://ngx-formly.github.io/ngx-formly/examples/advanced/i18n)
 - in `scr\assets\translations` folder add json files with translations (in this project there are to files en.json and pl.json)
@@ -157,7 +157,7 @@ Task list
 - in component `exercise-six` in filed `orderTypes` load dictionary items with translations
 - check if app works
 
-In this project
+### In this project
 - in file `app-routing.module.ts` route to component was added
 - `validtaion.loader` was added in exercise seven
 
@@ -170,13 +170,13 @@ Below screen of component with translations in action
 ## Exercise Seven
 Add translation to global validation. Component ts file is to long and e.g code to Price range fields are repeats itself, refactor code.
 
-Task list 
+### Task list 
 - to load global validation you need use [FormlyConfig service by calling addValidatorMessage](https://github.com/ngx-formly/ngx-formly/issues/313)
 - in `shared\services` folder add `validations.loader.ts` with `init` method
 - in this project `validationsLoader` is initialized in `home component`
 - in model `PriceRange.ts` add `formField` method, type of `FormlyFieldConfig[]` it should return fields config (the same as in component ts) e.g
 
-`
+```javascript
  formField(translations: TranslateService): FormlyFieldConfig[] {
         return [
             {
@@ -205,16 +205,17 @@ Task list
             }
         ];
     }
-`
+```
 
-- in this project similar `formField` methods were created in `Service.ts` and `Shopping.ts`
+### In this project
+- similar `formField` methods were created in `Service.ts` and `Shopping.ts`
 - new methods can be now use in other components eg. 
 
-`
+```javascript
   fieldArray: {
     fieldGroup: this.shoppingModel.formField(this.translate)
     },
-` 
+```
 
 - check if app works
 
