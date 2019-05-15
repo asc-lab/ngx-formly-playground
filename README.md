@@ -80,8 +80,19 @@ Below screen of component after adding some questions and custom style
     <img alt="Exercise-one-screen" src="https://raw.githubusercontent.com/asc-lab/ngx-formly-playground/master/readme-images/ex-two_2%200.png"/>
 </p>
 
-
 ## Exercise Three
+Add validation to fields, use global and custom validations
+
+Task list
+- generate component `exercies-three`
+- copy code from component `exercies-two`
+- read documentation [built-in validations](https://ngx-formly.github.io/ngx-formly/examples/validation/built-in-validations)
+- add global validations to `app.module.ts` 
+- add 
+
+In this project
+- in exercise seven approach to global validation was changed - go to exercise seven to see it
+- 
 
 ## Exercise Four
 

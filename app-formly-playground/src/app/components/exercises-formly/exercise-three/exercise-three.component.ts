@@ -194,12 +194,6 @@ export class ExerciseThreeComponent {
             type: 'text',
             label: 'Confirm phone number ',
             required: true,
-          },
-          validators: {
-            phoneNo: {
-              expression: (fc) => !fc.value || fc.value.length === 9,
-              message: (err, field: FormlyFieldConfig) => `Phone No length is 9 characters`
-            }
           }
         },
         {
