@@ -14,7 +14,7 @@ Application setup
 
 ### Task list
 - generate application with [Angular CLI](https://github.com/angular/angular-cli) 
-- install [Ngx Formly](https://ngx-formly.github.io/ngx-formly/guide/getting-started)
+- install [Ngx Formly](https://formly.dev/guide/getting-started)
 - use one of UI library in our project, in this project Material2 was used
 - to app.module.ts import the FormlyModule and UI (pre-defined types/templates)
 - check if app works - run `ng serve` dev server and navigate to `http://localhost:4200/`
@@ -37,7 +37,7 @@ Add Order Identification card.
 
 ### Task list
 - generate component `exercise-one`
-- read documentation [custom-formly-wrapper](https://ngx-formly.github.io/ngx-formly/guide/custom-formly-wrapper)
+- read documentation [custom-formly-wrapper](https://formly.dev/guide/custom-formly-wrapper)
 - in `shared\custom-wrappers` folder create component `card-wrapper`
 - in `app.module.ts` register new custom wrapper as a wrapper
 - in component `exercise-one` create "Order Identification" Card using `card-wrapper`
@@ -60,12 +60,12 @@ Add other sections and add questions to each section. In section Shopping user s
 - generate component `exercise-two`
 - copy code from component `exercise-one`
 - add: Shoppings, Additional Comments, Statements sections - use `card-wrapper` created in exercise one
-- read documentation [ui material guide](https://ngx-formly.github.io/ngx-formly/ui/material)
+- read documentation [ui material guide](https://formly.dev/ui/material)
 - in `shared\model` folder add ts files with model
 - in `shared\services` folder add `request.service.ts` with `saveRequest` method to simulate connection to api
 - in `shared\services` folder add `dict.service.ts` with `getDictionaryItems` method to simulate connection to api
 - add some fields to each section in component `exercies-two` (use different types of fields)
-- read documentation [repeating-section](https://ngx-formly.github.io/ngx-formly/examples/advanced/repeating-section)
+- read documentation [repeating-section](https://formly.dev/examples/advanced/repeating-section)
 - in `shared\custom-types` folder create component `repeat-section`
 - in `app.module.ts` register new `repeat-section` as a type
 - in component `exercies-two` in section Shoppings use `repeat-section`
@@ -87,15 +87,15 @@ Add validation to fields, use global and custom validations
 ### Task list
 - generate component `exercise-three`
 - copy code from component `exercise-two`
-- read documentation [built-in validations](https://ngx-formly.github.io/ngx-formly/examples/validation/built-in-validations)
+- read documentation [built-in validations](https://formly.dev/examples/validation/built-in-validations)
 - add global validations to `app.module.ts` 
 - in component ts file add some custom validations
 
 In this project
 - in file `app-routing.module.ts` route to component was added
 - in exercise seven approach to global validation was changed - go to exercise seven to see it
-- in field `cardId` [async validator](https://ngx-formly.github.io/ngx-formly/examples/validation/unique-value-async-validation) was used
-- in field `email` [validation message](https://ngx-formly.github.io/ngx-formly/examples/validation/validation-message) to attribute pattern was added
+- in field `cardId` [async validator](https://formly.dev/examples/validation/unique-value-async-validation) was used
+- in field `email` [validation message](https://formly.dev/examples/validation/validation-message) to attribute pattern was added
 
 ## Exercise Four
 Add new section Services (use `repeat-section`). Section Services should be visible when order type = SERVICES. Section Shoppings should be visible when order type = SHOPPINGS.
@@ -114,7 +114,7 @@ Change `order type` field in custom type filed. Replace "boring" select by "fany
 
 ### In this project
 - in file `app-routing.module.ts` route to component was added
-- in section Shoppings and Services [Flex - Layout](https://ngx-formly.github.io/ngx-formly/examples/other/advanced-layout-flex) was used
+- in section Shoppings and Services [Flex - Layout](https://formly.dev/examples/other/advanced-layout-flex) was used
 
 Below you can find screen of component after adding new section, custom radio btn and custom styles
 
@@ -128,7 +128,7 @@ Request form is to long to one screen, change form layout to stepper.
 ### Task list
 - generate component `exercise-five`
 - copy code from component `exercise-four`
-- read documentation [multi-step-form](https://ngx-formly.github.io/ngx-formly/examples/advanced/multi-step-form)
+- read documentation [multi-step-form](https://formly.dev/examples/advanced/multi-step-form)
 - remember to import `MatStepperModule` from `@angular/material/stepper`
 - in component `exercies-five` add multi-step-form (you have to make changes in html and ts files)
 - check if app works
@@ -147,7 +147,7 @@ Add translation module to project, and use it in request form.
 
 ### Task list
 - install [ngx-translate](https://github.com/ngx-translate/core)
-- read documentation [i18n](https://ngx-formly.github.io/ngx-formly/examples/advanced/i18n)
+- read documentation [i18n](https://formly.dev/examples/advanced/i18n)
 - in `scr\assets\translations` folder add json files with translations (in this project there are to files en.json and pl.json)
 - in `shared\services\i18n` folder add `translation-loader.service.ts` with `loadTranslations` method to load translations files
 - in `shared\services\i18n` folder add `language.service.ts` with `getCurrentLanguage` method to set up selected language
@@ -223,7 +223,7 @@ Add translation to global validation. Component ts file is to long and e.g code 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 - [Angular Material](https://material.angular.io/)
-- [Angular Formly](https://github.com/ngx-formly/ngx-formly) & [Angular Material Formly Module](https://ngx-formly.github.io/ngx-formly/ui/material)
+- [Angular Formly](https://github.com/ngx-formly/ngx-formly) & [Angular Material Formly Module](https://formly.dev/ui/material)
 - [Angular Flex-Layout](https://github.com/angular/flex-layout)
 - [ngx-translate](https://github.com/ngx-translate/core)
 

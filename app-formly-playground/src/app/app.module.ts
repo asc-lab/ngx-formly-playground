@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormlyModule } from '@ngx-formly/core';
+import { FormlyModule, FORMLY_CONFIG } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 
@@ -15,6 +15,7 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { CardWrapperComponent } from '@app/shared/custom-wrappers';
 import { RepeatSectionComponent, ImgRadioTypeComponent } from '@app/shared/custom-types';
+import { registerI18nExtension } from '@app/shared/custom-extensions';
 import { HomeComponent } from '@app/components';
 import {
   ExerciseOneComponent,
@@ -33,7 +34,7 @@ import {
   ExerciseFiveFtComponent
 } from '@app/components/exercises-reactive-forms';
 
-import { RequestService, DictService, LanguageService, ValidationLoader } from '@app/shared/services';
+import { RequestService, DictService, LanguageService } from '@app/shared/services';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -84,7 +85,7 @@ import { HttpClientModule } from '@angular/common/http';
     DictService,
     LanguageService,
     TranslateService,
-    ValidationLoader
+    { provide: FORMLY_CONFIG, multi: true, useFactory: registerI18nExtension, deps: [TranslateService] },
   ],
   bootstrap: [AppComponent]
 })
