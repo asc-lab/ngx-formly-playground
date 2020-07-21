@@ -4,7 +4,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { LanguageService, TranslationLoaderService } from '@app/shared/services';
-import { ValidationLoader } from '@app/shared/services/validations.loader';
 
 @Component({
   selector: 'app-home',
@@ -36,11 +35,9 @@ export class HomeComponent {
   constructor(
     private languageService: LanguageService,
     private translate: TranslateService,
-    private validationsLoader: ValidationLoader,
     private translationLoader: TranslationLoaderService) {
 
     this.translate.use('en');
     this.translationLoader.loadTranslations();
-    this.validationsLoader.init();
   }
 }
